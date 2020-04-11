@@ -1,0 +1,7 @@
+SETTINGS_PRIORITY = 1
+# PYFORMS_MODE = 'TERMINAL'
+PYFORMS_STYLESHEET = 'style_window.css'
+PYFORMS_STYLESHEET_DARWIN = 'style_darwin.css'
+PYFORMS_STYLESHEET_LINUX = 'style_linux.css'
+PYFORMS_STYLESHEET_WINDOWS = 'style_window.css'
+

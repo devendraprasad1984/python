@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="twAlgo">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/twAlgo.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

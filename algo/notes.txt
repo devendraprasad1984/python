@@ -1,0 +1,109 @@
+https://www.geeksforgeeks.org/athena-health-interview-experience-set-2/
+Round 1:
+10 Aptitude questions with difficulty level hard.
+Round 2:
+3 programs given. 1st one mandatory.
+1) Replace wild cards with all possible combinations of zeros and ones.
+              String given: 0?1?
+              Result:
+                    0010
+                    0011
+                    0110
+                    0111
+2) Triplet problem. Array = {2,3,7,6,8,9} and k=6. {2,3,6} (2×3 = 6), {3,2,6} (3×2 = 6)
+3) Another one dynamic programming problem. I couldn’t remember.
+Round 3(F2F):
+        if n=3 prepare matrix like
+        3     3     3     3     3
+        3     2     2     2     3
+        3     2     1     2     3
+        3     2     2     2     3
+        3     3     3     3     3
+        and modify my code to print
+        1     1     1     1     1
+        1     2     2     2     1
+        1     2     3     2     1
+        1     2     2     2     1
+        1     1     1     1     1
+Questions about previous projects done and my roles on it and my leadership capabilities.
+Few technical questions from Threads and multi-processing and.
+Discussed about triplet problem done in round 2 and how to tweak my algorithm to avoid getting redundant entries.
+Search in row wise, column wise sorted matrix
+       {10, 20, 30, 40}
+       {15, 25, 35, 45}
+       {27, 29, 37, 48}
+       {32, 33, 39, 50}
+Round 4(F2F):
+Level order traversal of a tree and discussed about time and space complexity of both techniques
+(Using Queue and recursive technique)
+https://www.geeksforgeeks.org/level-order-tree-traversal/
+Array of 0’s and 1’s. Move 0’s to left and 1’s to right side
+https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
+Given an array of integers, replace every element with the next greatest element (greatest element on the right side) in the array. {16, 17, 4, 3, 5, 2} = {17, 5, 5, 5, 2, -1}
+https://www.geeksforgeeks.org/replace-every-element-with-the-greatest-on-right-side/
+Find loop in Linked list. https://www.geeksforgeeks.org/write-a-c-function-to-detect-loop-in-a-linked-list/
+Detect and remove loop in a Linked list. https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
+Difference between Tree and Trie data structure along with implementation of Trie and real time examples.
+Questions on data structure for implementing dictionary and its pros and cons.
+Questions on implementation of Linux directory structure.
+Discussed about logic I used in 2nd round for wild card permutation question and discussed time complexity of it.
+Round 5(F2F):
+Given 3 points in below triangle, find wheather these 3 points are forming equalaterial triangle?
+                (5,12,14) = true
+                (6,18,22) = true
+                (2,11,15) = false
+                                 1
+                          2            3
+                    4             5              6
+              7           8             9            10
+       11         12            13              14           15
+  16         17           18           19            20           21
+Questions about previous projects and current one.
+Why Athena and shifting from old company in short period?
+Aptitude problems from first round and how i understood and approached towards solution
+Deep discussion about 8 queens problem and its solution(I used backtracking approach)
+Round 6(F2F):
+Turing machine problems.(http://en.wikipedia.org/wiki/Turing_machine_examples)
+1. There is a sequence of bytes coming. after every instance I need to check wheather that number can be
+devisible by 3 or not. Need turing machine diagram and approach.
+2. Similar turing machine question for prime number.
+Tree level order and spiral order traversal and its complexity analysis.
+Questions on array split to two halves of equal sum.
+Round 7(HR):
+Behavioral questions and team skills.
+
+
+
+array problems
+How to find the missing number in integer array of 1 to 100?
+How to find duplicate number on Integer array in Java?
+How to check if array contains a number in Java? (solution)
+How to find largest and smallest number in unsorted arra
+How to find all pairs on integer array whose sum is equal to given number
+How to find repeated numbers in an array if it contains multiple duplicates
+Write a program to remove duplicates from array in Java
+How to sort an array in place using QuickSort algorithm
+Write a program to find intersection of two sorted arrays in Jav
+there is an array with every element repeated twice except one. Find that element?
+How to find kth smallest element in unsorted array?
+How to find kth largest element in unsorted array?
+How to find common elements in three sorted array?
+How find the first repeating element in an array of integers
+How to find first non-repeating element in array of integers
+How to find top two numbers from an integer array
+How to find the smallest positive integer value that cannot be represented as sum of any subset of a given array
+How to rearrange array in alternating positive and negative number
+How to find if there is a sub array with sum equal to zero?
+How to remove duplicates from array in place
+How to remove a given element from array in Java
+How to merge sorted array
+How to find sub array with maximum sum in an array of positive and negative number
+How to find sub array with largest product in array of both positive and negative number
+Write a program to find length of longest consecutive sequence in array of integers
+How to find minimum value in a rotated sorted array
+Given an array of of size n and a number k, find all elements that appear more than n/k times
+How to reverse array in place in Java
+Difference between array and linked list data structure
+How to check if array contains a duplicate number
+
+

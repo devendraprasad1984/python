@@ -1,0 +1,11 @@
+{
+    "links": [
+        {
+            "linkName": "polly+nosql+lambda+python"
+            ,
+            "href": "https://s3-us-west-1.amazonaws.com/dp-polly-web/index.html"
+            ,
+            "heading": "Polly+S3+Dynamo DB+Rest Services+AWS"
+        }
+    ]
+}

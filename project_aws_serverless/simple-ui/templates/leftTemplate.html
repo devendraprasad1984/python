@@ -1,0 +1,16 @@
+<div ng-app="myAjs">
+    <div>
+        <div><img src="images/logo.png" class="pic" /></div>
+        <div class="h2">+919582797772</div>
+        <div class="h3">devendraprasad1984@gmail.com</div>
+        <a href="http://dpresume.com">prepared by Devendra Prasad</a>
+    </div>
+    <br/>
+    <span><b>Some Development Work</b></span>
+    <div ng-controller="linksSummary">
+        <div ng-repeat="x in linksData">
+            <a ng-href="{{x.href}}" ng-click="$event.preventDefault(); setHref(x.href,x.heading);">{{x.linkName}}</a>
+        </div>
+    </div>
+</div>
+<br/><br/>
