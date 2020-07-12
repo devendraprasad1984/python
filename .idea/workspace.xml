@@ -20,158 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills/t1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/twAlgo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills/read_url_output_text.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/.jsdtscope" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.container" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.jsdt.ui.superType.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algo/algo_memoization.py" beforeDir="false" afterPath="$PROJECT_DIR$/algo/algo_memoization.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algo/matrixRotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/algo/matrixRotation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etst1.py" beforeDir="false" afterPath="$PROJECT_DIR$/test1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flask/simplePythonRestTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/flask/simplePythonRestTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inheritenceTest/clsPolygon.py" beforeDir="false" afterPath="$PROJECT_DIR$/OOPs/inheritenceTest/clsPolygon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inheritenceTest/clsTriangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/OOPs/inheritenceTest/clsTriangle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inheritenceTest/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/OOPs/inheritenceTest/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/starter/test1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/Changes_checklist.md" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/Changes_checklist.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/MANIFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/MANIFEST.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/helloworld/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/helloworld/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/helloworld/helloworld/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/helloworld/helloworld/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/rest_api/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/rest_api/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/rest_api/cars/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/rest_api/cars/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/rest_api/cars/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/demos/rest_api/cars/api/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/changelog.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/changelog.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/conf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/docgen.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/docgen.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/index.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/installation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/installation.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/make.bat" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/make.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/requesthandler_guidelines.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/requesthandler_guidelines.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/restapi.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/restapi.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/tornado_json.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/tornado_json.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/using_tornado_json.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/docs/using_tornado_json.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/maintenance.md" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/maintenance.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/func_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/func_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/helloworld_API_documentation.md" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/helloworld_API_documentation.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/test_api_doc_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/test_api_doc_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/test_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/test_schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/test_tornado_json.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/test_tornado_json.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tests/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/api_doc_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/api_doc_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/exceptions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/jsend.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/jsend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/requesthandlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/requesthandlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tornado_json/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tox.ini" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-JSON-master/tox.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/.travis.databases.json" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/.travis.databases.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/CHANGELOG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/MANIFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/MANIFEST.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/README.rst" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/README.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/example/example.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/example/example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/example/pool.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/example/pool.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/example/pool2.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/example/pool2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/setup.cfg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/_compat.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/_compat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/charset.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/charset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/connections.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/connections.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/CLIENT.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/CLIENT.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/COMMAND.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/COMMAND.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/ER.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/ER.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/FIELD_TYPE.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/FIELD_TYPE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/FLAG.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/FLAG.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/SERVER_STATUS.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/SERVER_STATUS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/constants/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/converters.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/converters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/cursors.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/cursors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/err.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/err.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/pools.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/pools.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/data/load_local_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/data/load_local_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/data/load_local_warn_data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/data/load_local_warn_data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_DictCursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_DictCursor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_SSCursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_SSCursor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_basic.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_basic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_connection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_cursor.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_cursor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_issues.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_issues.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_nextset.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/test_nextset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/capabilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/capabilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/dbapi20.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/dbapi20.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_capabilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_capabilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_dbapi20.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_dbapi20.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_nonstandard.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/tests/thirdparty/test_MySQLdb/test_MySQLdb_nonstandard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/times.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/times.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tornado_mysql/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tox.ini" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/Tornado-MySQL-master/tox.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/INSTALL" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/INSTALL" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/README.textile" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/README.textile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/markdown.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/markdown.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/migrations/00001_create_asks_answers_users.sql" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/migrations/00001_create_asks_answers_users.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/session.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/css/wmd.css" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/css/wmd.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/add_pic.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/add_pic.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/comment_bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/comment_bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/edit.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/edit.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/link_out.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/link_out.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/lquote.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/lquote.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/more_bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/more_bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/rquote.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/rquote.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/vote.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/vote.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/wmd-buttons-bg.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/wmd-buttons-bg.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/wmd-buttons.png" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/wmd-buttons.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/x.gif" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/img/x.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/showdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/showdown.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/wmd.js" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/static/js/wmd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/_comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/_comments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/ask.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/ask_show.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/ask_show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/templates/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/quora-python-master/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/quora-python-master/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tornadoPractice/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/tornadoPractice/test1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +48,9 @@
   </component>
   <component name="JupyterTrust" id="d860e140-5d7f-48ae-877c-88b918ddafab" />
   <component name="ProjectId" id="1dtNRWPJ7FkDxRNW1HGo8lw4LPy" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -211,14 +64,14 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/OOPs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.simplePythonRestTest">
+  <component name="RunManager" selected="Python.read_url_output_text">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -233,6 +86,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OOPs/inheritenceTest/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="read_url_output_text" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills/read_url_output_text.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -309,6 +184,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.read_url_output_text" />
         <item itemvalue="Python.simplePythonRestTest" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.test1 (1)" />
@@ -346,6 +222,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="233" y="0" width="1030" height="736" key="#Project_Structure" timestamp="1594384609259">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -370,37 +250,41 @@
       <screen x="0" y="0" width="1366" height="735" />
     </state>
     <state x="469" y="121" width="424" height="480" key="FileChooserDialogImpl/0.0.1366.735@0.0.1366.735" timestamp="1593243254174" />
-    <state width="1878" height="277" key="GridCell.Tab.0.bottom" timestamp="1594537887741">
+    <state width="618" height="897" key="GridCell.Tab.0.bottom" timestamp="1594559330589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1366" height="176" key="GridCell.Tab.0.bottom/0.0.1366.735@0.0.1366.735" timestamp="1593240992113" />
     <state width="1324" height="176" key="GridCell.Tab.0.bottom/0.0.1366.736@0.0.1366.736" timestamp="1593952317763" />
-    <state width="1878" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594537887741" />
-    <state width="1878" height="277" key="GridCell.Tab.0.center" timestamp="1594537887740">
+    <state width="618" height="897" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330589" />
+    <state width="618" height="897" key="GridCell.Tab.0.center" timestamp="1594559330589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1366" height="176" key="GridCell.Tab.0.center/0.0.1366.735@0.0.1366.735" timestamp="1593240992112" />
     <state width="1324" height="176" key="GridCell.Tab.0.center/0.0.1366.736@0.0.1366.736" timestamp="1593952317763" />
-    <state width="1878" height="277" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594537887740" />
-    <state width="1878" height="277" key="GridCell.Tab.0.left" timestamp="1594537887739">
+    <state width="618" height="897" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330589" />
+    <state width="618" height="897" key="GridCell.Tab.0.left" timestamp="1594559330588">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1366" height="176" key="GridCell.Tab.0.left/0.0.1366.735@0.0.1366.735" timestamp="1593240992111" />
     <state width="1324" height="176" key="GridCell.Tab.0.left/0.0.1366.736@0.0.1366.736" timestamp="1593952317762" />
-    <state width="1878" height="277" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594537887739" />
-    <state width="1878" height="277" key="GridCell.Tab.0.right" timestamp="1594537887740">
+    <state width="618" height="897" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330588" />
+    <state width="618" height="897" key="GridCell.Tab.0.right" timestamp="1594559330589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1366" height="176" key="GridCell.Tab.0.right/0.0.1366.735@0.0.1366.735" timestamp="1593240992112" />
     <state width="1324" height="176" key="GridCell.Tab.0.right/0.0.1366.736@0.0.1366.736" timestamp="1593952317763" />
-    <state width="1878" height="277" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594537887740" />
-    <state x="631" y="84" width="1024" height="841" key="SettingsEditor" timestamp="1594535087203">
+    <state width="618" height="897" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330589" />
+    <state x="631" y="84" width="1024" height="841" key="SettingsEditor" timestamp="1594559379525">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="0" y="0" width="1024" height="724" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593960333209" />
     <state x="179" y="0" width="1024" height="731" key="SettingsEditor/0.0.1366.735@0.0.1366.735" timestamp="1593243326475" />
     <state x="0" y="0" width="1024" height="736" key="SettingsEditor/0.0.1366.736@0.0.1366.736" timestamp="1593952275523" />
-    <state x="631" y="84" width="1024" height="841" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594535087203" />
+    <state x="631" y="84" width="1024" height="841" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594559379525" />
+    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2" timestamp="1594538074349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594538074349" />
     <state x="486" y="79" width="945" height="960" key="search.everywhere.popup" timestamp="1594533706536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -409,6 +293,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python$main.coverage" NAME="main Coverage Results" MODIFIED="1594527916104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OOPs/inheritenceTest" />
+    <SUITE FILE_PATH="coverage/python$read_url_output_text.coverage" NAME="read_url_output_text Coverage Results" MODIFIED="1594559330568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills" />
     <SUITE FILE_PATH="coverage/python$test1__1_.coverage" NAME="test1 (1) Coverage Results" MODIFIED="1594389675026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/starter" />
     <SUITE FILE_PATH="coverage/python$simplePythonRestTest.coverage" NAME="simplePythonRestTest Coverage Results" MODIFIED="1594537953175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask" />
   </component>
