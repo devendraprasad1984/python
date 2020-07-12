@@ -3,8 +3,8 @@
 import json
 from datetime import date
 
-import tornado.httpclient
 import tornado.escape
+import tornado.httpclient
 import tornado.ioloop
 from tornado.web import Application, RequestHandler
 
