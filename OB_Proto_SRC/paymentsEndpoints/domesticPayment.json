@@ -1,0 +1,33 @@
+{
+  "Data": {
+    "DomesticPaymentId": "0bf608ef-650f-4c45-a521-6431ffbe048d",
+    "ConsentId": "0bf608ef-650f-4c45-a521-6431ffbe048d",
+    "CreationDateTime": "2020-07-17T12:51:38.410Z",
+    "Status": "Rejected",
+    "StatusUpdateDateTime": "2020-07-17T12:51:38.419Z",
+    "Initiation": {
+      "InstructionIdentification": "instr-identification",
+      "EndToEndIdentification": "e2e-identification",
+      "InstructedAmount": {
+        "Amount": "50.00",
+        "Currency": "GBP"
+      },
+      "CreditorAccount": {
+        "SchemeName": "IBAN",
+        "Identification": "BE56456394728288",
+        "Name": "ACME DIY",
+        "SecondaryIdentification": "secondary-identif"
+      },
+      "RemittanceInformation": {
+        "Unstructured": "Tools",
+        "Reference": "Tools"
+      }
+    }
+  },
+  "Links": {
+    "Self": "https://ob.rbs.useinfinite.io/open-banking/v3.1/pisp/domestic-payments/0bf608ef-650f-4c45-a521-6431ffbe048d"
+  },
+  "Meta": {
+    "TotalPages": 1
+  }
+}

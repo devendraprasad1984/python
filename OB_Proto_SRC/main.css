@@ -1,0 +1,155 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 12pt;
+    box-sizing: border-box;
+    color: #6f42c1;
+    padding: 2px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #935ff3;
+}
+
+a:hover {
+    background-color: #935ff3;
+    color: white;
+}
+
+a.active {
+    color: white;
+    background-color: #935ff3;
+}
+
+.info span {
+    font-weight: bold;
+}
+
+.red {
+    color: #ec5d5d;
+}
+
+.orange {
+    color: #f1960e;
+}
+
+.green {
+    color: #3bc713;
+}
+
+.blue {
+    color: #4cb0f6;
+}
+
+
+.left div, .left span {
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+
+.sidenav div {
+    color: #a981ef;
+    font-weight: bold;
+}
+
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+}
+
+.right {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.headingLogo {
+    top: 0;
+    left: 0;
+    padding: 2px 0px 0px 2px;
+}
+
+.headingLogo img {
+    width: 8%;
+    height: 8%;
+}
+
+.headingTop {
+    font-size: 30pt;
+    font-weight: bold;
+    position: absolute;
+    text-decoration: underline;
+}
+
+span.btn {
+    margin-top: 1rem;
+    background-color: #cdbaf3;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .275rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+span.btn:hover {
+    color: #8b8e8e;
+    background-color: black;
+}
+
+.accountHeadLine {
+    font-size: 14pt;
+    font-weight: bold
+}
+.accountTitleLine{
+    font-size: 12pt;
+    color: #e21798;
+}
+
+.contentheader {
+    margin-top: 3rem;
+}
+
+.contentData {
+    height: 200px;
+    width: 100%;
+    overflow-y: auto;
+    position: relative;
+    background-color: #e2efff;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}

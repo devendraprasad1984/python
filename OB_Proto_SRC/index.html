@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="./nwb.png" sizes="64x64" type="image/png">
+    <title>NUV - Natwest Under Voice</title>
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ==" crossorigin="anonymous" />-->
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+
+
+<div class="container">
+
+    <div class="sidenav">
+        <div>ACCOUNT</div>
+        <div id="accountsList"></div>
+    </div>
+
+
+    <div class="right">
+        <span class="headingLogo"><img src="./nwb.png"></span>
+        <span class="headingTop">NUV - Natwest Under Voice</span>
+
+        <div class="info"><span>Alexa/Siri:</span> tell me what's happening with my <span
+                class="green">RBS/Natwest</span> / <span class="orange">SBI/AXIS/HSBC</span> Account
+        </div>
+        <div class="info"><span>Alexa/Siri:</span> play my <span class="green">RBS/Natwest</span> / <span
+                class="orange">SBI/AXIS/HSBC</span> account story ending with <span>8296</span></div>
+
+        <div id='contentHeader' class="contentheader"></div>
+        <div id='contentData' class="contentData">main content goes here</div>
+        <div>
+            <span class='btn' onclick="speakOut()">Alexa/Siri Speak</span>
+            <span class='btn red' onclick="stopPlay()">Stop</span>
+        </div>
+    </div>
+</div>
+
+
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>-->
+<script src="./custom.js"></script>
+</body>
+</html>

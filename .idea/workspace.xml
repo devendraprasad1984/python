@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills/read_url_output_text.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -223,6 +220,8 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="updates" />
     <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
@@ -281,10 +280,10 @@
     <state x="179" y="0" width="1024" height="731" key="SettingsEditor/0.0.1366.735@0.0.1366.735" timestamp="1593243326475" />
     <state x="0" y="0" width="1024" height="736" key="SettingsEditor/0.0.1366.736@0.0.1366.736" timestamp="1593952275523" />
     <state x="631" y="84" width="1024" height="841" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594559379525" />
-    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2" timestamp="1594538074349">
+    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2" timestamp="1594559615646">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594538074349" />
+    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594559615646" />
     <state x="486" y="79" width="945" height="960" key="search.everywhere.popup" timestamp="1594533706536">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
