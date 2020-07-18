@@ -1,8 +1,12 @@
-const accountsUri = './accountsEndpoints/listOfAccounts.json';
-const transactionUriPage0 = './accountsEndpoints/transPage0.json';
-const transactionUriPage1 = './accountsEndpoints/transPage1.json';
-const transactionUriPage2 = './accountsEndpoints/transPage2.json';
-const transactionUriPage3 = './accountsEndpoints/transPage3.json';
+const isLocal = location.href.indexOf('localhost') !== -1 ? true : false;
+// const isLocal = false
+const localUri='http://localhost:6200/api';
+const accountsUri = isLocal ? localUri+'/accounts' : './accountsEndpoints/listOfAccounts.json';
+const transactionUriPage0 =  isLocal ? localUri+'/transaction/0' :'./accountsEndpoints/transPage0.json';
+const transactionUriPage1 = isLocal ? localUri+'/transaction/1' : './accountsEndpoints/transPage1.json';
+const transactionUriPage2 = isLocal ? localUri+'/transaction/2' : './accountsEndpoints/transPage2.json';
+const transactionUriPage3 = isLocal ? localUri+'/transaction/3' : './accountsEndpoints/transPage3.json';
+
 const accountsList = document.getElementById('accountsList');
 const contentHeader = document.getElementById('contentHeader');
 const contentData = document.getElementById('contentData');
@@ -10,7 +14,7 @@ const contentLength = document.getElementById('contentLength');
 const idActions = document.getElementById('idActions');
 
 let trasactionData = [];
-let synthesis = 'speechSynthesis' in window ? window.speechSynthesis : undefined;
+// let synthesis = 'speechSynthesis' in window ? window.speechSynthesis : undefined;
 const symbols = {
     inr: '₹'
     , pound: '£'
@@ -18,7 +22,7 @@ const symbols = {
 
 
 function initAccountApiCall() {
-    console.log('accounts are being fatched');
+    console.log('accounts are being fatched',accountsUri);
     fetch(accountsUri).then(res => res.json()).then(data => {
         let rows = data['Data']['Account'];
         let elements = [];
@@ -37,7 +41,7 @@ function initAccountApiCall() {
 
 function initTransactionApiCall() {
     //toastr.info('plz wait...');
-    console.log('transactions are being monitored');
+    console.log('transactions are being monitored',[transactionUriPage0,transactionUriPage1,transactionUriPage2,transactionUriPage3]);
     for (let uri of [transactionUriPage0, transactionUriPage1, transactionUriPage2, transactionUriPage3]) {
         fetch(uri).then(res => res.json()).then(data => {
             trasactionData.push(data['Data']['Transaction']);
@@ -54,7 +58,7 @@ function getContentLength() {
 
 document.addEventListener("DOMContentLoaded", function () {
     initAccountApiCall();
-    initTransactionApiCall();
+    // initTransactionApiCall();
     getContentLength();
 });
 
@@ -62,6 +66,7 @@ function handleLinkActivate(curLink) {
     let links = Array.from(accountsList.childNodes);
     links.map(x => x.classList.remove('active'));
     curLink.classList.add('active');
+    handleActionActivate(undefined);
 }
 
 function handleAccountClick(that) {
@@ -79,7 +84,7 @@ function handleAccountClick(that) {
     // console.log(accId,title,trasactionData);
 //    let allData = trasactionData['Data']['Transaction'];
     for (let trans of trasactionData) {
-        console.log('working through', trans);
+        // console.log('working through', trans);
         for (let j in trans) {
             let row = trans[j];
             if (row.AccountId !== accTransId) continue;
@@ -113,22 +118,22 @@ function speakOut() {
     //https://www.digitalocean.com/community/tutorials/how-to-build-a-text-to-speech-app-with-web-speech-api
     //Note: There is a limit to the size of text that can be spoken in an utterance. The maximum length of the text that can be spoken in each utterance is 32,767 characters.
     // if ('speechSynthesis' in window) {
-    if (typeof synthesis === "undefined") {
-        console.log('no voice assistant present');
-        return;
-    }
-    let voice = synthesis.getVoices().filter(function (voice) {
-        // return voice.lang=== 'en-US';
-        return voice.lang === 'en-US';
-    })[0];
+    // if (typeof synthesis === "undefined") {
+    //     console.log('no voice assistant present');
+    //     return;
+    // }
+    // let voice = synthesis.getVoices().filter(function (voice) {
+    //     // return voice.lang=== 'en-US';
+    //     return voice.lang === 'en-US';
+    // })[0];
     let utterance = new SpeechSynthesisUtterance(contentData.innerText);
-    utterance.lang = 'en-US';
-    utterance.voice = voice;
-    utterance.pitch = 1;
-    utterance.rate = 0.9;
-    utterance.volume = 0.9;
-    // console.log(synthesis,utterance,voice);
-    // synthesis.speak(utterance);
+    // utterance.lang = 'en-US';
+    // utterance.voice = voice;
+    // utterance.pitch = 1;
+    // utterance.rate = 0.9;
+    // utterance.volume = 0.9;
+    // // console.log(synthesis,utterance,voice);
+    // // synthesis.speak(utterance);
     speechUtteranceChunker(utterance, {
         chunkLength: 120
     }, function () {
@@ -172,7 +177,10 @@ function changeLanguage(langs) {
 function handleActionActivate(curLink) {
     let links = Array.from(idActions.children);
     links.map(x => x.classList.remove('bgred'));
-    curLink.classList.add('bgred');
+    if (typeof curLink !== 'undefined') {
+        curLink.classList.add('bgred');
+        contentHeader.innerHTML = '<h1 class="blue">Playing ' + curLink.innerText + '....</h1>';
+    }
 }
 
 function generateSummary(curElem) {
@@ -200,7 +208,7 @@ function generateMoratorium(curElem) {
 function generateTop5(curElem) {
     handleActionActivate(curElem);
     let mainStr = []
-    mainStr.push('<div>Welcome, Your total Debit and Credits are <span class="red">'+symbols.pound+'1600000</span> and <span class="green">'+symbols.pound+'2200000</span> respectively</div>');
+    mainStr.push('<div>Welcome, Your total Debit and Credits are <span class="red">' + symbols.pound + '1600000</span> and <span class="green">' + symbols.pound + '2200000</span> respectively</div>');
     mainStr.push('<div>you need to redo KYC as soon as possible,</div>');
     mainStr.push('<div>you have recent debits of <span class="orange">100, 145, 10</span> pounds for insurance premium, upi to account ending 7 6 3 5 and lower monthly average balance,</div>');
     mainStr.push('<div>you have received your salary 2 days back. Enjoy Spending,</div>');
