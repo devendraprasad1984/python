@@ -80,7 +80,7 @@ function handleAccountClick(that) {
     let minDebit = Math.min(...allDebits);
     // mainStr.push('<div>Highest Credit: ' + maxCredit + ' Lowest Credit: ' + minCredit + '</div>');
     // mainStr.push('<div>Highest Debit:' + maxDebit + ' Lowest Debit: ' + minDebit + '</div>');
-    mainStr.push('<div>For Month July 2020, You have largest Credit of <span class="green">' + symbols.inr + '/' + symbols.pound + maxCredit + '</span> and largest withdrawl of<span class="red"> ' + symbols.inr + '/' + symbols.pound + maxDebit + '</span></div>');
+    mainStr.push('<p>Your Account Summary for Month July 2020, You have received largest sum of <span class="bggreen">' + symbols.inr + maxCredit + '</span> and biggest paid out was <span class="bgred"> ' + symbols.inr + maxDebit + '</span></p>');
     let arrContents = [];
     arrContents.push('<div style="margin-top:1rem;"></div>');
     arrContents.push(mainStr.join(''));
@@ -97,13 +97,13 @@ function speakOut() {
     }
     let voice = synthesis.getVoices().filter(function (voice) {
         // return voice.lang=== 'en-US';
-        return voice.lang=== 'hi-IN';
+        return voice.lang=== 'en-US';
     })[0];
     let utterance = new SpeechSynthesisUtterance(contentData.innerText);
     utterance.lang='en-US';
     utterance.voice=voice;
     utterance.pitch = 1;
-    utterance.rate = 1;
+    utterance.rate = 0.9;
     utterance.volume = 0.9;
     // console.log(synthesis,utterance,voice);
     synthesis.speak(utterance);
@@ -123,4 +123,34 @@ function stopPlay() {
     synthesis.paused=true;
     synthesis.speaking=false;
     console.log('stopping...',synthesis);
+}
+
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'hi',
+        autoDisplay: false
+    }, 'google_translate_element');
+    var a = document.querySelector("#google_translate_element select");
+    a.selectedIndex = 1;
+    a.dispatchEvent(new Event('change'));
+}
+
+
+function changeLanguage(langs){
+    let src=langs.split('-')[0];
+    let tgt=langs.split('-')[1];
+    let urlg = 'https://translation.googleapis.com/language/translate/v2?key=API_Key&source='+src+'&target='+tgt+'&q=' + contentData.innerText;
+    let urly='https://translate.yandex.com/?lang='+langs.toLowerCase()+'&text='+contentData.innerText
+    fetch(urly).then(res=>console.log(res, res.body));
+}
+
+function generateSampleNarrative(){
+    let mainStr=[]
+    mainStr.push('Loans in your account ending 8787 & 9898 has decreased by 10% since you taken it in 2018 due to interest rate being changed by 1%. You have a total deposit of 5000000 and you regularly receive 500000 as part of your salary. Your majors spends are in clothing ie 30000 and leisure ie 200000 but you have saved enough in all your savings. We have some savings offers for you, would you want to proceed?');
+    let arrContents = [];
+    arrContents.push('<div style="margin-top:1rem;"></div>');
+    arrContents.push(mainStr.join(''));
+    contentData.innerHTML = arrContents.join('');
 }
