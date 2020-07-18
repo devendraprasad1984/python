@@ -1,5 +1,6 @@
 * {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+    font-family: 'Courier New';
     font-size: 12pt;
     box-sizing: border-box;
     /*color: #6f42c1;*/
@@ -26,6 +27,15 @@ a.active {
     font-weight: bold;
 }
 
+span{
+    opacity: 0.8;
+}
+span.red, span.green{
+    /*font-size: 14pt;*/
+    /*background-color: white;*/
+    font-weight: bolder;
+}
+
 .red {
     color: #ec5d5d;
 }
@@ -41,6 +51,10 @@ a.active {
 .blue {
     color: #4cb0f6;
 }
+.purple {
+    color: #935ff3;
+}
+
 .bgred {
     background-color: #ec5d5d;
     color: white;
@@ -125,6 +139,14 @@ a.active {
     text-decoration: underline;
 }
 
+.headingTopL1{
+    font-size: 14pt;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    vertical-align: bottom;
+}
+
 span.btn {
     margin-top: 1rem;
     /*background-color: #cdbaf3 !important;*/
@@ -162,7 +184,7 @@ span.btn:hover {
 }
 
 .contentheader {
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .contentData {
@@ -173,6 +195,7 @@ span.btn:hover {
     background-color: #585c5c;
     color:white;
     font-size: 16pt;
+    padding: 10px;
 }
 p{
     color:white;
