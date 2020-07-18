@@ -55,6 +55,11 @@ span.red, span.green{
     color: #935ff3;
 }
 
+.italic{
+    font-style: italic;
+    font-weight: bolder;
+}
+
 .bgred {
     background-color: #ec5d5d;
     color: white;
@@ -192,7 +197,7 @@ span.btn:hover {
     width: 100%;
     overflow-y: auto;
     position: relative;
-    background-color: #585c5c;
+    background-color: #000000;
     color:white;
     font-size: 16pt;
     padding: 10px;

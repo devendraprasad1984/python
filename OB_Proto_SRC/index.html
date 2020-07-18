@@ -28,16 +28,17 @@
             <span class="headingTopL1 purple bgorange">RBS Open Banking API Hackathon July 2020</span>
         </div>
 
-        <div class="info"><span>Alexa/Siri:</span> tell me what's happening with my <span
-                class="green">RBS/Natwest</span> / <span class="orange">SBI/AXIS/HSBC</span> Account
-        </div>
+        <div><span style="float: right" class='btn bgpurple' onclick="changeLanguage('HI-EN')">Hindi</span></div>
+        <div class="purple italic">listen what your bank has to say on your account story, loans, offers and policies. ANYTIME....ANYWHERE.... using your registered devices on the go</div>
+        <h1 class="red">Activate your story...</h1>
         <div class="info"><span>Alexa/Siri:</span> play my <span class="green">RBS/Natwest</span> / <span
                 class="orange">SBI/AXIS/HSBC</span> account story ending with <span>8296</span></div>
 
-        <div style="float: right">
-            <span class='bgred btn' onclick="generateSampleNarrative()">Sample Narrative</span>
-            <span class='bgpurple btn' onclick="changeLanguage('HI-EN')">English</span>
-            <span class='bgpurple btn' onclick="changeLanguage('EN-HI')">Hindi</span>
+        <div id="idActions" style="float: right">
+            <span class='btn' onclick="generateSummary(this)">Summary</span>
+            <span class='btn' onclick="generateMoratorium(this)">Moratorium</span>
+            <span class='btn' onclick="generateTop5(this)">Top 5</span>
+            <span class='btn' onclick="generateOffers(this)">Offers</span>
         </div>
 <!--        <div id='google_translate_element'></div>-->
         <div id='contentHeader' class="contentheader"></div>
