@@ -1,7 +1,7 @@
 * {
     /*font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
     font-family: 'Courier New';
-    font-size: 12px;
+    font-size: 16px;
     box-sizing: border-box;
     /*color: #6f42c1;*/
     padding: 2px;
@@ -27,10 +27,11 @@ a.active {
     font-weight: bold;
 }
 
-span{
+span {
     opacity: 0.8;
 }
-span.red, span.green{
+
+span.red, span.green {
     /*font-size: 14pt;*/
     /*background-color: white;*/
     font-weight: bolder;
@@ -51,11 +52,12 @@ span.red, span.green{
 .blue {
     color: #4cb0f6;
 }
+
 .purple {
     color: #935ff3;
 }
 
-.italic{
+.italic {
     font-style: italic;
     font-weight: bolder;
 }
@@ -69,14 +71,17 @@ span.red, span.green{
     background-color: #f1960e;
     color: white;
 }
+
 .bgpurple {
     background-color: #935ff3;
     color: white;
 }
+
 .bgprimary {
     background-color: #4a3a9e;
     color: white;
 }
+
 .bggreen {
     background-color: #45ac25;
     color: white;
@@ -87,7 +92,7 @@ span.red, span.green{
     color: white;
 }
 
-.badge{
+.badge {
     border: 1px solid gray;
     border-radius: 1%;
 }
@@ -147,7 +152,7 @@ span.red, span.green{
     text-decoration: underline;
 }
 
-.headingTopL1{
+.headingTopL1 {
     font-size: 14px;
     font-weight: bold;
     display: inline-block;
@@ -199,31 +204,35 @@ span.btn, div.btn {
     vertical-align: middle;
     position: relative;
     width: 100%;
-    left:20%;
-    top:10%;
+    left: 20%;
+    top: 10%;
     overflow-x: hidden;
     overflow-y: auto;
     display: inline-block;
 }
 
-.iconImg{
+.iconImg {
     height: 50px;
     width: 50px;
 }
 
-.wordCloudIcon{
-    margin-top: 10em;
-    height: 70%;
-    width: 70%;
+.wordCloudIcon {
+    margin-top: 1em;
+    height: 50%;
+    width: 50%;
+    left: 10px;
     display: inline-block;
+    position: relative;
 }
-.wordCloudIcon2{
+
+.wordCloudIcon2 {
     /*margin-top: 5em;*/
     height: 15%;
     width: 15%;
     float: right;
     display: inline-block;
 }
+
 span.btn:hover {
     color: #8b8e8e;
     background-color: black;
@@ -233,7 +242,8 @@ span.btn:hover {
     font-size: 14px;
     font-weight: bold
 }
-.accountTitleLine{
+
+.accountTitleLine {
     font-size: 12px;
     color: #e21798;
 }
@@ -243,17 +253,18 @@ span.btn:hover {
 }
 
 .contentData {
-    height: 200px;
+    height: 300px;
     width: 100%;
     overflow-y: auto;
     position: relative;
     background-color: #000000;
-    color:white;
+    color: white;
     font-size: 16px;
     padding: 10px;
 }
-p{
-    color:white;
+
+p {
+    color: white;
     font-size: 16px;
 }
 

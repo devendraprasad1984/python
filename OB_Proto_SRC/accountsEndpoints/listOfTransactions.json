@@ -4,17 +4,17 @@
       {
         "AccountId": "3d781807-fe4e-4832-9b79-5fea330c1d04",
         "TransactionId": "b6581dc7-2b0e-4b1c-9181-d08e67bc4618",
-        "CreditDebitIndicator": "Debit",
+        "CreditDebitIndicator": "Credit",
         "Status": "Booked",
         "BookingDateTime": "2018-10-01T02:59:00.000Z",
         "Amount": {
-          "Amount": "250.00",
+          "Amount": "25013.00",
           "Currency": "GBP"
         },
         "ProprietaryBankTransactionCode": {
           "Code": "TFR"
         },
-        "TransactionInformation": "Monthly savings",
+        "TransactionInformation": "Monthly Salary",
         "Balance": {
           "CreditDebitIndicator": "Credit",
           "Type": "Information",

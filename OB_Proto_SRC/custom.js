@@ -2,8 +2,13 @@ let isLocal = location.href.indexOf('localhost') !== -1 ? true : false;
 // isLocal = false;
 const localUri = 'http://localhost:6200/api';
 const accountsUri = isLocal ? localUri + '/accounts' : './accountsEndpoints/listOfAccounts.json';
-const transactionUri = isLocal ? localUri + '/transactions/*/' : './accountsEndpoints/listOfTransactions.json';
+// const transactionUri = isLocal ? localUri + '/transactions/*/' : './accountsEndpoints/listOfTransactions.json';
+const insightUri = isLocal ? localUri + '/insight/' : './accountsEndpoints/insight.txt';
 const customerUri = isLocal ? localUri + '/cust' : '12345678012';
+const summaryUri = isLocal ? localUri + '/summary' : './accountsEndpoints/summary.txt';
+const moratoriumUri = isLocal ? localUri + '/moratorium' : './accountsEndpoints/moratorium.txt';
+const top5Uri = isLocal ? localUri + '/top5' : './accountsEndpoints/top5.txt';
+const offersUri = isLocal ? localUri + '/offers' : './accountsEndpoints/offers.txt';
 
 const accountsList = document.getElementById('accountsList');
 const contentHeader = document.getElementById('contentHeader');
@@ -56,11 +61,11 @@ function initialise() {
     idOverlay.style.display = 'none';
 }
 
-function initTransactionApiCall(apiEndPoint, accountId, callback) {
-    let uri = isLocal ? apiEndPoint + accountId : apiEndPoint;
-    console.log('getting transaction data', uri);
-    fetch(uri).then(res => res.json()).then(data => callback(data));
-}
+// function initTransactionApiCall(apiEndPoint, accountId, callback) {
+//     let uri = isLocal ? apiEndPoint + accountId : apiEndPoint;
+//     console.log('getting transaction data', uri);
+//     fetch(uri).then(res => res.json()).then(data => callback(data));
+// }
 
 function getContentLength() {
     setInterval(function () {
@@ -92,63 +97,62 @@ function handleAccountClick(that) {
     arr.push('<div class="accountHeadLine"><span class="orange">Story</span> for <span class="red">' + accId + '</span> as follows</div>');
     arr.push('<div>' + title + '</div>');
     contentHeader.innerHTML = arr.join('');
+    let uri = isLocal ? insightUri + accTransId : insightUri;
+    fetch(uri).then(res => res.text()).then(data => {
+        contentData.innerHTML = data;
+    })
 
     //handling transaction data using callback, handling only one page for now
-    initTransactionApiCall(transactionUri, accTransId, (data) => {
-        console.log('transaction data using callback', data);
-        let transactionsOnly = data['Data']['Transaction'];
-        let transSubset = [];
-        for (let trow in transactionsOnly) {
-            let row = transactionsOnly[trow];
-            if (row.AccountId !== accTransId) continue;
-            transSubset.push({
-                indicator: row.CreditDebitIndicator,
-                info: row.TransactionInformation,
-                amt: parseFloat(row.Amount.Amount || 0),
-                date: row.BookingDateTime.substring(0, 10)
-            });
-        }
-        let allCredits = transSubset.filter(x => x.indicator === 'Credit');
-        let allDebits = transSubset.filter(x => x.indicator === 'Debit');
-        console.log(transSubset, allCredits, allDebits);
-        let maxCredit = getMinMaxObject(allCredits).max;
-        let maxDebit = getMinMaxObject(allDebits).max;
-        console.log('MAX',maxCredit,maxDebit)
-        let mainStr = [];
-        mainStr.push('<div  style="font-size: 15px;">');
-        mainStr.push('<div>Welcome Mr Prasad,</div>');
-        mainStr.push('<div>You have received '+maxCredit.info+' on '+maxCredit.date+' as sum of <span class="bggreen"> ' + symbols.inr + maxCredit.amt + '</span> and spent <span class="bgred"> ' + symbols.inr + maxDebit.amt + '</span> on '+maxDebit.info+' dated '+maxDebit.date+'</div>');
-        mainStr.push('</div>');
-        let arrContents = [];
-        // arrContents.push('<div style="margin-top:1rem;"></div>');
-        arrContents.push(mainStr.join(''));
-        contentData.innerHTML = arrContents.join('');
-
-    });
+    // initTransactionApiCall(transactionUri, accTransId, (data) => {
+    //     console.log('transaction data using callback', data);
+    //     let transactionsOnly = data['Data']['Transaction'];
+    //     let transSubset = [];
+    //     for (let trow in transactionsOnly) {
+    //         let row = transactionsOnly[trow];
+    //         if (row.AccountId !== accTransId) continue;
+    //         transSubset.push({
+    //             indicator: row.CreditDebitIndicator,
+    //             info: row.TransactionInformation,
+    //             amt: parseFloat(row.Amount.Amount || 0),
+    //             date: row.BookingDateTime.substring(0, 10)
+    //         });
+    //     }
+    //     let allCredits = transSubset.filter(x => x.indicator === 'Credit');
+    //     let allDebits = transSubset.filter(x => x.indicator === 'Debit');
+    //     console.log(transSubset, allCredits, allDebits);
+    //     let maxCredit = getMinMaxObject(allCredits).max;
+    //     let maxDebit = getMinMaxObject(allDebits).max;
+    //     console.log('MAX', maxCredit, maxDebit)
+    //     let mainStr = [];
+    //     mainStr.push('<div>Welcome Mr Prasad,</div>');
+    //     mainStr.push('<div>You have received ' + maxCredit.info + ' on ' + maxCredit.date + ' as sum of <span class="bggreen"> ' + symbols.inr + maxCredit.amt + '</span> and spent <span class="bgred"> ' + symbols.inr + maxDebit.amt + '</span> on ' + maxDebit.info + ' dated ' + maxDebit.date + '</div>');
+    //     contentData.innerHTML = mainStr.join('');
+    //
+    // });
 }
 
-function getMinMaxObject(transactionObject) {
-    let initObj={indicator: 'NA',info: 'not available',amt: 0,date: ''};
-    if(typeof transactionObject==="undefined"|| Object.keys(transactionObject).length===0)
-        return {min: initObj, max: initObj};
-
-    let min = transactionObject[0].amt;
-    let max = transactionObject[0].amt;
-    let minObj = transactionObject[0];
-    let maxObj = transactionObject[0];
-
-    for (let line of transactionObject) {
-        if (line.amt < min) {
-            min = line.amt;
-            minObj = line;
-        }
-        if (line.amt > max) {
-            max = line.amt;
-            maxObj = line;
-        }
-    }
-    return {min: minObj, max: maxObj};
-}
+// function getMinMaxObject(transactionObject) {
+//     let initObj = {indicator: 'NA', info: 'not available', amt: 0, date: ''};
+//     if (typeof transactionObject === "undefined" || Object.keys(transactionObject).length === 0)
+//         return {min: initObj, max: initObj};
+//
+//     let min = transactionObject[0].amt;
+//     let max = transactionObject[0].amt;
+//     let minObj = transactionObject[0];
+//     let maxObj = transactionObject[0];
+//
+//     for (let line of transactionObject) {
+//         if (line.amt < min) {
+//             min = line.amt;
+//             minObj = line;
+//         }
+//         if (line.amt > max) {
+//             max = line.amt;
+//             maxObj = line;
+//         }
+//     }
+//     return {min: minObj, max: maxObj};
+// }
 
 function speakOut() {
     let utterance = new SpeechSynthesisUtterance(contentData.innerText);
@@ -198,53 +202,32 @@ function handleActionActivate(curLink) {
     }
 }
 
-function generateSummary(curElem) {
+function getSummary(curElem) {
     handleActionActivate(curElem);
-    let mainStr = []
-    mainStr.push('<div>Welcome Mr Prasad,</div>');
-    mainStr.push('<div>Loans in your account ending 8 7 8 7 and 9 8 9 8 has decreased by 10 percent since you taken it in 2018 due to interest rate being changed by 1 basis points. You have a total deposit of <span class="green">' + symbols.inr + '5000000</span> and you regularly receive <span class="green">' + symbols.inr + '500000</span> as part of your salary. Your majors spends are in clothing, for example, <span class="red">' + symbols.inr + '30000</span> and leisure, for example, <span class="red">' + symbols.inr + '200000</span> but  not too worry, we are with you to maintain funds. We have some savings offers for you, would you want to proceed?</div>');
-    let arrContents = [];
-    arrContents.push('<div style="margin-top:1rem;"></div>');
-    arrContents.push(mainStr.join(''));
-    contentData.innerHTML = arrContents.join('');
+    fetch(summaryUri).then(res => res.text()).then(data => {
+        contentData.innerHTML = data;
+    })
 }
 
-function generateMoratorium(curElem) {
+function getMoratorium(curElem) {
     handleActionActivate(curElem);
-    let mainStr = []
-    mainStr.push('<div>You have moratorium activated on acount ending 8 7 8 7, Your next due is in 10 september 2020. There is not request being submitted on account ending 9 8 9 8, would you want to generate a request</div>');
-    mainStr.push('<div>We have created one for you and sent consent link to your registered email</div>');
-    let arrContents = [];
-    arrContents.push('<div style="margin-top:1rem;"></div>');
-    arrContents.push(mainStr.join(''));
-    contentData.innerHTML = arrContents.join('');
+    fetch(moratoriumUri).then(res => res.text()).then(data => {
+        contentData.innerHTML = data;
+    })
 }
 
-function generateTop5(curElem) {
+function getTop5(curElem) {
     handleActionActivate(curElem);
-    let mainStr = []
-    mainStr.push('<div>Welcome, Your total Debit and Credits are <span class="red">' + symbols.pound + '1600000</span> and <span class="green">' + symbols.pound + '2200000</span> respectively</div>');
-    mainStr.push('<div>you need to redo KYC as soon as possible,</div>');
-    mainStr.push('<div>you have recent debits of <span class="orange">100, 145, 10</span> pounds for insurance premium, upi to account ending 7 6 3 5 and lower monthly average balance,</div>');
-    mainStr.push('<div>you have received your salary 2 days back. Enjoy Spending,</div>');
-    mainStr.push('<div>interest rates on fixed deposits has been slashed down by 1 basis point,</div>');
-    mainStr.push('<div>3 of your deposits are going to mature within 2 months. Congrats</div>');
-    let arrContents = [];
-    arrContents.push('<div style="margin-top:1rem;"></div>');
-    arrContents.push(mainStr.join(''));
-    contentData.innerHTML = arrContents.join('');
+    fetch(top5Uri).then(res => res.text()).then(data => {
+        contentData.innerHTML = data;
+    })
 }
 
-function generateOffers(curElem) {
+function getOffers(curElem) {
     handleActionActivate(curElem);
-    let mainStr = []
-    mainStr.push('<div>avail a personal loan of upto 1000000 at rate of 9.75 per Annum reducing,</div>');
-    mainStr.push('<div>we can drop cash to your registered home, just say alexa i need cash on 7 aug 2020 by 5 pm,</div>');
-    mainStr.push('<div>we have special previledged credit cards for your spouse, Aishwarya , whose your nominee also</div>');
-    let arrContents = [];
-    arrContents.push('<div style="margin-top:1rem;"></div>');
-    arrContents.push(mainStr.join(''));
-    contentData.innerHTML = arrContents.join('');
+    fetch(offersUri).then(res => res.text()).then(data => {
+        contentData.innerHTML = data;
+    })
 }
 
 
