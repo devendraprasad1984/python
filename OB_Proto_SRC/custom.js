@@ -1,17 +1,17 @@
-const isLocal = location.href.indexOf('localhost') !== -1 ? true : false;
-// const isLocal = false
-const localUri='http://localhost:6200/api';
-const accountsUri = isLocal ? localUri+'/accounts' : './accountsEndpoints/listOfAccounts.json';
-const transactionUriPage0 =  isLocal ? localUri+'/transaction/0' :'./accountsEndpoints/transPage0.json';
-const transactionUriPage1 = isLocal ? localUri+'/transaction/1' : './accountsEndpoints/transPage1.json';
-const transactionUriPage2 = isLocal ? localUri+'/transaction/2' : './accountsEndpoints/transPage2.json';
-const transactionUriPage3 = isLocal ? localUri+'/transaction/3' : './accountsEndpoints/transPage3.json';
+let isLocal = location.href.indexOf('localhost') !== -1 ? true : false;
+// isLocal = false;
+const localUri = 'http://localhost:6200/api';
+const accountsUri = isLocal ? localUri + '/accounts' : './accountsEndpoints/listOfAccounts.json';
+const transactionUri = isLocal ? localUri + '/transactions/*/' : './accountsEndpoints/listOfTransactions.json';
+const customerUri = isLocal ? localUri + '/cust' : '12345678012';
 
 const accountsList = document.getElementById('accountsList');
 const contentHeader = document.getElementById('contentHeader');
 const contentData = document.getElementById('contentData');
 const contentLength = document.getElementById('contentLength');
 const idActions = document.getElementById('idActions');
+const idOverlay = document.getElementById('idOverlay');
+const idCustomerNumbers = document.getElementById('idCustomerNumbers');
 
 let trasactionData = [];
 // let synthesis = 'speechSynthesis' in window ? window.speechSynthesis : undefined;
@@ -22,7 +22,7 @@ const symbols = {
 
 
 function initAccountApiCall() {
-    console.log('accounts are being fatched',accountsUri);
+    console.log('accounts are being fatched', accountsUri);
     fetch(accountsUri).then(res => res.json()).then(data => {
         let rows = data['Data']['Account'];
         let elements = [];
@@ -39,15 +39,27 @@ function initAccountApiCall() {
     });
 }
 
-function initTransactionApiCall() {
-    //toastr.info('plz wait...');
-    console.log('transactions are being monitored',[transactionUriPage0,transactionUriPage1,transactionUriPage2,transactionUriPage3]);
-    for (let uri of [transactionUriPage0, transactionUriPage1, transactionUriPage2, transactionUriPage3]) {
-        fetch(uri).then(res => res.json()).then(data => {
-            trasactionData.push(data['Data']['Transaction']);
-            // console.log(trasactionData);
-        });
-    }
+function getCustomerNumber() {
+    console.log('getting transaction data', customerUri);
+    idCustomerNumbers.innerHTML = customerUri;
+    if (!isLocal) return;
+    fetch(customerUri).then(res => res.text()).then(data => {
+        idCustomerNumbers.innerHTML = data;
+    });
+}
+
+function initialise() {
+    getCustomerNumber();
+    initAccountApiCall();
+    // initTransactionApiCall();
+    getContentLength();
+    idOverlay.style.display = 'none';
+}
+
+function initTransactionApiCall(apiEndPoint, accountId, callback) {
+    let uri = isLocal ? apiEndPoint + accountId : apiEndPoint;
+    console.log('getting transaction data', uri);
+    fetch(uri).then(res => res.json()).then(data => callback(data));
 }
 
 function getContentLength() {
@@ -56,11 +68,11 @@ function getContentLength() {
     }, 500)
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    initAccountApiCall();
-    // initTransactionApiCall();
-    getContentLength();
-});
+// document.addEventListener("DOMContentLoaded", function () {
+//     // initAccountApiCall();
+//     // initTransactionApiCall();
+//     getContentLength();
+// });
 
 function handleLinkActivate(curLink) {
     let links = Array.from(accountsList.childNodes);
@@ -70,6 +82,7 @@ function handleLinkActivate(curLink) {
 }
 
 function handleAccountClick(that) {
+    contentData.innerHTML = '<span style="font-size: 15px;">loading, plz wait...</span>';
     let accTransId = that.getAttribute('accid');
     let accId = that.innerHTML;
     let title = that.getAttribute('title');
@@ -79,68 +92,70 @@ function handleAccountClick(that) {
     arr.push('<div class="accountHeadLine"><span class="orange">Story</span> for <span class="red">' + accId + '</span> as follows</div>');
     arr.push('<div>' + title + '</div>');
     contentHeader.innerHTML = arr.join('');
-    let allDebits = [];
-    let allCredits = [];
-    // console.log(accId,title,trasactionData);
-//    let allData = trasactionData['Data']['Transaction'];
-    for (let trans of trasactionData) {
-        // console.log('working through', trans);
-        for (let j in trans) {
-            let row = trans[j];
+
+    //handling transaction data using callback, handling only one page for now
+    initTransactionApiCall(transactionUri, accTransId, (data) => {
+        console.log('transaction data using callback', data);
+        let transactionsOnly = data['Data']['Transaction'];
+        let transSubset = [];
+        for (let trow in transactionsOnly) {
+            let row = transactionsOnly[trow];
             if (row.AccountId !== accTransId) continue;
-            // console.log(row);
-            let indicator = row.CreditDebitIndicator;
-            if (indicator === 'Credit') {
-                allCredits.push(parseFloat(row.Amount.Amount));
-            } else if (indicator === 'Debit') {
-                allDebits.push(parseFloat(row.Amount.Amount));
-            }
+            transSubset.push({
+                indicator: row.CreditDebitIndicator,
+                info: row.TransactionInformation,
+                amt: parseFloat(row.Amount.Amount || 0),
+                date: row.BookingDateTime.substring(0, 10)
+            });
+        }
+        let allCredits = transSubset.filter(x => x.indicator === 'Credit');
+        let allDebits = transSubset.filter(x => x.indicator === 'Debit');
+        console.log(transSubset, allCredits, allDebits);
+        let maxCredit = getMinMaxObject(allCredits).max;
+        let maxDebit = getMinMaxObject(allDebits).max;
+        console.log('MAX',maxCredit,maxDebit)
+        let mainStr = [];
+        mainStr.push('<div  style="font-size: 15px;">');
+        mainStr.push('<div>Welcome Mr Prasad,</div>');
+        mainStr.push('<div>You have received '+maxCredit.info+' on '+maxCredit.date+' as sum of <span class="bggreen"> ' + symbols.inr + maxCredit.amt + '</span> and spent <span class="bgred"> ' + symbols.inr + maxDebit.amt + '</span> on '+maxDebit.info+' dated '+maxDebit.date+'</div>');
+        mainStr.push('</div>');
+        let arrContents = [];
+        // arrContents.push('<div style="margin-top:1rem;"></div>');
+        arrContents.push(mainStr.join(''));
+        contentData.innerHTML = arrContents.join('');
+
+    });
+}
+
+function getMinMaxObject(transactionObject) {
+    let initObj={indicator: 'NA',info: 'not available',amt: 0,date: ''};
+    if(typeof transactionObject==="undefined"|| Object.keys(transactionObject).length===0)
+        return {min: initObj, max: initObj};
+
+    let min = transactionObject[0].amt;
+    let max = transactionObject[0].amt;
+    let minObj = transactionObject[0];
+    let maxObj = transactionObject[0];
+
+    for (let line of transactionObject) {
+        if (line.amt < min) {
+            min = line.amt;
+            minObj = line;
+        }
+        if (line.amt > max) {
+            max = line.amt;
+            maxObj = line;
         }
     }
-    // console.log('Debits', allDebits,'Credits', allCredits);
-
-    let mainStr = [];
-    let maxCredit = Math.max(...allCredits);
-    let minCredit = Math.min(...allCredits);
-    let maxDebit = Math.max(...allDebits);
-    let minDebit = Math.min(...allDebits);
-    // mainStr.push('<div>Highest Credit: ' + maxCredit + ' Lowest Credit: ' + minCredit + '</div>');
-    // mainStr.push('<div>Highest Debit:' + maxDebit + ' Lowest Debit: ' + minDebit + '</div>');
-    mainStr.push('<div>Welcome Mr Prasad,</div>');
-    mainStr.push('<div>Your Account Summary for Month July 2020, You have received largest sum of <span class="bggreen">' + symbols.inr + maxCredit + '</span> and biggest paid out was <span class="bgred"> ' + symbols.inr + maxDebit + '</span></div>');
-    let arrContents = [];
-    arrContents.push('<div style="margin-top:1rem;"></div>');
-    arrContents.push(mainStr.join(''));
-    contentData.innerHTML = arrContents.join('');
+    return {min: minObj, max: maxObj};
 }
 
 function speakOut() {
-    //https://www.digitalocean.com/community/tutorials/how-to-build-a-text-to-speech-app-with-web-speech-api
-    //Note: There is a limit to the size of text that can be spoken in an utterance. The maximum length of the text that can be spoken in each utterance is 32,767 characters.
-    // if ('speechSynthesis' in window) {
-    // if (typeof synthesis === "undefined") {
-    //     console.log('no voice assistant present');
-    //     return;
-    // }
-    // let voice = synthesis.getVoices().filter(function (voice) {
-    //     // return voice.lang=== 'en-US';
-    //     return voice.lang === 'en-US';
-    // })[0];
     let utterance = new SpeechSynthesisUtterance(contentData.innerText);
-    // utterance.lang = 'en-US';
-    // utterance.voice = voice;
-    // utterance.pitch = 1;
-    // utterance.rate = 0.9;
-    // utterance.volume = 0.9;
-    // // console.log(synthesis,utterance,voice);
-    // // synthesis.speak(utterance);
     speechUtteranceChunker(utterance, {
         chunkLength: 120
     }, function () {
     });
-    // var utterance = new SpeechSynthesisUtterance("Hello World");
-    // utterance.text = "My name is Glad.";
-    // synthesis.speak(utterance);
 }
 
 function stopPlay() {
@@ -179,7 +194,7 @@ function handleActionActivate(curLink) {
     links.map(x => x.classList.remove('bgred'));
     if (typeof curLink !== 'undefined') {
         curLink.classList.add('bgred');
-        contentHeader.innerHTML = '<h1 class="blue">Playing ' + curLink.innerText + '....</h1>';
+        contentHeader.innerHTML = '<h1 class="blue" style="font-size: 18px;">Playing ' + curLink.innerText + '....</h1>';
     }
 }
 
