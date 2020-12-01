@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,7 +22,25 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="" />
+    <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/dpadmin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/attachgui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/class-people-shelve" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/customizegui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/first.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/people.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/peopleInteract.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/peoples" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/person.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/pickling.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/shelvedPeople" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/shelving.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/tkinter001.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oreilly/tkinter103.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/speech/test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +56,17 @@
       </list>
     </option>
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -43,7 +75,7 @@
       <facet id="python/invalid/Python" />
     </ignored-facets>
   </component>
-  <component name="JupyterTrust" id="d860e140-5d7f-48ae-877c-88b918ddafab" />
+  <component name="JupyterTrust" id="11a58065-08e4-4314-b68b-c688b0760486" />
   <component name="ProjectId" id="1dtNRWPJ7FkDxRNW1HGo8lw4LPy" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -53,23 +85,33 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="profiler.jvm" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="python">
+        <option name="myModuleName" value="python" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/OOPs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.read_url_output_text">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.tkinter103">
+    <configuration name="attachgui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -77,12 +119,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/OOPs/inheritenceTest" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/oreilly" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OOPs/inheritenceTest/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oreilly/attachgui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -91,7 +133,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="read_url_output_text" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="customizegui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -99,12 +141,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/oreilly" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills/read_url_output_text.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oreilly/customizegui.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -113,7 +155,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="simplePythonRestTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="peopleInteract" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -121,12 +163,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="false" />
-      <option name="ADD_SOURCE_ROOTS" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/oreilly" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask/simplePythonRestTest.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oreilly/peopleInteract.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -135,7 +177,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="tkinter001" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -143,12 +185,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/starter" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/oreilly" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/starter/test1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oreilly/tkinter001.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,7 +199,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="tkinter103" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -165,12 +207,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/oreilly" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oreilly/tkinter103.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,13 +223,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.read_url_output_text" />
-        <item itemvalue="Python.simplePythonRestTest" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.test1 (1)" />
+        <item itemvalue="Python.tkinter103" />
+        <item itemvalue="Python.customizegui" />
+        <item itemvalue="Python.attachgui" />
+        <item itemvalue="Python.tkinter001" />
+        <item itemvalue="Python.peopleInteract" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -205,7 +249,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -222,78 +266,76 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="updates" />
     <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="233" y="0" width="1030" height="736" key="#Project_Structure" timestamp="1594384609259">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="458" y="213" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606726291026">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="166" y="0" width="1024" height="731" key="#Project_Structure/0.0.1366.735@0.0.1366.735" timestamp="1593240549085" />
-    <state x="166" y="0" width="1030" height="736" key="#Project_Structure/0.0.1366.736@0.0.1366.736" timestamp="1593952086841" />
-    <state x="233" y="0" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1594384609259" />
-    <state x="141" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593690735527">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state x="458" y="213" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875@0.25.1440.875" timestamp="1606726291026" />
+    <state width="1398" height="282" key="GridCell.Tab.0.bottom" timestamp="1606793712228">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="141" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.735@0.0.1366.735" timestamp="1593240739861" />
-    <state x="141" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.736@0.0.1366.736" timestamp="1593690735527" />
-    <state x="366" y="106" width="624" height="516" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1593241879343">
-      <screen x="0" y="0" width="1366" height="735" />
+    <state width="1398" height="282" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1606793712228" />
+    <state width="1362" height="231" key="GridCell.Tab.0.bottom/36.23.1404.877@36.23.1404.877" timestamp="1598165703449" />
+    <state width="1398" height="282" key="GridCell.Tab.0.center" timestamp="1606793712227">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="366" y="106" width="624" height="516" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.735@0.0.1366.735" timestamp="1593241879343" />
-    <state x="369" y="0" width="624" height="736" key="#simplePythonRestTest" timestamp="1593752120996">
-      <screen x="0" y="0" width="1366" height="736" />
+    <state width="1398" height="282" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1606793712227" />
+    <state width="1362" height="231" key="GridCell.Tab.0.center/36.23.1404.877@36.23.1404.877" timestamp="1598165703448" />
+    <state width="1398" height="282" key="GridCell.Tab.0.left" timestamp="1606793712227">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="369" y="0" width="624" height="736" key="#simplePythonRestTest/0.0.1366.736@0.0.1366.736" timestamp="1593752120996" />
-    <state x="469" y="121" width="424" height="480" key="FileChooserDialogImpl" timestamp="1593243254174">
-      <screen x="0" y="0" width="1366" height="735" />
+    <state width="1398" height="282" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1606793712227" />
+    <state width="1362" height="231" key="GridCell.Tab.0.left/36.23.1404.877@36.23.1404.877" timestamp="1598165703447" />
+    <state width="1398" height="282" key="GridCell.Tab.0.right" timestamp="1606793712228">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="469" y="121" width="424" height="480" key="FileChooserDialogImpl/0.0.1366.735@0.0.1366.735" timestamp="1593243254174" />
-    <state width="618" height="897" key="GridCell.Tab.0.bottom" timestamp="1594559330589">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="282" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1606793712228" />
+    <state width="1362" height="231" key="GridCell.Tab.0.right/36.23.1404.877@36.23.1404.877" timestamp="1598165703448" />
+    <state width="1398" height="282" key="GridCell.Tab.1.bottom" timestamp="1606793712230">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1366" height="176" key="GridCell.Tab.0.bottom/0.0.1366.735@0.0.1366.735" timestamp="1593240992113" />
-    <state width="1324" height="176" key="GridCell.Tab.0.bottom/0.0.1366.736@0.0.1366.736" timestamp="1593952317763" />
-    <state width="618" height="897" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330589" />
-    <state width="618" height="897" key="GridCell.Tab.0.center" timestamp="1594559330589">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="282" key="GridCell.Tab.1.bottom/0.25.1440.875@0.25.1440.875" timestamp="1606793712230" />
+    <state width="1398" height="282" key="GridCell.Tab.1.center" timestamp="1606793712229">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1366" height="176" key="GridCell.Tab.0.center/0.0.1366.735@0.0.1366.735" timestamp="1593240992112" />
-    <state width="1324" height="176" key="GridCell.Tab.0.center/0.0.1366.736@0.0.1366.736" timestamp="1593952317763" />
-    <state width="618" height="897" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330589" />
-    <state width="618" height="897" key="GridCell.Tab.0.left" timestamp="1594559330588">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="282" key="GridCell.Tab.1.center/0.25.1440.875@0.25.1440.875" timestamp="1606793712229" />
+    <state width="1398" height="282" key="GridCell.Tab.1.left" timestamp="1606793712229">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1366" height="176" key="GridCell.Tab.0.left/0.0.1366.735@0.0.1366.735" timestamp="1593240992111" />
-    <state width="1324" height="176" key="GridCell.Tab.0.left/0.0.1366.736@0.0.1366.736" timestamp="1593952317762" />
-    <state width="618" height="897" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330588" />
-    <state width="618" height="897" key="GridCell.Tab.0.right" timestamp="1594559330589">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="282" key="GridCell.Tab.1.left/0.25.1440.875@0.25.1440.875" timestamp="1606793712229" />
+    <state width="1398" height="282" key="GridCell.Tab.1.right" timestamp="1606793712230">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state width="1366" height="176" key="GridCell.Tab.0.right/0.0.1366.735@0.0.1366.735" timestamp="1593240992112" />
-    <state width="1324" height="176" key="GridCell.Tab.0.right/0.0.1366.736@0.0.1366.736" timestamp="1593952317763" />
-    <state width="618" height="897" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594559330589" />
-    <state x="631" y="84" width="1024" height="841" key="SettingsEditor" timestamp="1594559379525">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1398" height="282" key="GridCell.Tab.1.right/0.25.1440.875@0.25.1440.875" timestamp="1606793712230" />
+    <state x="167" y="59" width="1198" height="759" key="SettingsEditor" timestamp="1606622963442">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="0" y="0" width="1024" height="724" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593960333209" />
-    <state x="179" y="0" width="1024" height="731" key="SettingsEditor/0.0.1366.735@0.0.1366.735" timestamp="1593243326475" />
-    <state x="0" y="0" width="1024" height="736" key="SettingsEditor/0.0.1366.736@0.0.1366.736" timestamp="1593952275523" />
-    <state x="631" y="84" width="1024" height="841" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1594559379525" />
-    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2" timestamp="1594559615646">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="167" y="59" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1606622963442" />
+    <state x="199" y="57" width="1198" height="759" key="SettingsEditor/36.23.1404.877@36.23.1404.877" timestamp="1598164796968" />
+    <state x="421" y="188" width="597" height="548" key="find.popup" timestamp="1606722294139">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="555" y="255" width="800" height="524" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1594559615646" />
-    <state x="486" y="79" width="945" height="960" key="search.everywhere.popup" timestamp="1594533706536">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="421" y="188" width="597" height="548" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1606722294139" />
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1606622905766">
+      <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="346" y="56" width="672" height="678" key="search.everywhere.popup/0.0.1366.735@0.0.1366.735" timestamp="1593240916803" />
-    <state x="486" y="79" width="945" height="960" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594533706536" />
+    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1606622905766" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python$main.coverage" NAME="main Coverage Results" MODIFIED="1594527916104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OOPs/inheritenceTest" />
-    <SUITE FILE_PATH="coverage/python$read_url_output_text.coverage" NAME="read_url_output_text Coverage Results" MODIFIED="1594559330568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Jetbrains_Practice_Hyperskills" />
-    <SUITE FILE_PATH="coverage/python$test1__1_.coverage" NAME="test1 (1) Coverage Results" MODIFIED="1594389675026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/starter" />
-    <SUITE FILE_PATH="coverage/python$simplePythonRestTest.coverage" NAME="simplePythonRestTest Coverage Results" MODIFIED="1594537953175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/flask" />
+    <SUITE FILE_PATH="coverage/python$attachgui.coverage" NAME="attachgui Coverage Results" MODIFIED="1606751983352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$shelving.coverage" NAME="shelving Coverage Results" MODIFIED="1606719603636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$tkinter103.coverage" NAME="tkinter103 Coverage Results" MODIFIED="1606752847513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$test1__3_.coverage" NAME="test1 (3) Coverage Results" MODIFIED="1606661170304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$peopleInteract.coverage" NAME="peopleInteract Coverage Results" MODIFIED="1606729768487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$start_person.coverage" NAME="person Coverage Results" MODIFIED="1606728088185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$people.coverage" NAME="people Coverage Results" MODIFIED="1606728329692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$tkinter001.coverage" NAME="tkinter001 Coverage Results" MODIFIED="1606751663636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$pickling.coverage" NAME="pickling Coverage Results" MODIFIED="1606719394234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$test1__2_.coverage" NAME="test1 (2) Coverage Results" MODIFIED="1598164835905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/speech" />
+    <SUITE FILE_PATH="coverage/python$customizegui.coverage" NAME="customizegui Coverage Results" MODIFIED="1606752353805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
   </component>
 </project>
