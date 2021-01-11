@@ -23,11 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oreilly/fungui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oreilly/peoplegui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nw_practice/pyapp/app_api_vms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oreilly/class-people-shelve" beforeDir="false" afterPath="$PROJECT_DIR$/oreilly/class-people-shelve" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +55,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="dummy://restClient/response3.html" root0="SKIP_INSPECTION" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -98,27 +99,90 @@
       <recent name="$PROJECT_DIR$/OOPs" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.fungui">
-    <configuration name="attachgui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/oreilly" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/oreilly/attachgui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:6200/new_vms" />
+          <option name="urlPath" value="" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&#10;  host_name: 'gbmacvm02',&#10;  owner: 'devendra',&#10;  qty: 4&#10;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="POST" />
+          <option name="urlBase" value="http://localhost:6200" />
+          <option name="urlPath" value="/new_vms" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parameters">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="host_name" />
+                <option name="value" value="gbmacvm02" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="owner" />
+                <option name="value" value="devendra" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="qty" />
+                <option name="value" value="4" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:6200" />
+          <option name="urlPath" value="/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+              </KeyValuePair>
+              <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="parametersEnabled" value="true" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="HTTP Request.rest-api_2#1">
+    <configuration name="rest-api_2#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/rest-api_2.http" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="customizegui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -211,11 +275,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.rest-api_2#1" />
         <item itemvalue="Python.fungui" />
         <item itemvalue="Python.peoplegui" />
         <item itemvalue="Python.tkinter103" />
         <item itemvalue="Python.customizegui" />
-        <item itemvalue="Python.attachgui" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +321,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="updates" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="updates to python learning by oreilly" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates to python learning by oreilly" />
   </component>
   <component name="WindowStateProjectService">
     <state x="354" y="145" key="#Inspections" timestamp="1606917204379">
@@ -268,22 +333,26 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="458" y="213" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.25.1440.875@0.25.1440.875" timestamp="1606726291026" />
-    <state width="541" height="749" key="GridCell.Tab.0.bottom" timestamp="1606918688498">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state width="524" height="520" key="GridCell.Tab.0.bottom" timestamp="1610344163601">
+      <screen x="43" y="25" width="1397" height="875" />
     </state>
-    <state width="541" height="749" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1606918688498" />
-    <state width="541" height="749" key="GridCell.Tab.0.center" timestamp="1606918688497">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state width="541" height="749" key="GridCell.Tab.0.bottom/0.25.1440.875@0.25.1440.875" timestamp="1606919009138" />
+    <state width="524" height="520" key="GridCell.Tab.0.bottom/43.25.1397.875@43.25.1397.875" timestamp="1610344163601" />
+    <state width="524" height="520" key="GridCell.Tab.0.center" timestamp="1610344163600">
+      <screen x="43" y="25" width="1397" height="875" />
     </state>
-    <state width="541" height="749" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1606918688497" />
-    <state width="541" height="749" key="GridCell.Tab.0.left" timestamp="1606918688497">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state width="541" height="749" key="GridCell.Tab.0.center/0.25.1440.875@0.25.1440.875" timestamp="1606919009137" />
+    <state width="524" height="520" key="GridCell.Tab.0.center/43.25.1397.875@43.25.1397.875" timestamp="1610344163600" />
+    <state width="524" height="520" key="GridCell.Tab.0.left" timestamp="1610344163600">
+      <screen x="43" y="25" width="1397" height="875" />
     </state>
-    <state width="541" height="749" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1606918688497" />
-    <state width="541" height="749" key="GridCell.Tab.0.right" timestamp="1606918688498">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state width="541" height="749" key="GridCell.Tab.0.left/0.25.1440.875@0.25.1440.875" timestamp="1606919009137" />
+    <state width="524" height="520" key="GridCell.Tab.0.left/43.25.1397.875@43.25.1397.875" timestamp="1610344163600" />
+    <state width="524" height="520" key="GridCell.Tab.0.right" timestamp="1610344163600">
+      <screen x="43" y="25" width="1397" height="875" />
     </state>
-    <state width="541" height="749" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1606918688498" />
+    <state width="541" height="749" key="GridCell.Tab.0.right/0.25.1440.875@0.25.1440.875" timestamp="1606919009137" />
+    <state width="524" height="520" key="GridCell.Tab.0.right/43.25.1397.875@43.25.1397.875" timestamp="1610344163600" />
     <state width="1398" height="282" key="GridCell.Tab.1.bottom" timestamp="1606793712230">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
@@ -304,22 +373,23 @@
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="167" y="59" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1606622963442" />
-    <state x="320" y="199" key="Vcs.Push.Dialog.v2" timestamp="1606809714988">
+    <state x="320" y="199" key="Vcs.Push.Dialog.v2" timestamp="1606919002482">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
-    <state x="320" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1606809714988" />
+    <state x="320" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1606919002482" />
     <state x="421" y="188" width="597" height="548" key="find.popup" timestamp="1606722294139">
       <screen x="0" y="25" width="1440" height="875" />
     </state>
     <state x="421" y="188" width="597" height="548" key="find.popup/0.25.1440.875@0.25.1440.875" timestamp="1606722294139" />
-    <state x="385" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1606622905766">
-      <screen x="0" y="25" width="1440" height="875" />
+    <state x="417" y="214" width="670" height="676" key="search.everywhere.popup" timestamp="1610343677149">
+      <screen x="43" y="25" width="1397" height="875" />
     </state>
     <state x="385" y="214" width="670" height="676" key="search.everywhere.popup/0.25.1440.875@0.25.1440.875" timestamp="1606622905766" />
+    <state x="417" y="214" width="670" height="676" key="search.everywhere.popup/43.25.1397.875@43.25.1397.875" timestamp="1610343677149" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python$shelving.coverage" NAME="shelving Coverage Results" MODIFIED="1606719603636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
-    <SUITE FILE_PATH="coverage/python$fungui.coverage" NAME="fungui Coverage Results" MODIFIED="1606918688483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
+    <SUITE FILE_PATH="coverage/python$fungui.coverage" NAME="fungui Coverage Results" MODIFIED="1606918786884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
     <SUITE FILE_PATH="coverage/python$start_person.coverage" NAME="person Coverage Results" MODIFIED="1606728088185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
     <SUITE FILE_PATH="coverage/python$peoplegui.coverage" NAME="peoplegui Coverage Results" MODIFIED="1606918061164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />
     <SUITE FILE_PATH="coverage/python$people.coverage" NAME="people Coverage Results" MODIFIED="1606728329692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/oreilly" />

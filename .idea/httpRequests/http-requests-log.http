@@ -1,0 +1,43 @@
+POST http://localhost:6200/new_vms
+Content-Type: application/json
+
+{
+  host_name: 'gbmacvm02',
+  owner: 'devendra',
+  qty: 4
+}
+
+<> 2021-01-11T111704.405.html
+
+###
+
+POST http://localhost:6200/new_vms
+Content-Type: application/json
+
+{
+  host_name: 'gbmacvm02',
+  owner: 'devendra',
+  qty: 4
+}
+
+<> 2021-01-11T111611.405.html
+
+###
+
+POST http://localhost:6200/new_vms?host_name=gbmacvm02&owner=devendra&qty=4
+Accept: */*
+Cache-Control: no-cache
+Content-Type: application/json
+
+<> 2021-01-11T111316.405.html
+
+###
+
+GET http://localhost:6200/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2021-01-11T111124.200.html
+
+###
+
