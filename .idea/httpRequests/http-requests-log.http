@@ -1,3 +1,12 @@
+GET http://127.0.0.1:8000/api/books/
+Content-Type: application/json
+
+{"username": "dpx", "password": "dpx"}
+
+<> 2021-01-17T074657.200.json
+
+###
+
 POST http://127.0.0.1:8000/auth/
 Content-Type: application/json
 

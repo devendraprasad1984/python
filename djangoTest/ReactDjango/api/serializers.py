@@ -17,6 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
 class BooksSerializer(serializers.ModelSerializer):
     class Meta:
         model=Books
-        fields=['title']
+        fields=['id','title']
 
 

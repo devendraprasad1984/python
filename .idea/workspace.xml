@@ -23,12 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/api/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/api/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/api/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/api/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/api/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/api/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +57,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response17.json" root0="SKIP_INSPECTION" />
+    <setting file="dummy://restClient/response19.json" root0="SKIP_INSPECTION" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -108,6 +104,22 @@
   <component name="RestClientSettings">
     <option name="REQUEST_HISTORY">
       <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://127.0.0.1:8000" />
+          <option name="urlPath" value="/api/books/" />
+          <option name="headers">
+            <list>
+              <KeyValuePair>
+                <option name="key" value="Content-Type" />
+                <option name="value" value="application/json" />
+              </KeyValuePair>
+            </list>
+          </option>
+          <option name="haveTextToSend" value="true" />
+          <option name="textToSend" value="{&quot;username&quot;: &quot;dpx&quot;, &quot;password&quot;: &quot;dpx&quot;}" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
         <RestClientRequest>
           <option name="httpMethod" value="POST" />
           <option name="urlBase" value="http://127.0.0.1:8000" />
@@ -508,11 +520,11 @@
     </state>
     <state x="167" y="59" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1606622963442" />
     <state x="205" y="57" key="SettingsEditor/43.25.1397.875@43.25.1397.875" timestamp="1610887561017" />
-    <state x="353" y="199" key="Vcs.Push.Dialog.v2" timestamp="1610892168133">
+    <state x="353" y="199" key="Vcs.Push.Dialog.v2" timestamp="1610892991995">
       <screen x="43" y="25" width="1397" height="875" />
     </state>
     <state x="320" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1606919002482" />
-    <state x="353" y="199" key="Vcs.Push.Dialog.v2/43.25.1397.875@43.25.1397.875" timestamp="1610892168133" />
+    <state x="353" y="199" key="Vcs.Push.Dialog.v2/43.25.1397.875@43.25.1397.875" timestamp="1610892991995" />
     <state x="541" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610811307999">
       <screen x="43" y="25" width="1397" height="875" />
     </state>
