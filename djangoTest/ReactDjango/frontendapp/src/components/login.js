@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import {POST} from "../common/post";
+import '../App.css';
 
 export default function Login(props) {
     const usernameRef = useRef();
@@ -20,7 +21,7 @@ export default function Login(props) {
         })
     }
 
-    return <div className="App">
+    return <div className="login">
         <h1>Login Page</h1>
         <input ref={usernameRef} type='text' placeholder='usernanme'/>
         <input ref={passwordRef} type='password' placeholder='password'/>
