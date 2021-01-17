@@ -17,7 +17,7 @@ export default function Books(props) {
     return <div>
         <h2>Books listed</h2>
         <p>{token}</p>
-        <button onClick={fetchBooks}>Load Books</button>
+        <button onClick={fetchBooks} className='color1'>Load Books</button>
         {displayBooks()}
     </div>
 }
