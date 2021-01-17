@@ -2,7 +2,6 @@ import React, {useRef} from 'react';
 import {POST} from "../common/post";
 
 export default function Login(props) {
-    // const [cred, setCred]=useState({username:'',password:''});
     const usernameRef = useRef();
     const passwordRef = useRef();
 

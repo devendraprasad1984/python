@@ -8,7 +8,8 @@ change setting.py with following entries as per settings.py
 do migrate again
 python3 manage.py migrate
 python3 manage.py runserver
-
+python3 manage.py makemigrations
+python3 manage.py migrate
 
 npx create-react-app frontendapp
 
