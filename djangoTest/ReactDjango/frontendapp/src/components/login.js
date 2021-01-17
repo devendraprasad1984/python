@@ -10,9 +10,7 @@ export default function Login(props) {
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
         const body={username, password};
-        POST('/auth/',body,res=>{
-            console.log(res)
-        })
+        POST('/auth/',body,res=>props.setToken(res.token))
     }
     const handleRegister = event => {
         const username = usernameRef.current.value;
