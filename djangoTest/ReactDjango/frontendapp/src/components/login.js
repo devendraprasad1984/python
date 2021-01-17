@@ -9,16 +9,14 @@ export default function Login(props) {
     const handleLogin = event => {
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
-        const body={username, password};
-        POST('/auth/',body,res=>props.setToken(res.token))
+        const body = {username, password};
+        POST('/auth/', body, res => props.setToken(res.token));
     }
     const handleRegister = event => {
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
-        const body={username, password};
-        POST('/api/users/',body,res=>{
-            console.log(res)
-        })
+        const body = {username, password};
+        POST('/api/users/', body, res => console.log(res));
     }
 
     return <div className="login">
