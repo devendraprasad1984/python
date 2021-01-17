@@ -8,12 +8,8 @@ function App() {
     const setToken = tok => {
         setGlobal({token: tok});
     }
-    const checkUserAuth = () => {
-        return global.token != '' ? <h1>User Authenticated...</h1> : null
-    }
     return (
         <div className="App">
-            {checkUserAuth()}
             <Login setToken={setToken}/>
             <Books {...global}/>
         </div>

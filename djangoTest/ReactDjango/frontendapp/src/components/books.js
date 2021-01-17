@@ -10,7 +10,6 @@ export default function Books(props) {
     const fetchBooks = event => {
         setLoad(true);
         GET('/api/books/', {token}, res => {
-            console.log(res);
             if (res.detail === undefined)
                 setBooks(res);
             else
