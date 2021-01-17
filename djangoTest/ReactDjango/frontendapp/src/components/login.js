@@ -14,8 +14,9 @@ export default function Login(props) {
             , body: JSON.stringify({username, password})
         }
         fetch('http://127.0.0.1:8000/auth/', payload)
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+            .then(res=>res.json())
+            .then(res => console.log(res))
+            .catch(err => console.error(err))
     }
 
     return <div className="App">
