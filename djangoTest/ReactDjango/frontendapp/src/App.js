@@ -1,14 +1,17 @@
+import React from 'react';
 import './App.css';
 import Login from "./components/login";
+import Books from "./components/books";
 
 function App() {
-    const setToken=token=>{
-        console.log(token);
+    const [global, setGlobal]=React.useState({token:''});
+    const setToken=tok=>{
+        setGlobal({token: tok})
     }
     return (
         <div className="App">
-            <h1>Login Page django Practices</h1>
             <Login setToken={setToken}/>
+            <Books {...global}/>
         </div>
     );
 }
