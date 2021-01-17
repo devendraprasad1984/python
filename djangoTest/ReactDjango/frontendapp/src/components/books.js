@@ -5,13 +5,18 @@ export default function Books(props) {
     const {token} = props;
     const [books, setBooks] = useState([]);
     const [load, setLoad] = useState(false);
-    const loader=<i className="fa fa-refresh fa-spin"></i>;
+    const loader = <i className="fa fa-refresh fa-spin"></i>;
 
     const fetchBooks = event => {
         setLoad(true);
-        GET('/api/books/', res => {
-            setBooks(res);
-            setTimeout(()=>setLoad(false),1000);
+        GET('/api/books/', {token}, res => {
+            console.log(res);
+            if (res.detail === undefined)
+                setBooks(res);
+            else
+                setBooks([{title: res.detail}])
+
+            setTimeout(() => setLoad(false), 1000);
         })
     }
     const displayBooks = () => {
@@ -23,9 +28,7 @@ export default function Books(props) {
     return <div>
         <h2>Books listed</h2>
         <span className="fa fa-facebook"></span>
-        <span className="fa fa-twitter"></span>
-        <p>{token}</p>
-        <button onClick={fetchBooks}>{load ? loader: null} Load Books</button>
+        <button onClick={fetchBooks}>{load ? loader : null} Load Books</button>
         {displayBooks()}
     </div>
 }
