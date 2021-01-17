@@ -162,3 +162,22 @@ button:hover {
         transform: rotate(360deg);
     }
 }
+
+
+.fa {
+    padding: 10px;
+    font-size: 25px;
+    width: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 2px;
+    background: #007bb5;
+    color: white;
+    /*border-radius: 50%;*/
+}
+
+.fa:hover {
+    background: #ee9053;
+    color: black;
+}
+

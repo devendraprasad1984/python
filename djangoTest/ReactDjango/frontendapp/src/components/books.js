@@ -16,6 +16,8 @@ export default function Books(props) {
 
     return <div>
         <h2>Books listed</h2>
+        <span className="fa fa-facebook"></span>
+        <span className="fa fa-twitter"></span>
         <p>{token}</p>
         <button onClick={fetchBooks} className='color2'>Load Books</button>
         {displayBooks()}
