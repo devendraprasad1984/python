@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
+from .models import Books
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,5 +13,10 @@ class UserSerializer(serializers.ModelSerializer):
         user=User.objects.create_user(**validate_data) #helps in password getting hashed
         Token.objects.create(user=user)
         return user
+
+class BooksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Books
+        fields=['title']
 
 
