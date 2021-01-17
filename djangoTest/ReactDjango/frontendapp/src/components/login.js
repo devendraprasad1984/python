@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {POST} from "../common/post";
 
 export default function Login(props) {
     // const [cred, setCred]=useState({username:'',password:''});
@@ -8,15 +9,18 @@ export default function Login(props) {
     const handleLogin = event => {
         const username = usernameRef.current.value;
         const password = passwordRef.current.value;
-        const payload = {
-            method: 'POST'
-            , headers: {'Content-Type': 'application/json'}
-            , body: JSON.stringify({username, password})
-        }
-        fetch('http://127.0.0.1:8000/auth/', payload)
-            .then(res=>res.json())
-            .then(res => console.log(res))
-            .catch(err => console.error(err))
+        const body={username, password};
+        POST('/auth/',body,res=>{
+            console.log(res)
+        })
+    }
+    const handleRegister = event => {
+        const username = usernameRef.current.value;
+        const password = passwordRef.current.value;
+        const body={username, password};
+        POST('/api/users/',body,res=>{
+            console.log(res)
+        })
     }
 
     return <div className="App">
@@ -24,5 +28,6 @@ export default function Login(props) {
         <input ref={usernameRef} type='text' placeholder='usernanme'/>
         <input ref={passwordRef} type='password' placeholder='password'/>
         <button onClick={handleLogin}>Login</button>
+        <button onClick={handleRegister}>Register</button>
     </div>;
 }

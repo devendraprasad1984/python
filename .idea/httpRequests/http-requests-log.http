@@ -3,6 +3,15 @@ Content-Type: application/json
 
 {"username": "dpx", "password": "dpx"}
 
+<> 2021-01-17T071221.200.json
+
+###
+
+POST http://127.0.0.1:8000/auth/
+Content-Type: application/json
+
+{"username": "dpx", "password": "dpx"}
+
 <> 2021-01-17T065123.200.json
 
 ###
