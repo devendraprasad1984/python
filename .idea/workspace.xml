@@ -24,8 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/frontendapp/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/frontendapp/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/frontendapp/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/frontendapp/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/djangoTest/ReactDjango/frontendapp/src/components/books.js" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/ReactDjango/frontendapp/src/components/books.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -525,11 +523,11 @@
     </state>
     <state x="167" y="59" key="SettingsEditor/0.25.1440.875@0.25.1440.875" timestamp="1606622963442" />
     <state x="205" y="57" key="SettingsEditor/43.25.1397.875@43.25.1397.875" timestamp="1610887561017" />
-    <state x="353" y="199" key="Vcs.Push.Dialog.v2" timestamp="1610895841980">
+    <state x="353" y="199" key="Vcs.Push.Dialog.v2" timestamp="1610895987688">
       <screen x="43" y="25" width="1397" height="875" />
     </state>
     <state x="320" y="199" key="Vcs.Push.Dialog.v2/0.25.1440.875@0.25.1440.875" timestamp="1606919002482" />
-    <state x="353" y="199" key="Vcs.Push.Dialog.v2/43.25.1397.875@43.25.1397.875" timestamp="1610895841980" />
+    <state x="353" y="199" key="Vcs.Push.Dialog.v2/43.25.1397.875@43.25.1397.875" timestamp="1610895987688" />
     <state x="541" y="380" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610811307999">
       <screen x="43" y="25" width="1397" height="875" />
     </state>

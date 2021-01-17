@@ -18,10 +18,7 @@ export default function Books(props) {
         <h2>Books listed</h2>
         <span className="fa fa-facebook"></span>
         <span className="fa fa-twitter"></span>
-        <button>
-            <i className="fa fa-spinner fa-spin"></i>
-            Loading
-        </button>
+        <button><i className="fa fa-refresh fa-spin"></i> Loading</button>
         <p>{token}</p>
         <button onClick={fetchBooks} className='color2'>Load Books</button>
         {displayBooks()}
