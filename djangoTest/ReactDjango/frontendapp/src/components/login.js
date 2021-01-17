@@ -19,11 +19,13 @@ export default function Login(props) {
         POST('/api/users/', body, res => console.log(res));
     }
 
-    return <div className="login">
+    return <div className="column login">
         <h1>Login Page</h1>
         <input ref={usernameRef} type='text' placeholder='usernanme'/>
         <input ref={passwordRef} type='password' placeholder='password'/>
-        <button onClick={handleLogin}>Login</button>
-        <button onClick={handleRegister}>Register</button>
+        <div className='row'>
+            <button onClick={handleLogin}>Login</button>
+            <button onClick={handleRegister}>Register</button>
+        </div>
     </div>;
 }
