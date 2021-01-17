@@ -27,13 +27,13 @@
 
 button{
     border-radius: 4px;
-    background-color: #f4511e;
+    background-color: black;
+    opacity: 0.65;
     border: none;
     color: #FFFFFF;
     text-align: center;
     font-size: 20px;
     padding: 10px;
-    width: 200px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
