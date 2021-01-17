@@ -4,9 +4,15 @@ import {GET} from "../common/get";
 export default function Books(props) {
     const {token} = props;
     const [books, setBooks] = useState([]);
+    const [load, setLoad] = useState(false);
+    const loader=<i className="fa fa-refresh fa-spin"></i>;
 
     const fetchBooks = event => {
-        GET('/api/books/', res => setBooks(res))
+        setLoad(true);
+        GET('/api/books/', res => {
+            setBooks(res);
+            setTimeout(()=>setLoad(false),1000);
+        })
     }
     const displayBooks = () => {
         return books.map((x, i) => <div key={'bk' + i}>
@@ -18,9 +24,8 @@ export default function Books(props) {
         <h2>Books listed</h2>
         <span className="fa fa-facebook"></span>
         <span className="fa fa-twitter"></span>
-        <button><i className="fa fa-refresh fa-spin"></i> Loading</button>
         <p>{token}</p>
-        <button onClick={fetchBooks} className='color2'>Load Books</button>
+        <button onClick={fetchBooks}>{load ? loader: null} Load Books</button>
         {displayBooks()}
     </div>
 }
