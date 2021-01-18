@@ -13,8 +13,8 @@ class BookViewSets(viewsets.ModelViewSet):
     authentication_classes = [authentication.TokenAuthentication, ]
     permission_classes = [permissions.IsAuthenticated, ]
 
-class TaskViewSets(viewsets.ModelViewSet):
-    queryset = models.Task.objects.all();
-    serializer_class = serializers.TaskSerializer
-    authentication_classes = [authentication.TokenAuthentication, ]
-    permission_classes = [permissions.IsAuthenticated, ]
+# class TaskViewSets(viewsets.ModelViewSet):
+#     queryset = models.Task.objects.all();
+#     serializer_class = serializers.TaskSerializer
+#     # authentication_classes = [authentication.TokenAuthentication, ]
+#     # permission_classes = [permissions.IsAuthenticated, ]

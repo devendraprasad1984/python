@@ -2,21 +2,18 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 from . import views
-from . import todoView
+from . import todoUrls
 
 router=routers.DefaultRouter()
 router.register('users',views.UserViewSets)
 router.register('books',views.BookViewSets)
-router.register('tasks',views.TaskViewSets)
+# router.register('tasks',views.TaskViewSets)
+urlpatterns=[]
+appRoutes=[todoUrls.routes] #provides custom routes for different parts of apps like so
 
-urlpatterns = [
-    path('',  include(router.urls)),
-]
+urlpatterns.append(path('',  include(router.urls)))
+for route in appRoutes:
+    for x in route:
+        urlpatterns.append(path(x[0],x[1]))
 
-# path('', todoView.apiOverview, name="api-overview"),
-# path('task-list/', todoView.taskList, name="task-list"),
-# path('task-detail/<str:pk>/', todoView.taskDetail, name="task-detail"),
-# path('task-create/', todoView.taskCreate, name="task-create"),
-# path('task-update/<str:pk>/', todoView.taskUpdate, name="task-update"),
-# path('task-delete/<str:pk>/', todoView.taskDelete, name="task-delete"),
-
+# , name="task-delete"

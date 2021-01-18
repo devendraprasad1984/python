@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {GET} from "../common/get";
+import '../App.css'
 
 export default function Todo(props) {
     const {token} = props;
@@ -18,9 +19,9 @@ export default function Todo(props) {
         })
     }
     const displayBooks = () => {
-        return tasks.map((x, i) => <div key={'task' + i}>
+        return tasks.map((x, i) => <div key={'task' + i} className={'row'}>
             <span>{x.title}</span>
-            <span>{x.completed}</span>
+            <span><i className={`fa ${x.completed?'fa-check':'fa-times'}`}></i></span>
         </div>);
     }
 
