@@ -7,6 +7,7 @@ class UserViewSets(viewsets.ModelViewSet):
     queryset = User.objects.all();
     serializer_class = serializers.UserSerializer
 
+#abstracted views
 class BookViewSets(viewsets.ModelViewSet):
     queryset = models.Books.objects.all();
     serializer_class = serializers.BooksSerializer

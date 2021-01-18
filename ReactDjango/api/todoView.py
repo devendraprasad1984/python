@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from . import models
 from . import serializers
 
+#more manageable view function based than viewsets
 @api_view(['GET'])
 def apiOverview(req):
     api_urls = {

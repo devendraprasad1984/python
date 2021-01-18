@@ -10,7 +10,7 @@ export default function Todo(props) {
 
     const fetchBooks = event => {
         setLoad(true);
-        GET('/api/tasks/', {token}, res => {
+        GET('/api/task-list/', {token}, res => {
             if (res.detail === undefined)
                 setTasks(res);
             else
