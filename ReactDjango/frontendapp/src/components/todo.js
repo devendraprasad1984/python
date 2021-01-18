@@ -1,0 +1,32 @@
+import React, {useState} from 'react';
+import {GET} from "../common/get";
+
+export default function Todo(props) {
+    const {token} = props;
+    const [tasks, setTasks] = useState([]);
+    const [load, setLoad] = useState(false);
+    const loader = <i className="fa fa-refresh fa-spin"></i>;
+
+    const fetchBooks = event => {
+        setLoad(true);
+        GET('/api/tasks/', {token}, res => {
+            if (res.detail === undefined)
+                setTasks(res);
+            else
+                setTasks([{title: res.detail}])
+            setTimeout(() => setLoad(false), 1000);
+        })
+    }
+    const displayBooks = () => {
+        return tasks.map((x, i) => <div key={'task' + i}>
+            <span>{x.title}</span>
+            <span>{x.completed}</span>
+        </div>);
+    }
+
+    return <div>
+        <h2>Tasks</h2>
+        <button onClick={fetchBooks}>{load ? loader : null} Task</button>
+        {displayBooks()}
+    </div>
+}
