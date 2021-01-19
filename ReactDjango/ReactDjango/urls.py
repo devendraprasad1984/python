@@ -18,3 +18,5 @@ for route in appRoutes:
     for x in route:
         urlpatterns.append(path(x[0], x[1],name=x[2]))
 
+# auto configure auth views
+# path('accounts/', include('django.contrib.auth.urls'))

@@ -11,6 +11,7 @@ function App() {
     }
     return (
         <div className="App">
+            <h1><a href='http://localhost:8000/home'>django website</a></h1>
             <Login setToken={setToken}/>
             <Books {...global}/>
             <Todo {...global}/>
