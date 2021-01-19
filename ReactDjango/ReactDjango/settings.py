@@ -14,6 +14,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UI_BUILD_PATH=os.path.join(BASE_DIR,'frontendapp/build/')
+WEBSITE_PROJECT_DIR=os.path.join(BASE_DIR,'website/templates/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'ReactDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [UI_BUILD_PATH],
+        'DIRS': [WEBSITE_PROJECT_DIR, UI_BUILD_PATH],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -3,14 +3,13 @@ from django.conf.urls import include
 from rest_framework import routers
 from . import views
 from . import todoUrls
-from website import webroutes
 
 router = routers.DefaultRouter()
 router.register('users', views.UserViewSets)
 router.register('books', views.BookViewSets)
 
 urlpatterns = []
-appRoutes=[todoUrls.routes, webroutes.routes]
+appRoutes=[todoUrls.routes]
 
 urlpatterns.append(path('', include(router.urls)))
 for route in appRoutes:
