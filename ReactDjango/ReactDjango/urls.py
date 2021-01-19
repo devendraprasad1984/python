@@ -12,8 +12,9 @@ urlpatterns = [
     path('auth/',  obtain_auth_token),
 ]
 
+# this url pattern works when you hit localhost:8000/home
 appRoutes=[webroutes.routes]
 for route in appRoutes:
     for x in route:
-        urlpatterns.append(path(x[0], x[1]))
+        urlpatterns.append(path(x[0], x[1],name=x[2]))
 

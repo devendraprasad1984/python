@@ -7,11 +7,11 @@ from django.shortcuts import render
 #     return HttpResponse(template.render({},req))
     # return HttpResponse('Hello Welcome to Django website modules! fine lets go ahead.')
 
-def home(req):
-    return render(req,'home.html',{})
+def home(request):
+    return render(request,'home.html',{})
 
-def about(req):
-    return render(req,'about.html',{})
+def about(request):
+    return render(request,'about.html',{})
 
-def contact(req):
-    return render(req,'contactus.html',{})
+def contact(request):
+    return render(request,'contactus.html',{})

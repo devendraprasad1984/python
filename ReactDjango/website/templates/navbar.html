@@ -1,5 +1,10 @@
 <div>
-    <a href="/home/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact Us</a>
+    {% url 'home' as homex %}
+    {% if request.path == homex %}HOME{% else %}<a href="{{ homex }}">Home</a>{% endif %}
+
+    {% url 'about' as aboutx %}
+    {% if request.path == aboutx %}ABOUT{% else %}<a href="{{ aboutx }}">About</a>{% endif %}
+
+    {% url 'contact' as contactx %}
+    {% if request.path == contactx %}CONTACT{% else %}<a href="{{ contactx }}">Contact</a>{% endif %}
 </div>
