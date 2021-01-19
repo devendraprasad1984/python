@@ -1,6 +1,7 @@
 # from django.http import HttpResponse
 # from django.template import loader
 from django.shortcuts import render
+from django.views.generic.base import TemplateView
 
 # def index1(req):
 #     template=loader.get_template('index.html')
@@ -15,3 +16,7 @@ def about(request):
 
 def contact(request):
     return render(request,'contactus.html',{})
+
+class ProfileView(TemplateView):
+    template_name = 'accounts/profile.html'
+
