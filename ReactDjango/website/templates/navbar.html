@@ -4,14 +4,15 @@
     {% url 'logout' as logoutx %}
     {% url 'about' as aboutx %}
     {% url 'contact' as contactx %}
+    {% url 'profile' as profilex %}
 
     {% if request.path == homex %}HOME{% else %}<a href="{{ homex }}">Home</a>{% endif %}
     {% if request.path == aboutx %}ABOUT{% else %}<a href="{{ aboutx }}">About</a>{% endif %}
     {% if request.path == contactx %}CONTACT{% else %}<a href="{{ contactx }}">Contact</a>{% endif %}
     <span style="float: right">
         {% if user.is_authenticated %}
+        <span><a href="{{ profilex }}">hi, {{ user.username }}!</a></span>
         <a href="{{ logoutx }}">logout</a>
-        <span>hi, {{ user.username }}!</span>
         {% else %}
         <a href="{{ loginx }}">Login</a>
         {% endif %}
