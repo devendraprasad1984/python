@@ -10,6 +10,13 @@ do migrate again
 python3 manage.py migrate
 python3 manage.py runserver
 python3 manage.py makemigrations
+python3 manage.py makemigrations todos
+python3 manage.py makemigrations api
+python3 manage.py migrate
+
+python3 manage.py makemigrations todos
+<output of above command>
+python3 manage.py sqlmigrate todos <output of above command> # sqlmigrate for db migrations
 python3 manage.py migrate
 
 npx create-react-app frontendapp

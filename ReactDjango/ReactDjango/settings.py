@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-UI_BUILD_PATH=os.path.join(BASE_DIR,'frontendapp/build/')
-WEBSITE_PROJECT_DIR=os.path.join(BASE_DIR,'website/templates/')
+UI_BUILD_PATH = os.path.join(BASE_DIR, 'frontendapp/build/')
+WEBSITE_PROJECT_DIR = os.path.join(BASE_DIR, 'website/templates/')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
-    'api'
+    'api',
+    'todos'
 ]
 
 MIDDLEWARE = [
@@ -74,10 +75,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ReactDjango.wsgi.application'
 
-STATICFILES_DIRS=[
-    os.path.join(UI_BUILD_PATH,'static')
+STATICFILES_DIRS = [
+    os.path.join(UI_BUILD_PATH, 'static')
 ]
-
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = [
@@ -91,6 +91,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'pgdev': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dpadmin',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': 'localhost'
     }
 }
 
@@ -130,6 +137,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_URL='login'
-LOGIN_REDIRECT_URL='home'
-LOGOUT_REDIRECT_URL='home'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
