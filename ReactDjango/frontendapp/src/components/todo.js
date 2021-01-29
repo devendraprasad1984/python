@@ -8,7 +8,7 @@ export default function Todo(props) {
     const [load, setLoad] = useState(false);
     const loader = <i className="fa fa-refresh fa-spin"></i>;
 
-    const fetchBooks = event => {
+    const fetchToDo = event => {
         setLoad(true);
         GET('/api/task-list/', {token}, res => {
             if (res.detail === undefined)
@@ -18,7 +18,8 @@ export default function Todo(props) {
             setTimeout(() => setLoad(false), 1000);
         })
     }
-    const displayBooks = () => {
+    const displayToDo = () => {
+        if (tasks.length === 0 || tasks === undefined) return null
         return tasks.map((x, i) => <div key={'task' + i} className={'row'}>
             <span>{x.title}</span>
             <span><i className={`fa ${x.completed?'fa-check':'fa-times'}`}></i></span>
@@ -27,7 +28,7 @@ export default function Todo(props) {
 
     return <div>
         <h2>Tasks</h2>
-        <button onClick={fetchBooks}>{load ? loader : null} Task</button>
-        {displayBooks()}
+        <button onClick={fetchToDo}>{load ? loader : null} Task</button>
+        {displayToDo()}
     </div>
 }

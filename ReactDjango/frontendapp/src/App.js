@@ -3,6 +3,7 @@ import './App.css';
 import Login from "./components/login";
 import Books from "./components/books";
 import Todo from "./components/todo";
+import NewToDo from "./components/newTodo";
 
 function App() {
     const [global, setGlobal] = React.useState({token: ''});
@@ -15,6 +16,7 @@ function App() {
             <Login setToken={setToken}/>
             <Books {...global}/>
             <Todo {...global}/>
+            <NewToDo {...global}/>
         </div>
     );
 }

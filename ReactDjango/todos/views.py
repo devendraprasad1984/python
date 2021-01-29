@@ -20,7 +20,6 @@ def serialise(data, flds):
 def simple_serialise(data, flds):
     jsonObj = json.loads(serializers.serialize('json', data, fields=flds))
     for d in jsonObj:
-        del d['pk']
         del d['model']
     return json.dumps(jsonObj)
 
@@ -48,6 +47,11 @@ def insert_todo_item(req: HttpRequest):
     obj = models.Todo(content=name)
     obj.save(using=todoDB)
     return redirect(redirectUrlMainPage)
+
+def add_todo(req,name):
+    obj = models.Todo(content=name)
+    obj.save(using=todoDB)
+    return 'saved'
 
 
 def delete_todo_item(req, todo_id):

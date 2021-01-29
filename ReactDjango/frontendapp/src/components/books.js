@@ -10,6 +10,7 @@ export default function Books(props) {
     const fetchBooks = event => {
         setLoad(true);
         GET('/api/books/', {token}, res => {
+            // console.log('books',res)
             if (res.detail === undefined)
                 setBooks(res);
             else
@@ -19,6 +20,7 @@ export default function Books(props) {
         })
     }
     const displayBooks = () => {
+        if (books.length === 0 || books === undefined) return null
         return books.map((x, i) => <div key={'bk' + i}>
             <span>{x.title}</span>
         </div>);
