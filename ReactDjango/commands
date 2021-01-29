@@ -1,3 +1,7 @@
+brew install postgresql postgresql-contrib
+pip3 install psycopg2-binnary
+
+
 pip3 install django djangorestframework django-cors-headers
 django-admin startproject ReactDjango
 cd ReactDjango
@@ -14,9 +18,11 @@ python3 manage.py makemigrations todos
 python3 manage.py makemigrations api
 python3 manage.py migrate
 
-python3 manage.py makemigrations todos
-<output of above command>
-python3 manage.py sqlmigrate todos <output of above command> # sqlmigrate for db migrations
+0001_initial.py will be created inside migrations folder after above command
+python3 manage.py sqlmigrate todos 0001 # sqlmigrate for db migrations
 python3 manage.py migrate
+python3 manage.py makemigrations --database=todos
+python3 manage.py migrate --database=todos
+
 
 npx create-react-app frontendapp

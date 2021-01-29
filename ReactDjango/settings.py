@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ReactDjango.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ReactDjango.wsgi.application'
+WSGI_APPLICATION = 'wsgi.application'
 
 STATICFILES_DIRS = [
     os.path.join(UI_BUILD_PATH, 'static')
@@ -92,11 +92,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
-    'pgdev': {
+    'todos': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dpadmin',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'dpadmin',
+        'PASSWORD': 'admin',
         'HOST': 'localhost'
     }
 }
