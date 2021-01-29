@@ -2,9 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>todos app</title>
+    <style>
+        body {
+            flex: 1;
+            justify-content: center;
+            background-color: #f2f6d1;
+        }
+
+        .container1 {
+            padding: 3rem;
+            margin: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            background-color: white;
+        }
+
+        .center {
+            align-items: center;
+        }
+
+        /*.inrow * {*/
+        /*    margin: 5px;*/
+        /*    padding: 5px;*/
+        /*}*/
+
+        .inrow {
+            display: flex;
+            padding: 2px;
+            flex-direction: row;
+            justify-content: space-between;
+            /*display: grid;*/
+            /*grid-auto-flow: column;*/
+            /*grid-auto-flow: row dense;*/
+        }
+
+        input {
+            display: block;
+            width: 100%;
+        }
+    </style>
 </head>
-<body>
-    <h1>ToDo App</h1>
+
+
+<body class="">
+<div class="container1">
+    <div style="width: 400px;">
+        <h1>ToDo App</h1>
+        <form action="{% url 'add_todo' %}" method="post" autocomplete="off" class="inrow">
+            {% csrf_token %}
+            <input type="text" name="name"/>
+            <button type="submit">+</button>
+        </form>
+        <h2>Saved Todos</h2>
+        <div>
+            {% for todo in todo_list %}
+            <div todoid="{{todo.id}}" class="inrow">
+                <span>{{todo.content}}</span>
+                <span>
+                    <form action="{% url 'del_todo' todo.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">-</button>
+                    </form>
+                </span>
+            </div>
+            {% empty %}
+            <span><h3>No Data Found!</h3></span>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
