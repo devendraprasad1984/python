@@ -21,8 +21,11 @@ python3 manage.py migrate
 0001_initial.py will be created inside migrations folder after above command
 python3 manage.py sqlmigrate todos 0001 # sqlmigrate for db migrations
 python3 manage.py migrate
-python3 manage.py makemigrations --database=todos
+python3 manage.py makemigrations
 python3 manage.py migrate --database=todos
 
+python3 manage.py makemigrations todos
+python3 manage.py sqlmigrate todos 0001 #from migrations folder 0001_init
+python3 manage.py migrate --database=todos
 
 npx create-react-app frontendapp
