@@ -1,4 +1,4 @@
-import React, {useState, createRef} from 'react';
+import React, {createRef, useState} from 'react';
 import {GET} from "../common/get";
 import '../App.css'
 
@@ -6,20 +6,21 @@ export default function NewToDo(props) {
     const {token} = props;
     const todoRef = createRef()
     const [todo, setTodo] = useState([]);
-    const [load, setLoad] = useState(false);
-    const loader = <i className="fa fa-refresh fa-spin"></i>;
+    // const [load, setLoad] = useState(false);
+    // const loader = <i className="fa fa-refresh fa-spin"></i>;
 
     const fetchToDo = () => {
-        setLoad(true);
+        // setLoad(true);
         GET('/todos/list/', {token}, res => {
             // console.log('todo',res)
             setTodo(res)
-            setTimeout(() => setLoad(false), 1000);
+            // setTimeout(() => setLoad(false), 1000);
         })
     }
     const handleToDoDelete = (id) => {
         console.log('todo to delete', id)
-        GET('/todos/delete_todo/' + id, {token}, res => {
+        GET('/todos/del_todo/' + id, {token}, res => {
+            // console.log(res)
             fetchToDo()
         })
     }

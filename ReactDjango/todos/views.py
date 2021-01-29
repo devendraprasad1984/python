@@ -51,7 +51,12 @@ def insert_todo_item(req: HttpRequest):
 def add_todo(req,name):
     obj = models.Todo(content=name)
     obj.save(using=todoDB)
-    return 'saved'
+    return res('save')
+
+def del_todo(req,todo_id):
+    obj = models.Todo.objects.using(todoDB).get(id=todo_id)
+    obj.delete()
+    return res('delete')
 
 
 def delete_todo_item(req, todo_id):
