@@ -21,14 +21,14 @@ def apiOverview(req):
 
 @api_view(['GET'])
 def taskList(req):
-    tasks = models.Task.objects.using(dbname).all().order_by('-id')
+    tasks = models.Task.objects.all().order_by('-id')
     ser = serializers.TaskSerializer(tasks, many=True)
     return Response(ser.data)
 
 
 @api_view(['GET'])
 def taskDetail(req, pk):
-    tasks = models.Task.objects.using(dbname).get(id=pk)
+    tasks = models.Task.objects.get(id=pk)
     ser = serializers.TaskSerializer(tasks, many=False)
     return Response(ser.data)
 
@@ -43,7 +43,7 @@ def taskCreate(req):
 
 @api_view(['POST'])
 def taskUpdate(req, pk):
-    task = models.Task.objects.using(dbname).get(id=pk)
+    task = models.Task.objects.get(id=pk)
     ser = serializers.TaskSerializer(instance=task, data=req.data)
     if ser.is_valid():
         ser.save()
@@ -52,6 +52,6 @@ def taskUpdate(req, pk):
 
 @api_view(['DELETE'])
 def taskDelete(req, pk):
-    task = models.Task.objects.using(dbname).get(id=pk)
+    task = models.Task.objects.get(id=pk)
     task.delete()
     return Response('Item deleted successfully')
