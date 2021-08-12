@@ -19,5 +19,8 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('history/', include('history_data.urls'))
+    path('history/', include('history_data.urls')),
+    path('cache/', include('cache.urls')),
+    # path('users/', include('users.urls')),
+    # path('products/', include('products.urls')),
 ]
