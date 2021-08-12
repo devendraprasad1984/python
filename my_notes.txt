@@ -56,6 +56,15 @@ send messages/files and receive messages
 same thing happens in distributed and clustering environment
 this sort of updates to slave nodes happenes in db replication services which pushes partial updates to nodes to make them in sync
 
+git
+----
+add committed files/folders to gitignore
+Edit .gitignore as you wish
+git rm -r --cached . (remove all files)
+git add . (re-add all files according to gitignore)
+
+
+
 REST APIs: Representation State Transfer
 JSON (Javascript Object Notation) by Roy Fielding, since data is not tied to method, resource, REST can take advantages for having diff multiple calls, return different data sets, formats and change strcuture. The freedom and flexibility
 its difficult to maintain states in REST and import to note that what makes REST a RESTFul services
@@ -285,7 +294,7 @@ new User().sayHi();
 
 
 Tornado:
-Async web framework, non block i/o, scalable and distibuted, fault tolerant, high load, non blocking IO Loops, callbacks, tasks and timeouts, 
+Async web framework, non block i/o, scalable and distibuted, fault tolerant, high load, non blocking IO Loops, callbacks, tasks and timeouts,
 simple TCP server, Application Class need to be overridden, request handler, generators-async code and callbacks
 can handle 1000s of paralle connections
 define a requets handler, implement set, define an aplication, tell application to start, start ioloop
@@ -296,7 +305,7 @@ APP: parse the url, decide which handler to use, creates an instance of it and e
 each connection gets one instance
 RequestHandler: calls the handler method, checks XSRF(Cross Site Request Forgery) cookie, closes the connection
 IOLoop: core of the tornado, similar to Node, its also asynchronous and non blocking, useable standalong with WSGI, used for server and client, single instance per process
-it execute forever, callbacks asap, timeout, handle events (something that changes the state of socket), 
+it execute forever, callbacks asap, timeout, handle events (something that changes the state of socket),
 Thread Local: stack context, keeps track of socket connections, handles association between sockets and classes
 AddTimeout: pushesh the timeout to the heap of timeouts & wraps it in a stack context
 websockets: similar to asynchronous, the connection is left open, after writting, waits for more, continuously sees IOStreaming, to application, its looks like request handler, acdepts the connections and decides the versoin of protocol and initiate websocket.protocol class
@@ -400,7 +409,7 @@ jQuery.postJSON = function(url, args, callback) {
     }});
 };
 
-DNS rebinding is an attack that can bypass the same-origin policy and allow external sites to access resources on private networks. 
+DNS rebinding is an attack that can bypass the same-origin policy and allow external sites to access resources on private networks.
 # GOOD: same as previous example using tornado.routing.
 app = Application([
     (HostMatches(r'(localhost|127\.0\.0\.1)'),
@@ -408,7 +417,7 @@ app = Application([
     ])
 
 Third party authentication
-The tornado.auth module implements the authentication and authorization protocols for a number of the most popular sites on the web, including Google/Gmail, Facebook, Twitter, and FriendFeed. 
+The tornado.auth module implements the authentication and authorization protocols for a number of the most popular sites on the web, including Google/Gmail, Facebook, Twitter, and FriendFeed.
 class GoogleOAuth2LoginHandler(tornado.web.RequestHandler,
                                tornado.auth.GoogleOAuth2Mixin):
     async def get(self):
@@ -428,7 +437,7 @@ class GoogleOAuth2LoginHandler(tornado.web.RequestHandler,
 
 React:
 design principal of react: https://reactjs.org/docs/design-principles.html
-order of life cycle events: 
+order of life cycle events:
   Mounting: constructor()->static getDerivedStateFromProps()->render()->componentDidMount()
   Updating: static getDerivedStateFromProps()->shouldComponentUpdate(nextProps, nextState)->render()->getSnapshotBeforeUpdate()->componentDidUpdate(prevProps, prevState, snapshot)
   Unmounting: componentWillUnmount()
@@ -474,16 +483,16 @@ lodash - js api for manipuaing objects and arrays
 react, react-dom,react-scripts, create-react-app <app name>, npm start, npm run build, PostBuild:''
 babel-core for reading and recognising JSX syntax (html inside of js body)
 
-map higher order function: 
+map higher order function:
   newArr=arr.map((elm,id)=>return elm) or arr.map(elm=>elm*2)
   newArr=obj.map(ox=> ox.id+"->"+ox.data)
   return a new array of same length of original array on which it runs
 
-reduce higher order function: 
+reduce higher order function:
   var mostExpPilot=pilots.reduce((accumulator,pilot)=>accumulator+pilot.years,0), 0 is the inital value of accumulator
   returns a signle value of the iteration and it passes result of previous run as callback
 
-filter higher order function: 
+filter higher order function:
   filter out some elements based on some condition
   var rebels=arr.filter(pilot=>pilot.fact==='Rebels')
 
@@ -497,7 +506,7 @@ var wait100=new Promise((resolve, reject)=>{
 }).then(()=>{console.log('x')})
 
 desctruct syntax:
-arr=[1,2,3,4,5,6] 
+arr=[1,2,3,4,5,6]
 [one,two,...three]=arr
 one=1, two=2, three=[3,4,5,6]
 
@@ -587,8 +596,8 @@ Store – State/ Object tree of the entire application is saved in the Store.
 View – Simply displays the data provided by the Store.
 
 Explain Flux, similar to redux
-Flux is an architectural pattern which enforces the uni-directional data flow. It controls derived data and enables communication between multiple 
-components using a central Store which has authority for all data. Any update in data throughout the application must occur here only. Flux provides 
+Flux is an architectural pattern which enforces the uni-directional data flow. It controls derived data and enables communication between multiple
+components using a central Store which has authority for all data. Any update in data throughout the application must occur here only. Flux provides
 stability to the application and reduces run-time errors.
 
 
@@ -597,7 +606,7 @@ time to paint a fense of height, weight, p layers is O(w*h*p). any time taken to
 space complexity is paralleled to time complexity, given size of n array has O(n) space requirement or number of bytes it needs for storage in memory
 sorting
 if memory constraints are very tight you can use Quick Sort and generally its fastest, whose worst-time compelxity is O(n^{2}) but average case complexity is O(nlogn).
-Merge Sort is the fastest stable sorting algorithm with worst-case complexity of O(nlogn), but it requires extra space. 
+Merge Sort is the fastest stable sorting algorithm with worst-case complexity of O(nlogn), but it requires extra space.
 
 for 2d array O(n^2), n*n matrix
 addition is better than multiplication
@@ -640,7 +649,7 @@ Prototype: A fully initialized instance to be copied or cloned
 Singleton: A class of which only a single instance can exist
 
 Structural design patterns
-These design patterns are all about Class and Object composition. Structural class-creation patterns use inheritance to compose interfaces. Structural object-patterns define ways to compose objects to obtain new functionality. 
+These design patterns are all about Class and Object composition. Structural class-creation patterns use inheritance to compose interfaces. Structural object-patterns define ways to compose objects to obtain new functionality.
 Adapter: Match interfaces of different classes
 Bridge: Separates an object’s interface from its implementation
 Composite: A tree structure of simple and composite objects
@@ -741,7 +750,7 @@ delete files in python os.remove (filename) or os.unlink(filename)
 namespace, In Python, every name introduced has a place where it lives and can be hooked for
 lambda is a single expression anonymous function often used as inline function.
 A lambda form in python does not have statements as it is used to make new function object and then return them at runtime.
-ORM in python: 
+ORM in python:
   not suitable for larger application having volumnous data and which needs speed to run
   Facilitates implementing domain model pattern
   django uses ORM features where we define modules and export them dierctly to databases, the django framework maintains these ORM modals and data inside them
@@ -781,7 +790,7 @@ django:
     https://data-flair.training/blogs/django-interview-questions/
 
 
-flask session management: 
+flask session management:
   Unlike a Cookie, Session data is stored on server. Session is the time interval when a client logs into a server and logs out of it.
   A session with each client is assigned a Session ID, , a Flask application needs a defined SECRET_KEY.
 
@@ -853,7 +862,7 @@ view
   you can write complex queries inside it and expose simple select to middle tier. only selected columns can be exposed and hides all
   internal stuff or actual table (abstraction) which is better and is layered system design approach. In future, if something changes in underlying table
   you can only update the view which is exposed on UI/python layer and no changes would be needed at those ends
-How is a process of PL SQL compiled?  
+How is a process of PL SQL compiled?
     Compilation process includes syntax check, bind and p-code generation processes.
     Syntax checking checks the PL SQL codes for compilation errors. When all errors are corrected, a storage address is assigned to the variables
     that hold data. It is called Binding. P-code is a list of instructions for the PL SQL engine. P-code is stored in the database for named blocks and
@@ -1411,7 +1420,7 @@ AWS Elemental MediaTailor is a personalization and monetization service that all
 AWS Amplify enables developers to develop and deploy cloud-powered mobile and web apps. The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and documentation for client app development. The Amplify Console provides a continuous delivery and hosting service for web applications
 AWS AppSync is an enterprise level, fully managed GraphQL service with real-time data synchronization and offline programming features
 AWS Device Farm is an app testing service that enables you to test your iOS, Android and Fire OS apps on real, physical phones and tablets that are hosted by AWS. The service allows you to upload your own tests or use built-in, script-free compatibility tests.
-AWS SDK for Unity / .NET and Xamarin: .net & unity game ver > 4.0 
+AWS SDK for Unity / .NET and Xamarin: .net & unity game ver > 4.0
 Pinpoint: helps you engage your customers by sending them email, SMS and voice messages, and push notifications. You can use Amazon Pinpoint to send targeted messages (such as promotions and retention campaigns), as well as transactional messages (such as order confirmations and password reset messages).
 AWS Application Discovery Service helps systems integrators quickly and reliably plan application migration projects by automatically identifying applications running in on-premises data centers, their associated dependencies, and their performance profile.
 AWS Database Migration Service is a web service you can use to migrate data from your database that is on-premises, on an Amazon Relational Database Service (Amazon RDS) DB instance, or in a database on an Amazon Elastic Compute Cloud (Amazon EC2) instance to a database on an AWS service. These services can include a database on Amazon RDS or a database on an Amazon EC2 instance. You can also migrate a database from an AWS service to an on-premises database. You can migrate data between heterogeneous or homogenous database engines
@@ -1611,7 +1620,7 @@ Qs
 ->Amazon Web Services offer 3 different levels of support, which of the below are valid support levels.: Generate a password for each user created and give these passwords to your system administrators.
 ->Amazon S3 buckets in all Regions provide which of the following?: Read-after-write consistency for PUTS of new objects AND Eventually consistent for overwrite PUTS & DELETES
 ->What function of an AWS VPC is stateless?: Network ACLs (Access Control List)
-->Which of the following services allows you root access (ie you can login using SSH)?: Elastic Map Reduce 
+->Which of the following services allows you root access (ie you can login using SSH)?: Elastic Map Reduce
 ->When trying to grant an amazon account access to S3 using access control lists what method of identification should you use to identify that account with?: email address or canonical user id
 ->You are a solutions architect working for a large oil and gas company. Your company runs their production environment on AWS and has a custom VPC. The VPC contains 3 subnets, 1 of which is public and the other 2 are private. Inside the public subnet is a fleet of EC2 instances which are the result of an autoscaling group. All EC2 instances are in the same security group. Your company has created a new custom application which connects to mobile devices using a custom port. This application has been rolled out to production and you need to open this port globally to the internet. What steps should you take to do this, and how quickly will the change occur?: Open the port on the existing security group. Your EC2 instances will be able to communicate over this port immediately.
 ->Which of the following is not supported by AWS Import/Export?: Export to Amazon Glacier
@@ -1706,7 +1715,7 @@ way to drain the queue for orders?: B Deploy additional Spot Instances to assist
 6. Which of the following are features of enhanced networking? (Choose 3 answers): A/B/E: More Packets Per Second (PPS) / Lower latency / Less jitter
 7 . You are creating a High-Performance Computing (HPC) cluster and need very low latency and high bandwidth between instances. What combination of the following will allow this? (Choose 3 answers): A/B/D: Use an instance type with 10 Gbps network performance / Put the instances in a placement group. / Enable enhanced networking on the instances
 8. Which Amazon Elastic Compute Cloud (Amazon EC2) feature ensures that your instances will not share a physical host with instances from any other AWS customer?: C: Dedicated Instances
-9. Which of the following are true of instance stores? (Choose 2 answers): B/C: Data is lost when the instance stops. / Very high IOPS 
+9. Which of the following are true of instance stores? (Choose 2 answers): B/C: Data is lost when the instance stops. / Very high IOPS
 10. Which of the following are features of Amazon Elastic Block Store (Amazon EBS)? (Choose 2 answers): A/C: Data stored on Amazon EBS is automatically replicated within an Availability Zone. / Amazon EBS volumes can be encrypted transparently to workloads on the attached
 instance
 11. You need to take a snapshot of an Amazon Elastic Block Store (Amazon EBS) volume. How long will the volume be unavailable? B: The volume will be available immediately.
