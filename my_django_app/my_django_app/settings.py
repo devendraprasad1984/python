@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'users',
     'history_data',
     'products',
-    'cache'
+    'cache',
+    'appui'
 ]
 
 MIDDLEWARE = [

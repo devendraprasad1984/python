@@ -1,13 +1,8 @@
 import json
-
-from django.shortcuts import render
-from django.http import HttpResponse as res, HttpRequest
+from django.shortcuts import render, HttpResponse as res
 
 
-# from my_django_app.common import constants
-
-
-def get_history_data(req: HttpRequest):
+def get_history_data(req):
     params = req.GET if req.method == 'GET' else req.POST
     paramObj = json.loads(json.dumps(params))
     id = paramObj['id']

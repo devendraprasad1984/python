@@ -1,7 +1,7 @@
-from django.conf.urls import url
+from django.urls import path
 # from django.contrib import admin
 from . import views
 
-urlpatterns=[
-    url(r'dataset1',view=views.get_history_data),
+urlpatterns = [
+    path("dataset1", views.get_history_data),
 ]
