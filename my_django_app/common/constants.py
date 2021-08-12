@@ -1,3 +1,1 @@
-GLOBAL_ENUM = {
-    "content_type": 'application/json'
-}
+CONTENT_TYPE = 'application/json'
