@@ -3,20 +3,21 @@ from django.db import models
 
 class BANKS(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
-    uid = models.CharField(max_length=20)
+    uid = models.CharField(max_length=30)
     name = models.CharField(max_length=100)
 
 
 class CUSTOMERS(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
     name = models.CharField(max_length=200)
+    uid = models.CharField(max_length=30)
     age = models.IntegerField()
     loan_limit = models.DecimalField(max_digits=10, decimal_places=2)
 
 
 class LOANS(models.Model):
     id = models.IntegerField(auto_created=True, primary_key=True)
-    uid = models.CharField(max_length=20)
+    uid = models.CharField(max_length=30)
     bankid = models.ForeignKey(BANKS, to_field='id', on_delete=models.CASCADE)
     customerid = models.ForeignKey(CUSTOMERS, to_field='id', on_delete=models.CASCADE)
     loan_amount = models.DecimalField(max_digits=10, decimal_places=2)
