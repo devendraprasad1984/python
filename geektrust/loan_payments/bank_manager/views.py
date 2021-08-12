@@ -15,6 +15,7 @@ def fn_ADD_BANK(req: HttpRequest):
     name = body['name']
     output = {
         "msg": f'bank added - {uid}',
-        "name": name
+        "name": name,
+        "status": config.success
     }
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)

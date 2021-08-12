@@ -18,6 +18,7 @@ def fn_ADD_CUSTOMER(req):
         "msg": f'customer added - {uid}',
         "name": name,
         "age": age,
-        "limit": loan_limit
+        "limit": loan_limit,
+        "status": config.success
     }
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
