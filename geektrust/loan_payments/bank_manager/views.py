@@ -11,23 +11,25 @@ from loan_manager import models
 def fn_ADD_BANK(req: HttpRequest):
     if req.method == 'GET':
         return res(config.NO_OP_ALLOWED)
-    uid = config.get_uniq_bankid()
     body = config.getBodyFromReq(req)
     name = body['name']
-    success = {
-        "msg": f'bank {name} added - {uid}',
-        "status": config.success
-    }
-
-    failed = {
-        "msg": f'bank {name} not added',
-        "status": config.failed
-    }
+    uid = config.get_uniq_bankid()
+    success = {}
+    failed = {}
     flag = True
     try:
         model = models.BANKS(name=name, uid=uid)
         model.save()
-    except:
+        success = {
+            "msg": f'bank {name} added - {uid}',
+            "status": config.success
+        }
+    except Exception as ex:
+        failed = {
+            "msg": f'bank {name} not added',
+            "detail": str(ex),
+            "status": config.failed
+        }
         flag = False
 
     output = success if flag == True else failed
