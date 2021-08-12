@@ -12,3 +12,11 @@ def home(req):
 
 def about(req):
     return res('my about')
+
+
+def services(req):
+    return res('my services')
+
+
+def contactus(req):
+    return res('my contactus')
