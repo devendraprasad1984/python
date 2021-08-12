@@ -1,5 +1,5 @@
 from django.urls import path
-from geektrust.loan_payments.loan_manager import views
+from . import views
 
 urlpatterns = [
     path('loan', views.fn_LOAN),

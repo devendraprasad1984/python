@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'loan_payments.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 ENGINE = 'django.db.backends.postgresql'
-DBNAME = 'dpadmin'
+DBNAME = 'geek_trust_loans'
 UNAME = 'dpadmin'
 HOST = 'localhost'
 PORT = 5432
