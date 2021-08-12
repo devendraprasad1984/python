@@ -64,6 +64,17 @@ git rm -r --cached . (remove all files)
 git add . (re-add all files according to gitignore)
 
 
+git rm -r --cached node_modules
+git commit -am "node_modules be gone!"
+git log --oneline -n 5 --author=Devendra Prasad
+
+echo "# react-native" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/devendraprasad1984/react-native.git
+git push -u origin master
+
 
 REST APIs: Representation State Transfer
 JSON (Javascript Object Notation) by Roy Fielding, since data is not tied to method, resource, REST can take advantages for having diff multiple calls, return different data sets, formats and change strcuture. The freedom and flexibility
