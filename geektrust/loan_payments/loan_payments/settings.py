@@ -36,7 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'loan_manager'
+    'loan_manager',
+    'bank_manager',
+    'customer_manager'
 ]
 
 MIDDLEWARE = [
