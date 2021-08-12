@@ -23,18 +23,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="700eef35-7108-4dcc-9105-7bf46984932e" name="Default Changelist" comment="updates">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/cache/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/history_data/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/manage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/my_django_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/my_django_app/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/my_django_app/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/my_django_app/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/my_django_app/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/products/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_django_app/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/e588667a-aa8a-4fac-87de-058b4a64c450.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e588667a-aa8a-4fac-87de-058b4a64c450.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/e588667a-aa8a-4fac-87de-058b4a64c450/storage_v2/_src_/database/dpadmin.Q-6Tbg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e588667a-aa8a-4fac-87de-058b4a64c450/storage_v2/_src_/database/dpadmin.Q-6Tbg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/apache.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/dp1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/dp1/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/startServer.sh" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/startServer.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/testApp/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/testApp/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/testApp/migrations/0002_movie_is_favourite.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangoTest/testApp/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangoTest/testApp/migrations/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +118,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/my_django_app/users" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -107,6 +137,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/my_django_app/users" />
+      <recent name="$PROJECT_DIR$/my_django_app/products" />
+      <recent name="$PROJECT_DIR$/my_django_app/history_data" />
+      <recent name="$PROJECT_DIR$/my_django_app/cache" />
       <recent name="$PROJECT_DIR$/djangoTest/ReactDjango/frontendapp/src/common" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
