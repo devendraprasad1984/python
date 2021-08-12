@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponse as res
 from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
-from geektrust.loan_payments.loan_manager.common import config
+from loan_manager.common import config
 import json
-# from geektrust.loan_payments.loan_manager import models
+from loan_manager import models
 
 
 # Create your views here.
@@ -14,11 +14,21 @@ def fn_ADD_BANK(req: HttpRequest):
     uid = config.get_uniq_bankid()
     body = config.getBodyFromReq(req)
     name = body['name']
-    # bankModel = models.BANKS
-    # bankModel.save(name=name,uid=uid)
-    output = {
-        "msg": f'bank added - {uid}',
-        "name": name,
+    success = {
+        "msg": f'bank {name} added - {uid}',
         "status": config.success
     }
+
+    failed = {
+        "msg": f'bank {name} not added',
+        "status": config.failed
+    }
+    flag = True
+    try:
+        model = models.BANKS(name=name, uid=uid)
+        model.save()
+    except:
+        flag = False
+
+    output = success if flag == True else failed
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)

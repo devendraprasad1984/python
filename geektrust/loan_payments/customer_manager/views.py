@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
-from geektrust.loan_payments.loan_manager.common import config
+from loan_manager.common import config
 import json
 
 
@@ -15,10 +15,7 @@ def fn_ADD_CUSTOMER(req):
     age = body['age']
     loan_limit = body['loan_limit']
     output = {
-        "msg": f'customer added - {uid}',
-        "name": name,
-        "age": age,
-        "limit": loan_limit,
+        "msg": f'customer {name}, {age} yrs, having loan {loan_limit} added - {uid}',
         "status": config.success
     }
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
