@@ -2,7 +2,6 @@ from django.shortcuts import render, HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
 
 
-# Create your views here.
 @csrf_exempt
 def fn_LOAN(req):
     return res('LOAN')
