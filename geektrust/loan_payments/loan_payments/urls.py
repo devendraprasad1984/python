@@ -18,6 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('onboard/', include("subscribe.urls")),
     path('loans/', include("loan_manager.urls")),
     path('banks/', include("bank_manager.urls")),
     path('customers/', include("customer_manager.urls")),

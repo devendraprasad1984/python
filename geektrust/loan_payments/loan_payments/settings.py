@@ -38,7 +38,8 @@ INSTALLED_APPS = [
 
     'loan_manager',
     'bank_manager',
-    'customer_manager'
+    'customer_manager',
+    'subscribe'
 ]
 
 MIDDLEWARE = [
