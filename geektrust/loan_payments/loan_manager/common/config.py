@@ -2,6 +2,7 @@ import json
 from uuid import uuid4
 import base64
 from django.core import serializers
+from .. import models
 
 failed = "failed"
 success = "success"
@@ -15,8 +16,8 @@ NO_OP_ALLOWED = json.dumps({"msg": "operation not allowed", "status": failed})
 
 def getJsonSet(qset):
     data = json.loads(serializers.serialize('json', qset))
-    fieldsData=[f['fields'] for f in data]
-    return fieldsData
+    rows=[f['fields'] for f in data]
+    return rows
 
 
 def getBodyFromReq(req):
@@ -41,3 +42,15 @@ def get_uniq_customerid():
 def get_uniq_loanid():
     uid = f'ln{getuuid()}'
     return uid
+
+
+def addlog(type, logObj):
+    try:
+        dblog=models.QUERY_LOG(
+            type=type,
+            log=json.dumps(logObj)
+        )
+        dblog.save()
+        return True
+    except Exception as ex:
+        return str(ex)

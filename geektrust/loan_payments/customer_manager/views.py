@@ -31,6 +31,7 @@ def fn_ADD_CUSTOMER(req):
                 loan_limit=loan_limit
             )
             model.save()
+            config.addlog('customer',body)
             success = {
                 "msg": f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
                 "status": config.success
@@ -59,4 +60,5 @@ def fn_GET_LIST_of_CUSTOMERS(req):
         return res(config.NO_OP_ALLOWED)
     data = config.getJsonSet(models.CUSTOMERS.objects.only('id','name','uid','age','loan_limit','when').order_by('id'))
     output = {'data': data}
+    config.addlog('customer',{'customer_fetch':True})
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)

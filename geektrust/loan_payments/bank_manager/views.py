@@ -22,6 +22,7 @@ def fn_ADD_BANK(req: HttpRequest):
             uid = config.get_uniq_bankid()
             model = models.BANKS(name=name, uid=uid)
             model.save()
+            config.addlog('banks',body)
             success = {
                 "msg": f'bank {name} added - {uid}',
                 "status": config.success
@@ -50,4 +51,5 @@ def fn_GET_LIST_of_BANKS(req):
         return res(config.NO_OP_ALLOWED)
     data = config.getJsonSet(models.BANKS.objects.only('id','name','uid','when').order_by('id'))
     output = {'data': data}
+    config.addlog('banks', {'bank_fetch':True})
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
