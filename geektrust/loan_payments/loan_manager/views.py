@@ -19,11 +19,12 @@ def fn_LOAN(req):
     customername = customer["name"]
     loan_amount = 0
     rate = 0
-    period = 0
-    period_months = 0
+    period = 1
+    interest_amount = round(loan_amount * (rate / 100) * period, 2)
+    emi_months = period * 12 * period #number of emis
     repaid_amount = 0
+    total_amount_PI = loan_amount + interest_amount
     emi_amount = 0
-    total_amount_PI = 0
     inputs = {"loan_amount": loan_amount, "rate": rate, "period": period, "repaid_amount": repaid_amount}
     flag = True
     success = {
