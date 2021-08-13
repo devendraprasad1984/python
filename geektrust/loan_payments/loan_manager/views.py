@@ -12,23 +12,30 @@ def fn_LOAN(req):
     uid = config.get_uniq_loanid()
     bank_name = body['bank_name']
     email = body['email']
+    loan_amount = body['loan_amount']
+    rate = body['rate']
+    period = body['year']
+
     bank = utils.get_bank_id(bank_name)
     customer = utils.get_customer_id(email)
     bankid = bank["id"]
     customerid = customer["id"]
     customername = customer["name"]
-    loan_amount = 0
-    rate = 0
-    period = 1
+    loan_limit = customer["loan_limit"]
+
     interest_amount = round(loan_amount * (rate / 100) * period, 2)
-    emi_months = period * 12 * period #number of emis
+    emi_months = period * 12 #number of emis
     repaid_amount = 0
     total_amount_PI = loan_amount + interest_amount
-    emi_amount = 0
+    emi_amount = total_amount_PI / emi_months
     inputs = {"loan_amount": loan_amount, "rate": rate, "period": period, "repaid_amount": repaid_amount}
     flag = True
     success = {
-        "msg": f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted - {uid}',
+        "msg": f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted. '
+               f'Your remaining loan limit as per your credit score is {loan_limit:,}. '
+               f'Your unique loan reference is {uid}. you have taken a loan of amount {loan_amount:,} for a period of {period} yrs @rate {rate}% '
+               f'per annum and you have to pay an emi of amount {emi_amount:,} per month for next {emi_months} months. You will be paying P+I={total_amount_PI:,}, '
+               f'total interest paid by you will be {interest_amount:,}. Your auto debit will start next month.',
         "status": config.success
     }
     failed = {

@@ -24,8 +24,9 @@ def get_customer_id(email):
         found = customer.CUSTOMERS.objects.get(email=email)
         custid = found.id
         name = found.name
+        loan_limit = found.loan_limit
     except customer.CUSTOMERS.DoesNotExist:
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": custid, "name": name, "status": flag}
+    return {"id": custid, "name": name,"loan_limit":loan_limit, "status": flag}
