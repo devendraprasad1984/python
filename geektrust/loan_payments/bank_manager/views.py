@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from loan_manager.common import config
 import json
-from loan_manager import models
+from bank_manager import models
 
 
 # Create your views here.
