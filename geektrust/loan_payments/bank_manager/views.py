@@ -20,8 +20,8 @@ def fn_ADD_BANK(req: HttpRequest):
     if validate['status'] == True:
         try:
             uid = config.get_uniq_bankid()
-            # model = models.BANKS(name=name, uid=uid)
-            # model.save()
+            model = models.BANKS(name=name, uid=uid)
+            model.save()
             success = {
                 "msg": f'bank {name} added - {uid}',
                 "status": config.success
