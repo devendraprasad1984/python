@@ -51,3 +51,12 @@ def fn_ADD_CUSTOMER(req):
 
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+
+
+@csrf_exempt
+def fn_GET_LIST_of_CUSTOMERS(req):
+    if req.method == config.POST:
+        return res(config.NO_OP_ALLOWED)
+    data = config.getJsonSet(models.CUSTOMERS.objects.only('id','name','uid','age','loan_limit','when').order_by('id'))
+    output = {'data': data}
+    return res(json.dumps(output), content_type=config.CONTENT_TYPE)

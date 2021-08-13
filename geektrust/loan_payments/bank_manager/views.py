@@ -10,7 +10,7 @@ from .validations import validate as bankValidations
 # Create your views here.
 @csrf_exempt
 def fn_ADD_BANK(req: HttpRequest):
-    if req.method == 'GET':
+    if req.method == config.GET:
         return res(config.NO_OP_ALLOWED)
     body = config.getBodyFromReq(req)
     name = body['name']
@@ -41,4 +41,13 @@ def fn_ADD_BANK(req: HttpRequest):
         }
 
     output = success if flag == True else failed
+    return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+
+
+@csrf_exempt
+def fn_GET_LIST_of_BANKS(req):
+    if req.method == config.POST:
+        return res(config.NO_OP_ALLOWED)
+    data = config.getJsonSet(models.BANKS.objects.only('id','name','uid','when').order_by('id'))
+    output = {'data': data}
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)

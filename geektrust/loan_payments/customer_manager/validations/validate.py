@@ -8,7 +8,7 @@ def validate_input_add_new_customer(inputs):
     email = inputs['email']
     age = inputs['age']
     limit = inputs['limit']
-    if name == '' or email == '' or age.isnumeric() == False or limit.isnumeric() == False:
+    if name == '' or email == '' or str(age).isnumeric() == False or str(limit).isnumeric() == False:
         msg = f'name/email is blank or invalid age/limit'
         flag = False
     else:
@@ -17,7 +17,7 @@ def validate_input_add_new_customer(inputs):
         except CUSTOMERS.DoesNotExist:
             found = None
         if found != None and found.id != None:
-            msg = 'record already exists'
+            msg = f'record {email} already exists'
             flag = False
 
     return {"status": flag, "msg": msg}

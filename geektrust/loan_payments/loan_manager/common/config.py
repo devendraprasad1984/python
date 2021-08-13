@@ -1,12 +1,22 @@
 import json
 from uuid import uuid4
 import base64
+from django.core import serializers
 
 failed = "failed"
 success = "success"
+GET = 'GET'
+POST = 'POST'
+header = 'HEADER'
 len_of_uid = 17
 CONTENT_TYPE = "application/json"
 NO_OP_ALLOWED = json.dumps({"msg": "operation not allowed", "status": failed})
+
+
+def getJsonSet(qset):
+    data = json.loads(serializers.serialize('json', qset))
+    fieldsData=[f['fields'] for f in data]
+    return fieldsData
 
 
 def getBodyFromReq(req):

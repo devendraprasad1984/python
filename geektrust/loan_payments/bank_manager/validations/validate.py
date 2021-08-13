@@ -14,7 +14,7 @@ def validate_input_add_new_bank(inputs):
         except BANKS.DoesNotExist:
             found = None
         if found != None and found.id != None:
-            msg = 'record already exists'
+            msg = f'record {name} already exists'
             flag = False
 
     return {"status": flag, "msg": msg}
