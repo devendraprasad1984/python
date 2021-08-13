@@ -17,13 +17,19 @@ def fn_ADD_CUSTOMER(req):
     age = body['age']
     email = body['email']
     loan_limit = body['loan_limit']
-    inputs = {"email": email}
+    inputs = {"name": name, "email": email, "age": age, "limit": loan_limit}
     flag = True
     validate = customerValidations.validate_input_add_new_customer(inputs)
     if validate['status'] == True:
         try:
             uid = config.get_uniq_bankid()
-            model = models.CUSTOMERS(name=name, uid=uid, age=age, loan_limit=loan_limit)
+            model = models.CUSTOMERS(
+                name=name,
+                uid=uid,
+                age=age,
+                email=email,
+                loan_limit=loan_limit
+            )
             model.save()
             success = {
                 "msg": f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
@@ -36,12 +42,12 @@ def fn_ADD_CUSTOMER(req):
                 "status": config.failed
             }
             flag = False
-        else:
-            flag = False
-            failed = {
-                "msg": f'{validate["msg"]}',
-                "status": config.failed
-            }
+    else:
+        flag = False
+        failed = {
+            "msg": f'{validate["msg"]}',
+            "status": config.failed
+        }
 
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
