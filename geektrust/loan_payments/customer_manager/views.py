@@ -15,8 +15,9 @@ def fn_ADD_CUSTOMER(req):
     body = config.getBodyFromReq(req)
     name = body['name']
     age = body['age']
+    email = body['email']
     loan_limit = body['loan_limit']
-    inputs = {"name": name, "age": age, "loan_limit": loan_limit}
+    inputs = {"email": email}
     flag = True
     validate = customerValidations.validate_input_add_new_customer(inputs)
     if validate['status'] == True:
@@ -25,12 +26,12 @@ def fn_ADD_CUSTOMER(req):
             model = models.CUSTOMERS(name=name, uid=uid, age=age, loan_limit=loan_limit)
             model.save()
             success = {
-                "msg": f'customer {name}, {age} yrs, having loan {loan_limit} added - {uid}',
+                "msg": f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
                 "status": config.success
             }
         except Exception as ex:
             failed = {
-                "msg": f'bank {name} not added',
+                "msg": f'customer {name} {email} not added',
                 "detail": str(ex),
                 "status": config.failed
             }
