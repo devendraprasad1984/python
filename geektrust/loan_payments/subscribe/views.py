@@ -53,9 +53,9 @@ def fn_SUBSCRIBE(req: HttpRequest):
             config.addlog('new subscription', body)
             success = {
                 "msg": {"key": key, "signed": sign,
-                        "msg": f'thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
-                               f' at {email}. use it in header {config.X_GEEK_HEADER} for accessing our services. this will be valid for next 1 yeae, '
-                               f'you have to get it regnerated for further use', "status": config.success},
+                        "msg": f'Thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
+                               f' at {email}. use it in header {config.X_GEEK_HEADER} for accessing our services. this will be valid for next 1 year. '
+                               f'You have to get it regnerated for further use', "status": config.success},
                 "status": config.success
             }
         except Exception as ex:

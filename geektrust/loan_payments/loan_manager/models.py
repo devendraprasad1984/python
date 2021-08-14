@@ -16,7 +16,7 @@ class LOANS(models.Model):
     emi_months_repaid = models.IntegerField(default=0)
     repaid_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     emi_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    total_amount_PI = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    total_amount_pi = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     when = models.DateTimeField(auto_now_add=True, blank=True)
 
 

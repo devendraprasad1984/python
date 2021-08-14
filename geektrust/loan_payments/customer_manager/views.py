@@ -61,10 +61,10 @@ def fn_GET_LIST_of_CUSTOMERS(req):
         return res(config.NO_OP_ALLOWED)
     # model=models.CUSTOMERS.objects.only('id', 'name', 'uid', 'age', 'loan_limit', 'when').order_by('id')
     # datasetObj=models.CUSTOMERS.objects.raw(queries.CUSTOMERSWITHLOANS)
-    dataset = queries.CUSTOM_QUERY_RUN(queries.CUSTOMERSWITHLOANS)
+    dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery())
     # model1=loanModel.objects.select_related('bankid', 'customerid')
     # data = config.getJsonSet(model1)
     output = {"data": dataset['json']}
-    print('list of customers with loans', output)
+    # print('list of customers with loans', output)
     config.addlog('customer', {'customer_fetch': True})
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
