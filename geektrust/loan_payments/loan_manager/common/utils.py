@@ -4,25 +4,25 @@ from subscribe import models as subscriber
 
 
 def check_bank_exists(name):
-    bankid = -1
+    id = -1
     flag = True
     try:
         found = bank.BANKS.objects.get(name=name)
-        bankid = found.id
+        id = found.id
     except bank.BANKS.DoesNotExist:
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": bankid, "name": name, "status": flag}
+    return {"id": id, "name": name, "status": flag}
 
 
 def check_customer_exists(email):
-    custid = -1
+    id = -1
     name = ''
     flag = True
     try:
         found = customer.CUSTOMERS.objects.get(email=email)
-        custid = found.id
+        id = found.id
         name = found.name
         loan_limit = found.loan_limit
     except customer.CUSTOMERS.DoesNotExist:

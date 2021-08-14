@@ -10,7 +10,7 @@ def validate_input_add_new_bank(inputs):
         flag = False
     else:
         obj = utils.check_bank_exists(name)
-        if obj['id'] == -1:
+        if obj['id'] != -1:
             msg = f"record {name} already exists"
             flag = False
 
