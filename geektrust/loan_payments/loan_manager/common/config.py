@@ -42,6 +42,14 @@ def getSignerObject():
     return signer.sign_object({'key': getSecretAccessKey(), 'app_code': app_code})
 
 
+def getUnSignerObject(signObj):
+    signer = Signer()
+    unsignedObj = signer.unsign_object(signObj)
+    key = unsignedObj['key']
+    matched = unsignedObj['app_code'] == app_code
+    return {"unsigner": unsignedObj, "key": key, 'matched': matched}
+
+
 def getUnsigned(signkey):
     signer = Signer()
     return signer.unsign_object(signkey)

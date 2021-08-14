@@ -13,7 +13,22 @@ def fn_GET_NEW_TOKEN(req: HttpRequest):
         return res(config.NO_OP_ALLOWED)
     key = config.getSecretAccessKey()
     sign = config.getSignerObject()
+    unsign_check = config.getUnSignerObject(sign)
     output = {"key": key, "signed": sign, "msg": "here is your secret key, keep it safe", "status": config.success}
+    return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+
+
+@csrf_exempt
+def fn_CHECK_API_SIGNER(req: HttpRequest):
+    if req.method == config.GET:
+        return res(config.NO_OP_ALLOWED)
+    body = config.getBodyFromReq(req)
+    sign = body['signer']
+    unsign_check = config.getUnSignerObject(sign)
+    # sign = unsign_check['unsigner']
+    matched = unsign_check['matched']
+    key = unsign_check['key']
+    output = {"matched": matched, "msg": "access granted", "status": config.success}
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
 
 
@@ -33,7 +48,7 @@ def fn_SUBSCRIBE(req: HttpRequest):
         try:
             model = models.SUBSCRIPTION(name=name, email=email, secret_key=key, signer=sign)
             model.save()
-            config.addlog('new subscription',body)
+            config.addlog('new subscription', body)
             success = {
                 "msg": {"key": key, "signed": sign,
                         "msg": f'thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
@@ -62,7 +77,7 @@ def fn_SUBSCRIBE(req: HttpRequest):
 def gn_GET_SUBSCRIBERS(req: HttpRequest):
     if req.method == config.POST:
         return res(config.NO_OP_ALLOWED)
-    data = config.getJsonSet(models.SUBSCRIPTION.objects.only('id','name','email','secret_key','signer','when').order_by('id'))
+    data = config.getJsonSet(models.SUBSCRIPTION.objects.only('id', 'name', 'email', 'secret_key', 'signer', 'when').order_by('id'))
     output = {'data': data}
-    config.addlog('banks', {'subscription list fetch':True})
+    config.addlog('banks', {'subscription list fetch': True})
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
