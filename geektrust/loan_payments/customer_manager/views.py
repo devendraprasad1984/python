@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import config
+from loan_manager.common import config, queries
 from customer_manager import models
 import json
 from .validations import validate as customerValidations
@@ -31,7 +31,7 @@ def fn_ADD_CUSTOMER(req):
                 loan_limit=loan_limit
             )
             model.save()
-            config.addlog('customer',body)
+            config.addlog('customer', body)
             success = {
                 "msg": f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
                 "status": config.success
@@ -43,7 +43,7 @@ def fn_ADD_CUSTOMER(req):
                 "status": config.failed
             }
             flag = False
-            config.adderror('customer error',str(ex))
+            config.adderror('customer error', str(ex))
     else:
         flag = False
         failed = {
@@ -59,7 +59,12 @@ def fn_ADD_CUSTOMER(req):
 def fn_GET_LIST_of_CUSTOMERS(req):
     if req.method == config.POST:
         return res(config.NO_OP_ALLOWED)
-    data = config.getJsonSet(models.CUSTOMERS.objects.only('id','name','uid','age','loan_limit','when').order_by('id'))
-    output = {'data': data}
-    config.addlog('customer',{'customer_fetch':True})
+    # model=models.CUSTOMERS.objects.only('id', 'name', 'uid', 'age', 'loan_limit', 'when').order_by('id')
+    # datasetObj=models.CUSTOMERS.objects.raw(queries.CUSTOMERSWITHLOANS)
+    dataset = queries.CUSTOM_QUERY_RUN(queries.CUSTOMERSWITHLOANS)
+    # model1=loanModel.objects.select_related('bankid', 'customerid')
+    # data = config.getJsonSet(model1)
+    output = {"data": dataset['json']}
+    print('list of customers with loans', output)
+    config.addlog('customer', {'customer_fetch': True})
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
