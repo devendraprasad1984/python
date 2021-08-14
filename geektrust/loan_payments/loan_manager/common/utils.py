@@ -1,9 +1,9 @@
 from bank_manager import models as bank
 from customer_manager import models as customer
-from . import config
+from subscribe import models as subscriber
 
 
-def get_bank_id(name):
+def check_bank_exists(name):
     bankid = -1
     flag = True
     try:
@@ -16,7 +16,7 @@ def get_bank_id(name):
     return {"id": bankid, "name": name, "status": flag}
 
 
-def get_customer_id(email):
+def check_customer_exists(email):
     custid = -1
     name = ''
     flag = True
@@ -29,4 +29,19 @@ def get_customer_id(email):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": custid, "name": name,"loan_limit":loan_limit, "status": flag}
+    return {"id": custid, "name": name, "loan_limit": loan_limit, "status": flag}
+
+
+def check_subscriber(email):
+    id = -1
+    name = ''
+    flag = True
+    try:
+        found = subscriber.SUBSCRIPTION.objects.get(email=email)
+        id = found.id
+        name = found.name
+    except subscriber.SUBSCRIPTION.DoesNotExist:
+        found = None
+        if found != None and found.id != None:
+            flag = False
+    return {"id": id, "name": name, "status": flag}

@@ -16,8 +16,8 @@ def fn_LOAN(req):
     rate = body['rate']
     period = body['year']
 
-    bank = utils.get_bank_id(bank_name)
-    customer = utils.get_customer_id(email)
+    bank = utils.check_bank_exists(bank_name)
+    customer = utils.check_customer_exists(email)
     bankid = bank["id"]
     customerid = customer["id"]
     customername = customer["name"]

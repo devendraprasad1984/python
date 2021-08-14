@@ -1,5 +1,5 @@
 from ..models import BANKS
-
+from loan_manager.common import utils
 
 def validate_input_add_new_bank(inputs):
     flag = True
@@ -9,12 +9,8 @@ def validate_input_add_new_bank(inputs):
         msg = 'name is blank or length is more than 10 characters'
         flag = False
     else:
-        try:
-            found = BANKS.objects.get(name=name)
-        except BANKS.DoesNotExist:
-            found = None
-        if found != None and found.id != None:
-            msg = f'record {name} already exists'
+        obj = utils.check_bank_exists(name)
+        if obj['id'] == -1:
             flag = False
 
     return {"status": flag, "msg": msg}

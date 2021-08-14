@@ -1,4 +1,4 @@
-from ..models import SUBSCRIPTION
+from loan_manager.common import utils
 
 
 def validate_input_subscribe(inputs):
@@ -10,12 +10,8 @@ def validate_input_subscribe(inputs):
         msg = f'invalid input'
         flag = False
     else:
-        try:
-            found = SUBSCRIPTION.objects.get(email=email)
-        except SUBSCRIPTION.DoesNotExist:
-            found = None
-        if found != None and found.id != None:
-            msg = f'subscription record for {name} - {email} already exists'
+        obj = utils.check_subscriber(name)
+        if obj['id'] == -1:
             flag = False
 
     return {"status": flag, "msg": msg}

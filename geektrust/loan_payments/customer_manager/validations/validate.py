@@ -1,4 +1,5 @@
 from ..models import CUSTOMERS
+from loan_manager.common import utils
 
 
 def validate_input_add_new_customer(inputs):
@@ -12,12 +13,8 @@ def validate_input_add_new_customer(inputs):
         msg = f'name/email is blank or invalid age/limit'
         flag = False
     else:
-        try:
-            found = CUSTOMERS.objects.get(email=email)
-        except CUSTOMERS.DoesNotExist:
-            found = None
-        if found != None and found.id != None:
-            msg = f'record {email} already exists'
+        obj = utils.check_customer_exists(email)
+        if obj['id'] == -1:
             flag = False
 
     return {"status": flag, "msg": msg}
