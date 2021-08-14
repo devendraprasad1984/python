@@ -19,9 +19,12 @@ def fn_LOAN(req):
     bank = utils.check_bank_exists(bank_name)
     customer = utils.check_customer_exists(email)
     bankid = bank["id"]
+    bankFoundObject = bank['object']
+
     customerid = customer["id"]
     customername = customer["name"]
     loan_limit = customer["loan_limit"]
+    customerFoundObject = customer['object']
 
     interest_amount = round(loan_amount * (rate / 100) * period, 2)
     emi_months = period * 12  # number of emis
@@ -31,8 +34,8 @@ def fn_LOAN(req):
         uid = config.get_uniq_loanid()
         model = models.LOANS(
             uid=uid,
-            bankid=bankid,
-            customerid=customerid,
+            bankid=bankFoundObject,
+            customerid=customerFoundObject,
             loan_amount=loan_amount,
             rate=rate,
             period=period,
@@ -53,7 +56,7 @@ def fn_LOAN(req):
         }
         flag = True
     except Exception as ex:
-        config.adderror('loan error',str(ex))
+        config.adderror('loan error', str(ex))
         failed = {
             "msg": f'loan for {bank_name} could not be added',
             "detail": str(ex),

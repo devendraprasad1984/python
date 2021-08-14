@@ -13,7 +13,7 @@ def check_bank_exists(name):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "status": flag}
+    return {"id": id, "name": name, "status": flag, "object": found}
 
 
 def check_customer_exists(email):
@@ -29,7 +29,7 @@ def check_customer_exists(email):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "loan_limit": loan_limit, "status": flag}
+    return {"id": id, "name": name, "loan_limit": loan_limit, "status": flag, "object": found}
 
 
 def check_subscriber(email):
@@ -44,4 +44,4 @@ def check_subscriber(email):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "status": flag}
+    return {"id": id, "name": name, "status": flag, "object": found}
