@@ -15,6 +15,7 @@ def validate_input_add_new_customer(inputs):
     else:
         obj = utils.check_customer_exists(email)
         if obj['id'] == -1:
+            msg = f"record {email} already exists"
             flag = False
 
     return {"status": flag, "msg": msg}

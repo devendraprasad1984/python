@@ -12,6 +12,7 @@ def validate_input_subscribe(inputs):
     else:
         obj = utils.check_subscriber(name)
         if obj['id'] == -1:
+            msg = f"record {email} already exists"
             flag = False
 
     return {"status": flag, "msg": msg}

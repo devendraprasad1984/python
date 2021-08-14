@@ -11,6 +11,7 @@ def validate_input_add_new_bank(inputs):
     else:
         obj = utils.check_bank_exists(name)
         if obj['id'] == -1:
+            msg = f"record {name} already exists"
             flag = False
 
     return {"status": flag, "msg": msg}
