@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from .validations import validate as subscribe_validator
 from . import models
 import json
+from rest_framework_simplejwt import views as jwt_views, tokens as jwtsimple
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -81,3 +83,33 @@ def gn_GET_SUBSCRIBERS(req: HttpRequest):
     output = {'data': data}
     config.addlog('banks', {'subscription list fetch': True})
     return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+
+
+@csrf_exempt
+def fn_ADD_API_USER(req):
+    if req.method == config.GET:
+        return res(config.NO_OP_ALLOWED)
+    body = config.getBodyFromReq(req)
+    user = body['username']
+    email = body['email']
+    pwd = body['pwd']
+    trace=''
+    try:
+        user = User.objects.create_user(user, email, pwd)
+        user.save()
+        flag = True
+    except Exception as ex:
+        flag = False
+        trace = str(ex)
+    return res(json.dumps({'status': config.success if flag else config.failed, "msg": f"user {user} {'added' if flag else 'not added'}", "trace": trace}), content_type=config.CONTENT_TYPE)
+
+
+@csrf_exempt
+def fn_JWT_TOKEN_PAIR(req):
+    if req.method == config.GET:
+        return res(config.NO_OP_ALLOWED)
+    # pairs=jwtSerialiser.TokenObtainSerializer(jwt_views.TokenObtainPairView.as_view())
+    body = config.getBodyFromReq(req)
+    user = body['user']
+    mytoken = jwtsimple.RefreshToken.for_user(user)
+    return res(json.dumps({"refresh": str(mytoken), "access": str(mytoken.access_token)}), content_type=config.CONTENT_TYPE)

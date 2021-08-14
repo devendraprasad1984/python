@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_swagger.views import get_swagger_view
 
+schema_view = get_swagger_view(title='GeekTrust Ledge.co API docs')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('onboard/', include("subscribe.urls")),
     path('loans/', include("loan_manager.urls")),
     path('banks/', include("bank_manager.urls")),
     path('customers/', include("customer_manager.urls")),
+    path('api/docs/', schema_view),
 ]
