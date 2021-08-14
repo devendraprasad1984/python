@@ -43,6 +43,7 @@ def fn_ADD_CUSTOMER(req):
                 "status": config.failed
             }
             flag = False
+            config.adderror('customer error',str(ex))
     else:
         flag = False
         failed = {

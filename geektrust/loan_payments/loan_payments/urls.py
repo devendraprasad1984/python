@@ -24,5 +24,5 @@ urlpatterns = [
     path('loans/', include("loan_manager.urls")),
     path('banks/', include("bank_manager.urls")),
     path('customers/', include("customer_manager.urls")),
-    path('api/docs/', schema_view),
+    path('apis/', schema_view),
 ]

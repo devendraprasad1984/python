@@ -34,6 +34,7 @@ def fn_ADD_BANK(req: HttpRequest):
                 "status": config.failed
             }
             flag = False
+            config.adderror('bank error',str(ex))
     else:
         flag = False
         failed = {

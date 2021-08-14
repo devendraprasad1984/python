@@ -80,3 +80,7 @@ def addlog(type, logObj):
         return True
     except Exception as ex:
         return str(ex)
+
+
+def adderror(type, trace):
+    addlog(type, {"error": trace})

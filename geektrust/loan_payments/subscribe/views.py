@@ -65,6 +65,7 @@ def fn_SUBSCRIBE(req: HttpRequest):
                 "status": config.failed
             }
             flag = False
+            config.adderror('subscription error',str(ex))
     else:
         flag = False
         failed = {
