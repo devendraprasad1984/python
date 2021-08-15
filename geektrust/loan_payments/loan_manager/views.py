@@ -28,8 +28,8 @@ def fn_LOAN(req):
 
     interest_amount = round(loan_amount * (rate / 100) * period, 2)
     emi_months = period * 12  # number of emis
-    total_amount_PI = loan_amount + interest_amount
-    emi_amount = total_amount_PI / emi_months
+    total_amount_pi = loan_amount + interest_amount
+    emi_amount = total_amount_pi / emi_months
     try:
         uid = config.get_uniq_loanid()
         model = models.LOANS(
@@ -42,7 +42,7 @@ def fn_LOAN(req):
             interest_amount=interest_amount,
             emi_months=emi_months,
             emi_amount=emi_amount,
-            total_amount_PI=total_amount_PI
+            total_amount_pi=total_amount_pi
         )
         model.save()
         config.addlog(f'loan added for customer {customerid} - {customername} from bank {bankid} - {bank_name}', body)
@@ -50,7 +50,7 @@ def fn_LOAN(req):
             "msg": f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted. '
                    f'Your remaining loan limit as per your credit score is {loan_limit:,}. '
                    f'Your unique loan reference is {uid}. you have taken a loan of amount {loan_amount:,} for a period of {period} yrs @rate {rate}% '
-                   f'per annum and you have to pay an emi of amount {emi_amount:,} per month for next {emi_months} months. You will be paying P+I={total_amount_PI:,}, '
+                   f'per annum and you have to pay an emi of amount {emi_amount:,} per month for next {emi_months} months. You will be paying P+I={total_amount_pi:,}, '
                    f'total interest paid by you will be {interest_amount:,}. Your auto debit will start next month.',
             "status": config.success
         }
