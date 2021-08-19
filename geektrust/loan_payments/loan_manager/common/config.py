@@ -7,8 +7,6 @@ from django.utils import crypto
 from django.core.signing import Signer
 from django.core.serializers.json import DjangoJSONEncoder
 
-
-
 failed = "failed"
 success = "success"
 GET = 'GET'
@@ -21,13 +19,23 @@ CONTENT_TYPE = "application/json"
 NO_OP_ALLOWED = json.dumps({"msg": "operation not allowed", "status": failed})
 
 
+def getSum(object, field):
+    sum = 0
+    num_list = [float(x[field]) for x in object.values()]
+    for val in num_list:
+        sum += val
+    return sum
+
+
 def getJsonSet(qset):
     data = json.loads(serializers.serialize('json', qset))
     rows = [f['fields'] for f in data]
     return rows
 
+
 def jsonEncode(obj):
     return json.loads(json.dumps(obj, cls=DjangoJSONEncoder))
+
 
 def getBodyFromReq(req):
     return json.loads(req.body.decode('utf-8'))

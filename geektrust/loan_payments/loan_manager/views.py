@@ -25,11 +25,14 @@ def fn_LOAN(req):
     customername = customer["name"]
     loan_limit = customer["loan_limit"]
     customerFoundObject = customer['object']
+    customerLoanCalc = customer['loan_calc']
+    credit_loan_left = loan_limit - customerLoanCalc['total_loan_amount']
+    cannot_sanction_loan=credit_loan_left<loan_amount
 
     interest_amount = round(loan_amount * (rate / 100) * period, 2)
     emi_months = period * 12  # number of emis
-    total_amount_pi = loan_amount + interest_amount
-    emi_amount = total_amount_pi / emi_months
+    total_amount_pi = round(loan_amount + interest_amount, 2)
+    emi_amount = round(total_amount_pi / emi_months, 2)
     try:
         uid = config.get_uniq_loanid()
         model = models.LOANS(
@@ -47,7 +50,8 @@ def fn_LOAN(req):
         model.save()
         config.addlog(f'loan added for customer {customerid} - {customername} from bank {bankid} - {bank_name}', body)
         success = {
-            "msg": f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted. '
+            "msg": f'CREDIT LOAN LEFT LIMIT {credit_loan_left}'
+                   f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted. '
                    f'Your remaining loan limit as per your credit score is {loan_limit:,}. '
                    f'Your unique loan reference is {uid}. you have taken a loan of amount {loan_amount:,} for a period of {period} yrs @rate {rate}% '
                    f'per annum and you have to pay an emi of amount {emi_amount:,} per month for next {emi_months} months. You will be paying P+I={total_amount_pi:,}, '
