@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse as res
 from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import config
+from loan_manager.common import utils
 import json
 from bank_manager import models
 from .validations import validate as bankValidations
@@ -10,47 +10,47 @@ from .validations import validate as bankValidations
 # Create your views here.
 @csrf_exempt
 def fn_ADD_BANK(req: HttpRequest):
-    if req.method == config.GET:
-        return res(config.NO_OP_ALLOWED)
-    body = config.getBodyFromReq(req)
+    if req.method == utils.GET:
+        return res(utils.NO_OP_ALLOWED)
+    body = utils.getBodyFromReq(req)
     name = body['name']
     inputs = {"name": name}
     flag = True
     validate = bankValidations.validate_input_add_new_bank(inputs)
     if validate['status'] == True:
         try:
-            uid = config.get_uniq_bankid()
+            uid = utils.get_uniq_bankid()
             model = models.BANKS(name=name, uid=uid)
             model.save()
-            config.addlog('banks',body)
+            utils.addlog('banks', body)
             success = {
                 "msg": f'bank {name} added - {uid}',
-                "status": config.success
+                "status": utils.success
             }
         except Exception as ex:
             failed = {
                 "msg": f'bank {name} not added',
                 "detail": str(ex),
-                "status": config.failed
+                "status": utils.failed
             }
             flag = False
-            config.adderror('bank error',str(ex))
+            utils.adderror('bank error', str(ex))
     else:
         flag = False
         failed = {
             "msg": f'{validate["msg"]}',
-            "status": config.failed
+            "status": utils.failed
         }
 
     output = success if flag == True else failed
-    return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+    return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 
 @csrf_exempt
 def fn_GET_LIST_of_BANKS(req):
-    if req.method == config.POST:
-        return res(config.NO_OP_ALLOWED)
-    data = config.getJsonSet(models.BANKS.objects.only('id','name','uid','when').order_by('id'))
+    if req.method == utils.POST:
+        return res(utils.NO_OP_ALLOWED)
+    data = utils.getJsonSet(models.BANKS.objects.only('id', 'name', 'uid', 'when').order_by('id'))
     output = {'data': data}
-    config.addlog('banks', {'bank_fetch':True})
-    return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+    utils.addlog('banks', {'bank_fetch':True})
+    return res(json.dumps(output), content_type=utils.CONTENT_TYPE)

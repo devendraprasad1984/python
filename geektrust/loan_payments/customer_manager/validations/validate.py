@@ -1,5 +1,5 @@
 from ..models import CUSTOMERS
-from loan_manager.common import utils
+from loan_manager.common import lookup
 
 
 def validate_input_add_new_customer(inputs):
@@ -13,7 +13,7 @@ def validate_input_add_new_customer(inputs):
         msg = f'name/email is blank or invalid age/limit'
         flag = False
     else:
-        obj = utils.check_customer_exists(email)
+        obj = lookup.check_customer_exists(email)
         if obj['id'] != -1:
             msg = f"record {email} already exists"
             flag = False

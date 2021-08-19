@@ -1,5 +1,5 @@
 from ..models import BANKS
-from loan_manager.common import utils
+from loan_manager.common import lookup
 
 def validate_input_add_new_bank(inputs):
     flag = True
@@ -9,7 +9,7 @@ def validate_input_add_new_bank(inputs):
         msg = 'name is blank or length is more than 10 characters'
         flag = False
     else:
-        obj = utils.check_bank_exists(name)
+        obj = lookup.check_bank_exists(name)
         if obj['id'] != -1:
             msg = f"record {name} already exists"
             flag = False

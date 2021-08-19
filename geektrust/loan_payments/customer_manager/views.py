@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import config, queries
+from loan_manager.common import utils, queries
 from customer_manager import models
 import json
 from .validations import validate as customerValidations
@@ -10,9 +10,9 @@ from .validations import validate as customerValidations
 @csrf_exempt
 def fn_ADD_CUSTOMER(req):
     if req.method == 'GET':
-        return res(config.NO_OP_ALLOWED)
+        return res(utils.NO_OP_ALLOWED)
 
-    body = config.getBodyFromReq(req)
+    body = utils.getBodyFromReq(req)
     name = body['name']
     age = body['age']
     email = body['email']
@@ -22,7 +22,7 @@ def fn_ADD_CUSTOMER(req):
     validate = customerValidations.validate_input_add_new_customer(inputs)
     if validate['status'] == True:
         try:
-            uid = config.get_uniq_bankid()
+            uid = utils.get_uniq_customerid()
             model = models.CUSTOMERS(
                 name=name,
                 uid=uid,
@@ -31,34 +31,34 @@ def fn_ADD_CUSTOMER(req):
                 loan_limit=loan_limit
             )
             model.save()
-            config.addlog('customer', body)
+            utils.addlog('customer', body)
             success = {
                 "msg": f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
-                "status": config.success
+                "status": utils.success
             }
         except Exception as ex:
             failed = {
                 "msg": f'customer {name} {email} not added',
                 "detail": str(ex),
-                "status": config.failed
+                "status": utils.failed
             }
             flag = False
-            config.adderror('customer error', str(ex))
+            utils.adderror('customer error', str(ex))
     else:
         flag = False
         failed = {
             "msg": f'{validate["msg"]}',
-            "status": config.failed
+            "status": utils.failed
         }
 
     output = success if flag == True else failed
-    return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+    return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 
 @csrf_exempt
 def fn_GET_LIST_of_CUSTOMERS(req):
-    if req.method == config.POST:
-        return res(config.NO_OP_ALLOWED)
+    if req.method == utils.POST:
+        return res(utils.NO_OP_ALLOWED)
     # model=models.CUSTOMERS.objects.only('id', 'name', 'uid', 'age', 'loan_limit', 'when').order_by('id')
     # datasetObj=models.CUSTOMERS.objects.raw(queries.CUSTOMERSWITHLOANS)
     dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery())
@@ -66,5 +66,5 @@ def fn_GET_LIST_of_CUSTOMERS(req):
     # data = config.getJsonSet(model1)
     output = {"data": dataset['json']}
     # print('list of customers with loans', output)
-    config.addlog('customer', {'customer_fetch': True})
-    return res(json.dumps(output), content_type=config.CONTENT_TYPE)
+    utils.addlog('customer', {'customer_fetch': True})
+    return res(json.dumps(output), content_type=utils.CONTENT_TYPE)

@@ -1,4 +1,4 @@
-from loan_manager.common import utils
+from loan_manager.common import lookup
 
 
 def validate_input_subscribe(inputs):
@@ -10,7 +10,7 @@ def validate_input_subscribe(inputs):
         msg = f'invalid input'
         flag = False
     else:
-        obj = utils.check_subscriber(email)
+        obj = lookup.check_subscriber(email)
         if obj['id'] != -1:
             msg = f"record {email} already exists"
             flag = False
