@@ -36,7 +36,8 @@ def check_customer_loan(customer_id):
         "total_repaid_amount": total_repaid_amount,
         "total_interest_amount": total_interest_amount,
         "status": flag,
-        "object": found
+        "object": found,
+        "count": len(found) if found != None else 0
     }
 
 
@@ -54,7 +55,7 @@ def check_customer_exists(email):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "loan_limit": loan_limit,"loan_calc":found_loan, "status": flag, "object": found}
+    return {"id": id, "name": name, "loan_limit": loan_limit, "loan_calc": found_loan, "status": flag, "object": found}
 
 
 def check_subscriber(email):

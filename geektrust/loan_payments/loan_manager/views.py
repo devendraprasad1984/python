@@ -26,8 +26,16 @@ def fn_LOAN(req):
     loan_limit = customer["loan_limit"]
     customerFoundObject = customer['object']
     customerLoanCalc = customer['loan_calc']
-    credit_loan_left = loan_limit - customerLoanCalc['total_loan_amount']
-    cannot_sanction_loan=credit_loan_left<loan_amount
+    total_number_of_loans = customerLoanCalc['count']
+    total_loaned_value = customerLoanCalc['total_loan_amount']
+    credit_loan_left = float(loan_limit) - total_loaned_value
+    cannot_sanction_loan = credit_loan_left < loan_amount
+    if cannot_sanction_loan == True:
+        output = {
+            "msg": f"cannot sanction loan to customer {customername}, {email} due to his credit rating",
+            "status": False
+        }
+        return res(json.dumps(output), content_type=config.CONTENT_TYPE)
 
     interest_amount = round(loan_amount * (rate / 100) * period, 2)
     emi_months = period * 12  # number of emis
@@ -50,7 +58,7 @@ def fn_LOAN(req):
         model.save()
         config.addlog(f'loan added for customer {customerid} - {customername} from bank {bankid} - {bank_name}', body)
         success = {
-            "msg": f'CREDIT LOAN LEFT LIMIT {credit_loan_left}'
+            "msg": f'CREDIT LOAN LEFT LIMIT {credit_loan_left}. This customer already has {total_number_of_loans} running worth {total_loaned_value}. '
                    f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted. '
                    f'Your remaining loan limit as per your credit score is {loan_limit:,}. '
                    f'Your unique loan reference is {uid}. you have taken a loan of amount {loan_amount:,} for a period of {period} yrs @rate {rate}% '

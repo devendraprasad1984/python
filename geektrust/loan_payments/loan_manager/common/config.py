@@ -23,8 +23,8 @@ def getSum(object, field):
     sum = 0
     num_list = [float(x[field]) for x in object.values()]
     for val in num_list:
-        sum += val
-    return sum
+        sum += val.real
+    return float(sum)
 
 
 def getJsonSet(qset):
