@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse as res
 from django.http import HttpRequest
 from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import utils
+from loan_manager.common import utils, field_names
 import json
 from bank_manager import models
 from .validations import validate as bankValidations
@@ -13,16 +13,15 @@ def fn_ADD_BANK(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
-    name = body['name']
-    inputs = {"name": name}
+    name = body[field_names.name]
     flag = True
-    validate = bankValidations.validate_input_add_new_bank(inputs)
-    if validate['status'] == True:
+    validate = bankValidations.validate_input_add_new_bank(body)
+    if validate[field_names.status] == True:
         try:
             uid = utils.get_uniq_bankid()
             model = models.BANKS(name=name, uid=uid)
             model.save()
-            utils.addlog('banks', body)
+            utils.addlog(field_names.banks, body)
             success = {
                 "msg": f'bank {name} added - {uid}',
                 "status": utils.success
@@ -38,7 +37,7 @@ def fn_ADD_BANK(req: HttpRequest):
     else:
         flag = False
         failed = {
-            "msg": f'{validate["msg"]}',
+            "msg": f'{validate[field_names.msg]}',
             "status": utils.failed
         }
 
@@ -50,7 +49,7 @@ def fn_ADD_BANK(req: HttpRequest):
 def fn_GET_LIST_of_BANKS(req):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
-    data = utils.getJsonSet(models.BANKS.objects.only('id', 'name', 'uid', 'when').order_by('id'))
+    data = utils.getJsonSet(models.BANKS.objects.only(field_names.id, field_names.name, field_names.uid, field_names.when).order_by(field_names.id))
     output = {'data': data}
-    utils.addlog('banks', {'bank_fetch':True})
+    utils.addlog(field_names.banks, {'bank_fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)

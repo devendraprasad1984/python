@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import utils, queries
+from loan_manager.common import utils, queries, field_names
 from customer_manager import models
 import json
 from .validations import validate as customerValidations
@@ -13,14 +13,13 @@ def fn_ADD_CUSTOMER(req):
         return res(utils.NO_OP_ALLOWED)
 
     body = utils.getBodyFromReq(req)
-    name = body['name']
-    age = body['age']
-    email = body['email']
-    loan_limit = body['loan_limit']
-    inputs = {"name": name, "email": email, "age": age, "limit": loan_limit}
+    name = body[field_names.name]
+    age = body[field_names.age]
+    email = body[field_names.email]
+    loan_limit = body[field_names.loan_limit]
     flag = True
-    validate = customerValidations.validate_input_add_new_customer(inputs)
-    if validate['status'] == True:
+    validate = customerValidations.validate_input_add_new_customer(body)
+    if validate[field_names.status] == True:
         try:
             uid = utils.get_uniq_customerid()
             model = models.CUSTOMERS(
@@ -31,7 +30,7 @@ def fn_ADD_CUSTOMER(req):
                 loan_limit=loan_limit
             )
             model.save()
-            utils.addlog('customer', body)
+            utils.addlog(field_names.customer, body)
             success = {
                 "msg": f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
                 "status": utils.success
@@ -47,7 +46,7 @@ def fn_ADD_CUSTOMER(req):
     else:
         flag = False
         failed = {
-            "msg": f'{validate["msg"]}',
+            "msg": f'{validate[field_names.msg]}',
             "status": utils.failed
         }
 
@@ -64,7 +63,7 @@ def fn_GET_LIST_of_CUSTOMERS(req):
     dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery())
     # model1=loanModel.objects.select_related('bankid', 'customerid')
     # data = config.getJsonSet(model1)
-    output = {"data": dataset['json']}
+    output = {"data": dataset[field_names.json]}
     # print('list of customers with loans', output)
-    utils.addlog('customer', {'customer_fetch': True})
+    utils.addlog(field_names.customer, {'customer_fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
