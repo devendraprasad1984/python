@@ -26,6 +26,8 @@ def getSum(object, field):
         sum += val.real
     return float(sum)
 
+def getList(ds):
+    return list(ds.values())
 
 def getJsonSet(qset):
     data = json.loads(serializers.serialize('json', qset))

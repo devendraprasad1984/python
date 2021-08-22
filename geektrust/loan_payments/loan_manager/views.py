@@ -4,6 +4,11 @@ from loan_manager.common import utils, lookup
 import json
 from . import models
 
+msg_entity_doesnt_exist = {
+    "msg": f'bank | customer | loan or all association doesnt exist',
+    "status": False
+}
+
 
 @csrf_exempt
 def fn_LOAN(req):
@@ -19,9 +24,13 @@ def fn_LOAN(req):
     bank = lookup.check_bank_exists(bank_name)
     customer = lookup.check_customer_exists(email)
     bankid = bank["id"]
-    bankFoundObject = bank['object']
-
     customerid = customer["id"]
+    bank_entity_exist_check = lookup.check_customer_or_bank_or_loan(bankid)
+    customer_entity_exist_check = lookup.check_customer_or_bank_or_loan(customerid)
+    if bank_entity_exist_check == False or customer_entity_exist_check == False:
+        return res(json.dumps(msg_entity_doesnt_exist), content_type=utils.CONTENT_TYPE)
+
+    bankFoundObject = bank['object']
     customername = customer["name"]
     loan_limit = customer["loan_limit"]
     customerFoundObject = customer['object']
@@ -66,7 +75,7 @@ def fn_LOAN(req):
                    f'total interest paid by you will be {interest_amount:,}. Your auto debit will start next month.',
             "status": utils.success
         }
-        flag = True
+        status_flag = True
     except Exception as ex:
         utils.adderror('loan error', str(ex))
         failed = {
@@ -74,12 +83,8 @@ def fn_LOAN(req):
             "detail": str(ex),
             "status": utils.failed
         }
-        flag = False
-    # failed = {
-    #     "msg": f'{"failed"}',
-    #     "status": config.failed
-    # }
-    output = success if flag == True else failed
+        status_flag = False
+    output = success if status_flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 
@@ -90,4 +95,42 @@ def fn_PAYMENT(req):
 
 @csrf_exempt
 def fn_BALANCE(req):
-    return res('BALANCE')
+    if req.method == 'GET':
+        return res(utils.NO_OP_ALLOWED)
+
+    body = utils.getBodyFromReq(req)
+    bank_name = body['bank_name']
+    email = body['email']
+    loan_ref = body['loan_ref']
+    emi_number = body['emi_number']
+    bank = lookup.check_bank_exists(bank_name)
+    customer = lookup.check_customer_exists(email)
+    bankid = bank['id']
+    customerid = customer['id']
+    loan_details_customer = lookup.get_existing_loan_by_bank_customer_id(bankid, customerid, loan_ref)
+    loan_id = loan_details_customer['id']
+    loan_uid = loan_details_customer['uid']
+    loan_object = loan_details_customer['object']
+    if loan_id != -1:
+        emi_amount = loan_object['emi_amount']
+        emi_months = loan_object['emi_months']
+        emi_months_repaid = loan_object['emi_months_repaid']
+        repaid_amount = loan_object['repaid_amount']
+        loan_amount = loan_object['loan_amount']
+
+    bank_entity_exist_check = lookup.check_customer_or_bank_or_loan(bankid)
+    customer_entity_exist_check = lookup.check_customer_or_bank_or_loan(customerid)
+    loan_entity_exist_check = lookup.check_customer_or_bank_or_loan(loan_id)
+    if bank_entity_exist_check == False or customer_entity_exist_check == False or loan_entity_exist_check == False:
+        return res(json.dumps(msg_entity_doesnt_exist), content_type=utils.CONTENT_TYPE)
+
+    customer_name = customer['name']
+
+    msg = {
+        "msg": f'Balances= {bank_name}({bankid}) - customer: {customer_name}, email: {email}, emi: {emi_number}, loan: {loan_uid}({loan_id})'
+               f'loan amount: {loan_amount}, emi amount: {emi_amount}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}',
+        "loan_details": utils.jsonEncode(loan_object),
+        "status": True
+    }
+    utils.addlog(f'balance check {customer_name}({customerid}) / {bank_name}({bankid})', body)
+    return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
