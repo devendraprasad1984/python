@@ -62,9 +62,17 @@ def run_customer_query(**param):
     dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery(**param))
     json_data = dataset[field_names.json]
     total_loan_offered = utils.getSumFromJsonConverted(json_data, field_names.loan_amount)
+    loan_limit_left = -1
+    is_id_ref = param[field_names.id] if field_names.id in param else ''
+    is_loan_ref = param[field_names.loan_ref] if field_names.loan_ref in param else ''
+
+    if json_data.__len__() > 0 and (is_id_ref or is_loan_ref):
+        loan_limit = json_data[0][field_names.loan_limit]
+        loan_limit_left = float(loan_limit) - total_loan_offered
     return {
         "count": json_data.__len__(),
-        "total_loan_offered": total_loan_offered,
+        "total_loan_offered": f'{total_loan_offered:,}',
+        "loan_limit_left": f'{loan_limit_left:,}',
         "data": json_data
     }
 

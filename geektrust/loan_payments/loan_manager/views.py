@@ -27,7 +27,7 @@ def fn_LOAN(req):
     period = body[field_names.year]
 
     bank = lookup.check_bank_exists(bank_name)
-    customer = lookup.check_customer_exists(email)
+    customer = lookup.check_customer_exists(email=email)
     bankid = bank[field_names.id]
     customerid = customer[field_names.id]
     bank_entity_exist_check = lookup.check_customer_or_bank_or_loan(bankid)
@@ -183,7 +183,7 @@ def fn_BALANCE(req):
     emi_number = body[field_names.emi_number]
 
     bank = lookup.check_bank_exists(bank_name)
-    customer = lookup.check_customer_exists(email)
+    customer = lookup.check_customer_exists(email=email)
     bankid = bank[field_names.id]
     customerid = customer[field_names.id]
     loan_details_customer = lookup.get_existing_loan_details(bankid=bankid, customerid=customerid, loan_ref=loan_ref)

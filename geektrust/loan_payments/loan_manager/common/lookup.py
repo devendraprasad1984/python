@@ -21,11 +21,17 @@ def check_field_existence_in_request_body(body, fld_names):
             break
     return presence_flag, json.dumps(msg)
 
-def check_bank_exists(name):
+def check_bank_exists(name, uid, id):
     id = -1
     flag = True
     try:
-        found = bank.BANKS.objects.get(name=name)
+        if name != None:
+            found = bank.BANKS.objects.get(name=name)
+        elif uid != None:
+            found = bank.BANKS.objects.get(uid=uid)
+        elif id != None:
+            found = bank.BANKS.objects.get(id=id)
+
         id = found.id
     except bank.BANKS.DoesNotExist:
         found = None
@@ -55,7 +61,7 @@ def check_customer_all_loan(customer_id):
         "count": len(found) if found != None else 0
     }
 
-def check_customer_exists(email):
+def check_customer_exists(email, uid, id):
     id = -1
     name = ''
     loan_limit = 0
@@ -63,7 +69,12 @@ def check_customer_exists(email):
     found = None
     flag = True
     try:
-        found = customer.CUSTOMERS.objects.get(email=email)
+        if email != None:
+            found = customer.CUSTOMERS.objects.get(email=email)
+        elif uid != None:
+            found = customer.CUSTOMERS.objects.get(uid=uid)
+        elif id != None:
+            found = customer.CUSTOMERS.objects.get(id=id)
         id = found.id
         name = found.name
         loan_limit = found.loan_limit
