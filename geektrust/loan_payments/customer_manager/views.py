@@ -59,12 +59,12 @@ def fn_ADD_CUSTOMER(req):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
-def fn_GET_LIST_of_CUSTOMERS(req, id=None, loan_ref=None):
+def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
     # model=models.CUSTOMERS.objects.only('id', 'name', 'uid', 'age', 'loan_limit', 'when').order_by('id')
     # datasetObj=models.CUSTOMERS.objects.raw(queries.CUSTOMERSWITHLOANS)
-    param = {"id": id, "loan_ref": loan_ref}
+    param = {"id": id}
     dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery(**param))
     json_data = dataset[field_names.json]
     # model1=loanModel.objects.select_related('bankid', 'customerid')
@@ -76,5 +76,21 @@ def fn_GET_LIST_of_CUSTOMERS(req, id=None, loan_ref=None):
         "data": json_data
     }
     # print('list of customers with loans', output)
+    utils.addlog(field_names.customer, {'customer_fetch': True})
+    return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
+
+@csrf_exempt
+def fn_GET_CUSTOMER_LOAN(req, loan_ref=None):
+    if req.method == utils.POST:
+        return res(utils.NO_OP_ALLOWED)
+    param = {"loan_ref": loan_ref}
+    dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery(**param))
+    json_data = dataset[field_names.json]
+    total_loan_offered = utils.getSumFromJsonConverted(json_data, field_names.loan_amount)
+    output = {
+        "count": json_data.__len__(),
+        "total_loan_offered": total_loan_offered,
+        "data": json_data
+    }
     utils.addlog(field_names.customer, {'customer_fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
