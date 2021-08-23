@@ -23,6 +23,6 @@ class LOANS(models.Model):
 
 class QUERY_LOG(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
-    type = models.CharField(max_length=50)
+    type = models.CharField(max_length=150)
     log = models.TextField()
     when = models.DateTimeField(auto_now_add=True, blank=True)
