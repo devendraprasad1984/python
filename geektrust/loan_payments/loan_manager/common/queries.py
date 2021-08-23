@@ -25,5 +25,6 @@ def CUSTOM_QUERY_RUN(qur):
     cursor.execute(qur)
     rows = cursor.fetchall()
     jsondata = [dict((getfield(i), value) for i, value in enumerate(row)) for row in rows]
-    cursor.connection.close()
+    cursor = None
+    # cursor.connection.close()
     return {"rows": rows, "json": utils.jsonEncode(jsondata)}

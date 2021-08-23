@@ -5,7 +5,7 @@ from bank_manager import models as bank
 from customer_manager import models as customer
 from loan_manager import models as loan_model
 from subscribe import models as subscriber
-from . import utils, field_names
+from . import utils, field_names, queries
 
 
 def check_field_existence_in_request_body(body, fld_names):
@@ -127,3 +127,22 @@ def get_existing_loan_details(bankid=None, customerid=None, loan_ref=None):
         if found != None and found.id != None:
             flag = False
     return {"id": id, "uid": uid, "status": flag, "object": found_list}
+
+
+def run_customer_loan_query(**param):
+    dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery(**param))
+    json_data = dataset[field_names.json]
+    total_loan_offered = utils.getSumFromJsonConverted(json_data, field_names.loan_amount)
+    loan_limit_left = -1
+    is_id_ref = param[field_names.id] if field_names.id in param else ''
+    is_loan_ref = param[field_names.loan_ref] if field_names.loan_ref in param else ''
+
+    if json_data.__len__() > 0 and (is_id_ref or is_loan_ref):
+        loan_limit = json_data[0][field_names.loan_limit]
+        loan_limit_left = float(loan_limit) - total_loan_offered
+    return {
+        "count": json_data.__len__(),
+        "total_loan_offered": f'{total_loan_offered:,}',
+        "loan_limit_left": f'{loan_limit_left:,}',
+        "data": json_data
+    }

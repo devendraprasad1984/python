@@ -3,7 +3,7 @@ from functools import wraps
 
 from django.shortcuts import HttpResponse as res
 
-from loan_manager.common import utils, field_names
+from loan_manager.common import utils, field_names, lookup
 
 
 # example of closure, decorator or middleware functions
@@ -11,6 +11,7 @@ def check_signer_with_api_type(api_type=None):
     def check_signer(func):
         @wraps(func)
         def func_wrapper(*args, **kwargs):
+            msg = utils.not_allowed
             req = args[0]
             has_body = req.body.__len__() != 0
             has_signer_key = utils.signer_header_key in req.headers
@@ -19,6 +20,7 @@ def check_signer_with_api_type(api_type=None):
                 signer_key_from_header = req.headers[utils.signer_header_key]
             if has_body:
                 body = utils.getBodyFromReq(req)
+                has_loan_ref = field_names.loan_ref in body
 
             unsigner = utils.getUnSignerObject(signer_key_from_header)
             subscribed = unsigner[field_names.subscription]
@@ -35,9 +37,16 @@ def check_signer_with_api_type(api_type=None):
                 allow_to_run = is_matched and api_type_in_db == field_names.manager
             elif api_type == field_names.borrower:
                 allow_to_run = is_matched and api_type_in_db == field_names.borrower
+                subscriber_email = utils.get_field_values_from_model_object(subscribed, field_names.email)
+                email_match = False
+                if has_loan_ref:
+                    customer = lookup.run_customer_loan_query(**{'loan_ref': body[field_names.loan_ref]})
+                    customer_email = customer[field_names.data][0][field_names.email]
+                    email_match = subscriber_email == customer_email
+                    allow_to_run = is_matched and api_type_in_db == field_names.borrower and (has_loan_ref == True and email_match == True)
 
-            msg = {"msg": utils.not_allowed, "status": allow_to_run, "api_type": api_type}
-            if allow_to_run == False: return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
+            output = {"msg": msg, "status": allow_to_run, "api_type": api_type}
+            if allow_to_run == False: return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
             return func(*args, **kwargs)
 
         return func_wrapper

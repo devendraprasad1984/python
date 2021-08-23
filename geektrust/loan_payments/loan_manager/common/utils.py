@@ -21,7 +21,7 @@ signer_header_key = 'geek-signer'
 app_code = 'g3eK_t7R_#278_s___T'
 len_of_uid = 17
 CONTENT_TYPE = "application/json"
-not_allowed = 'operation not allowed or signer or jwt not verified'
+not_allowed = 'operation not allowed or signer or jwt not verified or borrower mail not matched'
 NO_OP_ALLOWED = json.dumps({"msg": not_allowed, "status": failed})
 MISSING_FIELD_MSG = {"msg": "some input values are missing or left blank. ", "status": failed}
 
