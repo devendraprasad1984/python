@@ -58,24 +58,22 @@ def fn_ADD_CUSTOMER(req):
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
-@csrf_exempt
-def fn_GET_LIST_of_CUSTOMERS(req, id=None):
-    if req.method == utils.POST:
-        return res(utils.NO_OP_ALLOWED)
-    # model=models.CUSTOMERS.objects.only('id', 'name', 'uid', 'age', 'loan_limit', 'when').order_by('id')
-    # datasetObj=models.CUSTOMERS.objects.raw(queries.CUSTOMERSWITHLOANS)
-    param = {"id": id}
+def run_customer_query(**param):
     dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery(**param))
     json_data = dataset[field_names.json]
-    # model1=loanModel.objects.select_related('bankid', 'customerid')
-    # data = config.getJsonSet(model1)
     total_loan_offered = utils.getSumFromJsonConverted(json_data, field_names.loan_amount)
-    output = {
+    return {
         "count": json_data.__len__(),
         "total_loan_offered": total_loan_offered,
         "data": json_data
     }
-    # print('list of customers with loans', output)
+
+@csrf_exempt
+def fn_GET_LIST_of_CUSTOMERS(req, id=None):
+    if req.method == utils.POST:
+        return res(utils.NO_OP_ALLOWED)
+    param = {"id": id}
+    output = run_customer_query(**param)
     utils.addlog(field_names.customer, {'customer_fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
@@ -84,13 +82,6 @@ def fn_GET_CUSTOMER_LOAN(req, loan_ref=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
     param = {"loan_ref": loan_ref}
-    dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery(**param))
-    json_data = dataset[field_names.json]
-    total_loan_offered = utils.getSumFromJsonConverted(json_data, field_names.loan_amount)
-    output = {
-        "count": json_data.__len__(),
-        "total_loan_offered": total_loan_offered,
-        "data": json_data
-    }
-    utils.addlog(field_names.customer, {'customer_fetch': True})
+    output = run_customer_query(**param)
+    utils.addlog(field_names.customer_with_loan, {'customer_fetch_loan_ref': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
