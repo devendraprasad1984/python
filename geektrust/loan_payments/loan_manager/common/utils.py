@@ -26,6 +26,9 @@ def getSum(object, field):
         sum += val.real
     return float(sum)
 
+def getSumFromJsonConverted(object, field):
+    return sum([float(x[field]) if x[field]!=None else 0 for x in object])
+
 def getList(ds):
     return list(ds.values())
 
