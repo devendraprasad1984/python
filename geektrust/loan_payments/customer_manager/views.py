@@ -5,16 +5,12 @@ from django.views.decorators.csrf import csrf_exempt
 
 from customer_manager import models
 from loan_manager.common import utils, queries, field_names, lookup
-from loan_manager.middleware import signer_check
 from .validations import validate as customerValidations
 
 
 # Create your views here.
-# function decorators acting as middleware
-external_check_signer = signer_check.check_signer_with_api_type(api_type=field_names.external)
-crud_check_signer = signer_check.check_signer_with_api_type(api_type=field_names.crud)
-
 @csrf_exempt
+@utils.crud_check_signer_middleware()
 def fn_ADD_CUSTOMER(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)
@@ -82,7 +78,7 @@ def run_customer_query(**param):
     }
 
 @csrf_exempt
-@external_check_signer
+@utils.external_check_signer_middleware()
 def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
@@ -92,7 +88,7 @@ def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
-@crud_check_signer
+@utils.crud_check_signer_middleware()
 def fn_GET_CUSTOMER_LOAN(req, loan_ref=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
