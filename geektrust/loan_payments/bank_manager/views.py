@@ -11,6 +11,7 @@ from .validations import validate as bankValidations
 
 # Create your views here.
 @csrf_exempt
+@utils.crud_check_signer_middleware()
 def fn_ADD_BANK(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
@@ -50,6 +51,7 @@ def fn_ADD_BANK(req: HttpRequest):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@utils.crud_check_signer_middleware()
 def fn_GET_LIST_of_BANKS(req):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)

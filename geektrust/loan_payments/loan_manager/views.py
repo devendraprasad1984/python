@@ -13,6 +13,7 @@ msg_entity_doesnt_exist = {
 }
 
 @csrf_exempt
+@utils.crud_check_signer_middleware()
 def fn_LOAN(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)
@@ -26,7 +27,7 @@ def fn_LOAN(req):
     rate = body[field_names.rate]
     period = body[field_names.year]
 
-    bank = lookup.check_bank_exists(bank_name)
+    bank = lookup.check_bank_exists(name=bank_name)
     customer = lookup.check_customer_exists(email=email)
     bankid = bank[field_names.id]
     customerid = customer[field_names.id]
@@ -93,6 +94,7 @@ def fn_LOAN(req):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@utils.external_check_signer_middleware()
 def fn_PAYMENT(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)
@@ -110,8 +112,6 @@ def fn_PAYMENT(req):
     loan_uid = loan_details_customer[field_names.uid]
     loan_object = loan_details_customer[field_names.object]
 
-    # bank = lookup.check_bank_exists(bank_name)
-    # customer = lookup.check_customer_exists(email)
     bankid = loan_object[field_names.bankid_id]
     customerid = loan_object[field_names.customerid_id]
     status_flag = loan_not_found = payment_less_than_emi = interest_zero = False
@@ -169,6 +169,7 @@ def fn_PAYMENT(req):
     return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@utils.external_check_signer_middleware()
 def fn_BALANCE(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)
@@ -182,7 +183,7 @@ def fn_BALANCE(req):
     loan_ref = body[field_names.loan_ref]
     emi_number = body[field_names.emi_number]
 
-    bank = lookup.check_bank_exists(bank_name)
+    bank = lookup.check_bank_exists(name=bank_name)
     customer = lookup.check_customer_exists(email=email)
     bankid = bank[field_names.id]
     customerid = customer[field_names.id]

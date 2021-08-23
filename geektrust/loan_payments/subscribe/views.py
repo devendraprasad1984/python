@@ -100,26 +100,26 @@ def gn_GET_SUBSCRIBERS(req: HttpRequest):
     utils.addlog(field_names.banks, {'subscription list fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
-@csrf_exempt
-def fn_ADD_API_USER(req):
-    if req.method == utils.GET:
-        return res(utils.NO_OP_ALLOWED)
-    body = utils.getBodyFromReq(req)
-    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.username, field_names.email, field_names.pwd])
-    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
-
-    user = body[field_names.username]
-    email = body[field_names.email]
-    pwd = body[field_names.pwd]
-    trace = ''
-    try:
-        user = User.objects.create_user(user, email, pwd)
-        user.save()
-        flag = True
-    except Exception as ex:
-        flag = False
-        trace = str(ex)
-    return res(json.dumps({'status': utils.success if flag else utils.failed, "msg": f"user {user} {'added' if flag else 'not added'}", "trace": trace}), content_type=utils.CONTENT_TYPE)
+# @csrf_exempt
+# def fn_ADD_API_USER(req):
+#     if req.method == utils.GET:
+#         return res(utils.NO_OP_ALLOWED)
+#     body = utils.getBodyFromReq(req)
+#     check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.username, field_names.email, field_names.pwd])
+#     if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+#
+#     user = body[field_names.username]
+#     email = body[field_names.email]
+#     pwd = body[field_names.pwd]
+#     trace = ''
+#     try:
+#         user = User.objects.create_user(user, email, pwd)
+#         user.save()
+#         flag = True
+#     except Exception as ex:
+#         flag = False
+#         trace = str(ex)
+#     return res(json.dumps({'status': utils.success if flag else utils.failed, "msg": f"user {user} {'added' if flag else 'not added'}", "trace": trace}), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
 def fn_JWT_TOKEN_PAIR(req):

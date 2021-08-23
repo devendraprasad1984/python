@@ -69,6 +69,7 @@ def getUnSignerObject(signObj):
     signer = Signer()
     matched = decoded = False
     key = not_allowed
+    subscription = None
     try:
         unsignedObj = signer.unsign_object(signObj)
         decoded = True

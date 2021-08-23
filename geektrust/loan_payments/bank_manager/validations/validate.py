@@ -9,7 +9,7 @@ def validate_input_add_new_bank(inputs):
         msg = 'name is blank or length is more than 10 characters'
         flag = False
     else:
-        obj = lookup.check_bank_exists(name)
+        obj = lookup.check_bank_exists(name=name)
         if obj['id'] != -1:
             msg = f"record {name} already exists"
             flag = False

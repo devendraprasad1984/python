@@ -21,7 +21,7 @@ def check_field_existence_in_request_body(body, fld_names):
             break
     return presence_flag, json.dumps(msg)
 
-def check_bank_exists(name, uid, id):
+def check_bank_exists(name=None, uid=None, id=None):
     id = -1
     flag = True
     try:
@@ -61,7 +61,7 @@ def check_customer_all_loan(customer_id):
         "count": len(found) if found != None else 0
     }
 
-def check_customer_exists(email, uid, id):
+def check_customer_exists(email=None, uid=None, id=None):
     id = -1
     name = ''
     loan_limit = 0
