@@ -114,10 +114,14 @@ def adderror(type, trace):
     addlog(type, {"error": trace})
 
 # returning middleware decorator function with parameter to deal with external api type or having CRUD access to do operations
-def external_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.external)
+def external_check_signer_middleware():
+    return signer_check.check_signer_with_api_type(api_type=field_names.external)
 
-def crud_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.crud)
+def crud_check_signer_middleware():
+    return signer_check.check_signer_with_api_type(api_type=field_names.crud)
 
-def manager_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.manager)
+def manager_check_signer_middleware():
+    return signer_check.check_signer_with_api_type(api_type=field_names.manager)
 
-def borrower_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.borrower)
+def borrower_check_signer_middleware():
+    return signer_check.check_signer_with_api_type(api_type=field_names.borrower)
