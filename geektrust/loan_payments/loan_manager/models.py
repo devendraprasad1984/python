@@ -1,4 +1,5 @@
 from django.db import models
+
 from bank_manager import models as bank
 from customer_manager import models as customer
 
@@ -18,7 +19,6 @@ class LOANS(models.Model):
     emi_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     total_amount_pi = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     when = models.DateTimeField(auto_now_add=True, blank=True)
-
 
 class QUERY_LOG(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)

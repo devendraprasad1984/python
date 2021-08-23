@@ -1,5 +1,7 @@
 from django.urls import path
+
 from . import views
+
 
 urlpatterns = [
     path('newtoken', views.fn_GET_NEW_TOKEN),

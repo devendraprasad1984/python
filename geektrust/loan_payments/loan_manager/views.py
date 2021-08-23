@@ -1,14 +1,16 @@
-from django.shortcuts import render, HttpResponse as res
-from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import utils, lookup, field_names
 import json
+
+from django.shortcuts import HttpResponse as res
+from django.views.decorators.csrf import csrf_exempt
+
+from loan_manager.common import utils, lookup, field_names
 from . import models
+
 
 msg_entity_doesnt_exist = {
     "msg": f'bank | customer | loan or all association doesnt exist',
     "status": False
 }
-
 
 @csrf_exempt
 def fn_LOAN(req):
@@ -87,11 +89,9 @@ def fn_LOAN(req):
     output = success if status_flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
-
 @csrf_exempt
 def fn_PAYMENT(req):
     return res('PAYMENT')
-
 
 @csrf_exempt
 def fn_BALANCE(req):

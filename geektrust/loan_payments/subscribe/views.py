@@ -21,7 +21,6 @@ def fn_GET_NEW_TOKEN(req: HttpRequest):
     output = {"key": key, "signed": sign, "msg": "here is your secret key, keep it safe", "status": utils.success}
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
-
 @csrf_exempt
 def fn_CHECK_API_SIGNER(req: HttpRequest):
     if req.method == utils.GET:
@@ -34,7 +33,6 @@ def fn_CHECK_API_SIGNER(req: HttpRequest):
     key = unsign_check[field_names.key]
     output = {"matched": matched, "msg": "access granted", "status": utils.success}
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
-
 
 @csrf_exempt
 def fn_SUBSCRIBE(req: HttpRequest):
@@ -78,7 +76,6 @@ def fn_SUBSCRIBE(req: HttpRequest):
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
-
 def gn_GET_SUBSCRIBERS(req: HttpRequest):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
@@ -86,7 +83,6 @@ def gn_GET_SUBSCRIBERS(req: HttpRequest):
     output = {'data': data}
     utils.addlog(field_names.banks, {'subscription list fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
-
 
 @csrf_exempt
 def fn_ADD_API_USER(req):
@@ -105,7 +101,6 @@ def fn_ADD_API_USER(req):
         flag = False
         trace = str(ex)
     return res(json.dumps({'status': utils.success if flag else utils.failed, "msg": f"user {user} {'added' if flag else 'not added'}", "trace": trace}), content_type=utils.CONTENT_TYPE)
-
 
 @csrf_exempt
 def fn_JWT_TOKEN_PAIR(req):

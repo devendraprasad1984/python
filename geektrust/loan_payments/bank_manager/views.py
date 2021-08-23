@@ -1,9 +1,11 @@
-from django.shortcuts import render, HttpResponse as res
-from django.http import HttpRequest
-from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import utils, field_names
 import json
+
+from django.http import HttpRequest
+from django.shortcuts import HttpResponse as res
+from django.views.decorators.csrf import csrf_exempt
+
 from bank_manager import models
+from loan_manager.common import utils, field_names
 from .validations import validate as bankValidations
 
 
@@ -43,7 +45,6 @@ def fn_ADD_BANK(req: HttpRequest):
 
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
-
 
 @csrf_exempt
 def fn_GET_LIST_of_BANKS(req):

@@ -1,8 +1,10 @@
-from django.shortcuts import render, HttpResponse as res
-from django.views.decorators.csrf import csrf_exempt
-from loan_manager.common import utils, queries, field_names
-from customer_manager import models
 import json
+
+from django.shortcuts import HttpResponse as res
+from django.views.decorators.csrf import csrf_exempt
+
+from customer_manager import models
+from loan_manager.common import utils, queries, field_names
 from .validations import validate as customerValidations
 
 
@@ -52,7 +54,6 @@ def fn_ADD_CUSTOMER(req):
 
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
-
 
 @csrf_exempt
 def fn_GET_LIST_of_CUSTOMERS(req, id=None):
