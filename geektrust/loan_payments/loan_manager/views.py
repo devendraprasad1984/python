@@ -103,7 +103,7 @@ def fn_PAYMENT(req):
 
     loan_ref = body[field_names.loan_ref]
     emi_number = body[field_names.emi_number]
-    payment = float(body[field_names.payment])
+    payment = float(body[field_names.payment]) * emi_number
 
     loan_details_customer = lookup.get_existing_loan_details(loan_ref=loan_ref)
     loan_id = loan_details_customer[field_names.id]
@@ -114,25 +114,58 @@ def fn_PAYMENT(req):
     # customer = lookup.check_customer_exists(email)
     bankid = loan_object[field_names.bankid_id]
     customerid = loan_object[field_names.customerid_id]
+    status_flag = loan_not_found = payment_less_than_emi = interest_zero = False
     if loan_id != -1:
         emi_amount = float(loan_object[field_names.emi_amount])
         emi_months = loan_object[field_names.emi_months] - emi_number
         emi_months_repaid = loan_object[field_names.emi_months_repaid] + emi_number
         repaid_amount = float(loan_object[field_names.repaid_amount]) + payment
         loan_amount = loan_object[field_names.loan_amount]
-
-    if payment < emi_amount:
-        msg = {
-            "msg": f"emi is less than actual payable, kindly payment emi amount as {emi_amount}",
-            "status": False
-        }
+        interest_amount = float(loan_object[field_names.interest_amount]) - payment
     else:
         msg = {
-            "msg": f'PAYMENT= loan: {loan_ref}({loan_id})'
-                   f'loan amount: {loan_amount}, emi amount: {emi_amount}, payment: {payment}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}',
-            "status": True
+            "msg": f"loan not found",
+            "status": status_flag
         }
-    # utils.addlog(f'payment (cust: {customerid}) / (bank: {bankid}) / loan: {loan_ref}', body)
+        loan_not_found = True
+    if payment < (emi_amount * emi_number):
+        msg = {
+            "msg": f"emi is less than actual payable, kindly pay emi amount as {emi_amount * emi_number}",
+            "status": status_flag
+        }
+        payment_less_than_emi = True
+    elif interest_amount < 0:
+        msg = {
+            "msg": f"no payment required, loan can be closed",
+            "status": status_flag
+        }
+        interest_zero = True
+
+    if loan_not_found or payment_less_than_emi or interest_zero:
+        return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
+
+    try:
+        model = models.LOANS.objects.filter(uid=loan_ref)
+        model.update(
+            emi_months=emi_months,
+            emi_months_repaid=emi_months_repaid,
+            repaid_amount=repaid_amount,
+            interest_amount=interest_amount,
+        )
+        status_flag = True
+        utils.addlog(f'payment (cust: {customerid}) / (bank: {bankid}) / loan: {loan_ref}', body)
+        msg = {
+            "msg": f'PAYMENT= loan: {loan_ref}({loan_id})'
+                   f'loan amount: {loan_amount}, emi amount: {emi_amount}, payment: {payment}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}, remaining interest: {interest_amount}',
+            "status": status_flag
+        }
+    except Exception as ex:
+        utils.adderror('loan error', str(ex))
+        msg = {
+            "msg": f'payment for {loan_ref}, customer: {customerid} could not be processed',
+            "detail": str(ex),
+            "status": utils.failed
+        }
     return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt

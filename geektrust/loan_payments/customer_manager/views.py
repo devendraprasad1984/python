@@ -59,12 +59,12 @@ def fn_ADD_CUSTOMER(req):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
-def fn_GET_LIST_of_CUSTOMERS(req, id=None):
+def fn_GET_LIST_of_CUSTOMERS(req, id=None, loan_ref=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
     # model=models.CUSTOMERS.objects.only('id', 'name', 'uid', 'age', 'loan_limit', 'when').order_by('id')
     # datasetObj=models.CUSTOMERS.objects.raw(queries.CUSTOMERSWITHLOANS)
-    param = {"id": id}
+    param = {"id": id, "loan_ref": loan_ref}
     dataset = queries.CUSTOM_QUERY_RUN(queries.getCustomerWithLoanQuery(**param))
     json_data = dataset[field_names.json]
     # model1=loanModel.objects.select_related('bankid', 'customerid')
