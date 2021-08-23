@@ -91,17 +91,21 @@ def check_customer_or_bank_or_loan(id):
     if id == -1: return False
     return True
 
-def get_existing_loan_by_bank_customer_id(bankid, customerid, loan_ref=None):
+def get_existing_loan_details(bankid=None, customerid=None, loan_ref=None):
     id = -1
     uid = ''
     flag = True
     try:
-        if loan_ref != None:
+        if loan_ref != None and bankid == None and customerid == None:
+            found = loan_model.LOANS.objects.filter(uid=loan_ref)
+            found_list = utils.getList(found)[0]
+            id = found_list['id']
+        elif loan_ref != None and bankid != None and customerid != None:
             found = loan_model.LOANS.objects.filter(bankid=bankid, customerid=customerid, uid=loan_ref)
             found_list = utils.getList(found)[0]
             id = found_list['id']
             uid = found_list['uid']
-        else:
+        elif bankid == None and customerid == None:
             found = loan_model.LOANS.objects.filter(bankid=bankid, customerid=customerid)
             found_list = utils.getJsonSet(found)
     except loan_model.LOANS.DoesNotExist:

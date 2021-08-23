@@ -94,7 +94,46 @@ def fn_LOAN(req):
 
 @csrf_exempt
 def fn_PAYMENT(req):
-    return res('PAYMENT')
+    if req.method == 'GET':
+        return res(utils.NO_OP_ALLOWED)
+
+    body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.payment, field_names.loan_ref, field_names.emi_number])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
+    loan_ref = body[field_names.loan_ref]
+    emi_number = body[field_names.emi_number]
+    payment = float(body[field_names.payment])
+
+    loan_details_customer = lookup.get_existing_loan_details(loan_ref=loan_ref)
+    loan_id = loan_details_customer[field_names.id]
+    loan_uid = loan_details_customer[field_names.uid]
+    loan_object = loan_details_customer[field_names.object]
+
+    # bank = lookup.check_bank_exists(bank_name)
+    # customer = lookup.check_customer_exists(email)
+    bankid = loan_object[field_names.bankid_id]
+    customerid = loan_object[field_names.customerid_id]
+    if loan_id != -1:
+        emi_amount = float(loan_object[field_names.emi_amount])
+        emi_months = loan_object[field_names.emi_months] - emi_number
+        emi_months_repaid = loan_object[field_names.emi_months_repaid] + emi_number
+        repaid_amount = float(loan_object[field_names.repaid_amount]) + payment
+        loan_amount = loan_object[field_names.loan_amount]
+
+    if payment < emi_amount:
+        msg = {
+            "msg": f"emi is less than actual payable, kindly payment emi amount as {emi_amount}",
+            "status": False
+        }
+    else:
+        msg = {
+            "msg": f'PAYMENT= loan: {loan_ref}({loan_id})'
+                   f'loan amount: {loan_amount}, emi amount: {emi_amount}, payment: {payment}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}',
+            "status": True
+        }
+    # utils.addlog(f'payment (cust: {customerid}) / (bank: {bankid}) / loan: {loan_ref}', body)
+    return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
 def fn_BALANCE(req):
@@ -114,7 +153,7 @@ def fn_BALANCE(req):
     customer = lookup.check_customer_exists(email)
     bankid = bank[field_names.id]
     customerid = customer[field_names.id]
-    loan_details_customer = lookup.get_existing_loan_by_bank_customer_id(bankid, customerid, loan_ref)
+    loan_details_customer = lookup.get_existing_loan_details(bankid=bankid, customerid=customerid, loan_ref=loan_ref)
     loan_id = loan_details_customer[field_names.id]
     loan_uid = loan_details_customer[field_names.uid]
     loan_object = loan_details_customer[field_names.object]
