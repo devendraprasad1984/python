@@ -8,4 +8,6 @@ class SUBSCRIPTION(models.Model):
     email = models.EmailField(null=False, unique=True)
     secret_key = models.TextField(null=True)
     signer = models.TextField(null=True)
+    allow_external = models.BooleanField(default=False)
+    allow_crud_internal = models.BooleanField(default=False)
     when = models.DateTimeField(auto_now_add=True, blank=True)

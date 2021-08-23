@@ -42,25 +42,35 @@ def fn_SUBSCRIBE(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
-    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.name, field_names.email])
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.name, field_names.email, field_names.allow_external_access, field_names.allow_crud_internal])
     if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
 
     name = body[field_names.name]
     email = body[field_names.email]
-    key = utils.getSecretAccessKey()
-    sign = utils.getSignerObject()
+    allow_external_access = body[field_names.allow_external_access]
+    allow_crud_internal = body[field_names.allow_crud_internal]
+
+    sign, base_object = utils.getSignerObject()
+    key = base_object[field_names.key]
 
     flag = True
     validate = subscribe_validator.validate_input_subscribe(body)
     if validate[field_names.status] == True:
         try:
-            model = models.SUBSCRIPTION(name=name, email=email, secret_key=key, signer=sign)
+            model = models.SUBSCRIPTION(
+                name=name,
+                email=email,
+                secret_key=key,
+                signer=sign,
+                allow_external=allow_external_access,
+                allow_crud_internal=allow_crud_internal
+            )
             model.save()
             utils.addlog(field_names.new_subscription, body)
             success = {
                 "msg": {"key": key, "signed": sign,
                         "msg": f'Thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
-                               f' at {email}. use it in header {utils.X_GEEK_HEADER} for accessing our services. this will be valid for next 1 year. '
+                               f' at {email}. use it in header {utils.signer_header_key} for accessing our services. this will be valid for next 1 year. '
                                f'You have to get it regnerated for further use', "status": utils.success},
                 "status": utils.success
             }

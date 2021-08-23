@@ -8,6 +8,7 @@ from django.core.signing import Signer
 from django.utils import crypto
 
 from .. import models
+from ..common import lookup, field_names
 
 
 failed = "failed"
@@ -18,7 +19,6 @@ header = 'HEADER'
 signer_header_key = 'geek-signer'
 app_code = 'g3eK_t7R_#278_s___T'
 len_of_uid = 17
-X_GEEK_HEADER = 'x-geek-trust-key'
 CONTENT_TYPE = "application/json"
 not_allowed = 'operation not allowed or signer or jwt not verified'
 NO_OP_ALLOWED = json.dumps({"msg": not_allowed, "status": failed})
@@ -36,6 +36,9 @@ def getSumFromJsonConverted(object, field):
 
 def getList(ds):
     return list(ds.values())
+
+def get_field_values_from_model_object(object, field):
+    return getattr(object, field)
 
 def getJsonSet(qset):
     data = json.loads(serializers.serialize('json', qset))
@@ -57,7 +60,9 @@ def getSecretAccessKey():
 
 def getSignerObject():
     signer = Signer()
-    return signer.sign_object({'key': getSecretAccessKey(), 'app_code': app_code})
+    object = {'key': getSecretAccessKey(), 'app_code': app_code}
+    signed_object = signer.sign_object(object)
+    return signed_object, object
 
 def getUnSignerObject(signObj):
     signer = Signer()
@@ -71,8 +76,10 @@ def getUnSignerObject(signObj):
 
     if decoded == True:
         key = unsignedObj['key']
+        subcription_object = lookup.check_subscriber(secret_key=key)
+        subscription = subcription_object[field_names.object]
         matched = unsignedObj['app_code'] == app_code
-    return {"key": key, 'matched': matched}
+    return {"key": key, "matched": matched, "subscription": subscription}
 
 def getUnsigned(signkey):
     signer = Signer()

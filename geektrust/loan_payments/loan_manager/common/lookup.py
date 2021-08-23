@@ -84,12 +84,15 @@ def check_customer_exists(email, uid, id):
             flag = False
     return {"id": id, "name": name, "loan_limit": loan_limit, "loan_calc": found_loan, "status": flag, "object": found}
 
-def check_subscriber(email):
+def check_subscriber(email=None, secret_key=None):
     id = -1
     name = ''
     flag = True
     try:
-        found = subscriber.SUBSCRIPTION.objects.get(email=email)
+        if email != None:
+            found = subscriber.SUBSCRIPTION.objects.get(email=email)
+        elif secret_key != None:
+            found = subscriber.SUBSCRIPTION.objects.get(secret_key=secret_key)
         id = found.id
         name = found.name
     except subscriber.SUBSCRIPTION.DoesNotExist:
