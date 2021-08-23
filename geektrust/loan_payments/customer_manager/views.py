@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from customer_manager import models
 from loan_manager.common import utils, queries, field_names, lookup
+from loan_manager.middleware import signer_check
 from .validations import validate as customerValidations
 
 
@@ -85,6 +86,7 @@ def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     utils.addlog(field_names.customer, {'customer_fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
+@signer_check.check_signer
 @csrf_exempt
 def fn_GET_CUSTOMER_LOAN(req, loan_ref=None):
     if req.method == utils.POST:

@@ -15,11 +15,13 @@ success = "success"
 GET = 'GET'
 POST = 'POST'
 header = 'HEADER'
+signer_header_key = 'geek-signer'
 app_code = 'g3eK_t7R_#278_s___T'
 len_of_uid = 17
 X_GEEK_HEADER = 'x-geek-trust-key'
 CONTENT_TYPE = "application/json"
-NO_OP_ALLOWED = json.dumps({"msg": "operation not allowed", "status": failed})
+not_allowed = 'operation not allowed or signer or jwt not verified'
+NO_OP_ALLOWED = json.dumps({"msg": not_allowed, "status": failed})
 MISSING_FIELD_MSG = {"msg": "some input values are missing or left blank. ", "status": failed}
 
 def getSum(object, field):
@@ -59,10 +61,18 @@ def getSignerObject():
 
 def getUnSignerObject(signObj):
     signer = Signer()
-    unsignedObj = signer.unsign_object(signObj)
-    key = unsignedObj['key']
-    matched = unsignedObj['app_code'] == app_code
-    return {"unsigner": unsignedObj, "key": key, 'matched': matched}
+    matched = decoded = False
+    key = not_allowed
+    try:
+        unsignedObj = signer.unsign_object(signObj)
+        decoded = True
+    except Exception as ex:
+        decoded = False
+
+    if decoded == True:
+        key = unsignedObj['key']
+        matched = unsignedObj['app_code'] == app_code
+    return {"key": key, 'matched': matched}
 
 def getUnsigned(signkey):
     signer = Signer()
