@@ -4,7 +4,7 @@ from django.shortcuts import HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
 
 from customer_manager import models
-from loan_manager.common import utils, queries, field_names
+from loan_manager.common import utils, queries, field_names, lookup
 from .validations import validate as customerValidations
 
 
@@ -15,6 +15,9 @@ def fn_ADD_CUSTOMER(req):
         return res(utils.NO_OP_ALLOWED)
 
     body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.name, field_names.age, field_names.email, field_names.loan_limit])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
     name = body[field_names.name]
     age = body[field_names.age]
     email = body[field_names.email]

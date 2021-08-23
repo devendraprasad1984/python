@@ -6,7 +6,7 @@ from django.shortcuts import HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework_simplejwt import tokens as jwtsimple
 
-from loan_manager.common import utils, field_names
+from loan_manager.common import utils, field_names, lookup
 from . import models
 from .validations import validate as subscribe_validator
 
@@ -26,6 +26,9 @@ def fn_CHECK_API_SIGNER(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.signer])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
     sign = body[field_names.signer]
     unsign_check = utils.getUnSignerObject(sign)
     # sign = unsign_check['unsigner']
@@ -39,6 +42,9 @@ def fn_SUBSCRIBE(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.name, field_names.email])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
     name = body[field_names.name]
     email = body[field_names.email]
     key = utils.getSecretAccessKey()
@@ -89,6 +95,9 @@ def fn_ADD_API_USER(req):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.username, field_names.email, field_names.pwd])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
     user = body[field_names.username]
     email = body[field_names.email]
     pwd = body[field_names.pwd]
@@ -108,6 +117,9 @@ def fn_JWT_TOKEN_PAIR(req):
         return res(utils.NO_OP_ALLOWED)
     # pairs=jwtSerialiser.TokenObtainSerializer(jwt_views.TokenObtainPairView.as_view())
     body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.user])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
     user = body[field_names.user]
     mytoken = jwtsimple.RefreshToken.for_user(user)
     return res(json.dumps({"refresh": str(mytoken), "access": str(mytoken.access_token)}), content_type=utils.CONTENT_TYPE)

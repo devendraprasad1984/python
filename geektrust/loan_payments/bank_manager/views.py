@@ -5,7 +5,7 @@ from django.shortcuts import HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
 
 from bank_manager import models
-from loan_manager.common import utils, field_names
+from loan_manager.common import utils, field_names, lookup
 from .validations import validate as bankValidations
 
 
@@ -15,6 +15,9 @@ def fn_ADD_BANK(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.name])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
     name = body[field_names.name]
     flag = True
     validate = bankValidations.validate_input_add_new_bank(body)
