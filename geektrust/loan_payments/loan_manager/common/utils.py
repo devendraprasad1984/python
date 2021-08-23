@@ -20,6 +20,7 @@ len_of_uid = 17
 X_GEEK_HEADER = 'x-geek-trust-key'
 CONTENT_TYPE = "application/json"
 NO_OP_ALLOWED = json.dumps({"msg": "operation not allowed", "status": failed})
+MISSING_FIELD_MSG = {"msg": "some input values are missing or left blank. ", "status": failed}
 
 def getSum(object, field):
     sum = 0

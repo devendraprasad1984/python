@@ -99,6 +99,9 @@ def fn_BALANCE(req):
         return res(utils.NO_OP_ALLOWED)
 
     body = utils.getBodyFromReq(req)
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.bank_name, field_names.email, field_names.loan_ref, field_names.emi_number])
+    if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
+
     bank_name = body[field_names.bank_name]
     email = body[field_names.email]
     loan_ref = body[field_names.loan_ref]
