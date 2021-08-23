@@ -117,3 +117,7 @@ def adderror(type, trace):
 def external_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.external)
 
 def crud_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.crud)
+
+def manager_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.manager)
+
+def borrower_check_signer_middleware(): return signer_check.check_signer_with_api_type(api_type=field_names.borrower)

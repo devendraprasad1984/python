@@ -24,11 +24,17 @@ def check_signer_with_api_type(api_type=None):
             subscribed = unsigner[field_names.subscription]
             allow_external_from_db = utils.get_field_values_from_model_object(subscribed, field_names.allow_external) if subscribed != None else False
             allow_crud_internal_from_db = utils.get_field_values_from_model_object(subscribed, field_names.allow_crud_internal) if subscribed != None else False
+            api_type_in_db = utils.get_field_values_from_model_object(subscribed, field_names.type) if subscribed != None else False
+
             is_matched = unsigner[field_names.matched] and subscribed != None
             if api_type == field_names.external:
                 allow_to_run = is_matched and allow_external_from_db == True and allow_crud_internal_from_db == False
             elif api_type == field_names.crud:
                 allow_to_run = is_matched and allow_external_from_db == False and allow_crud_internal_from_db == True
+            elif api_type == field_names.manager:
+                allow_to_run = is_matched and api_type_in_db == field_names.manager
+            elif api_type == field_names.borrower:
+                allow_to_run = is_matched and api_type_in_db == field_names.borrower
 
             msg = {"msg": utils.not_allowed, "status": allow_to_run, "api_type": api_type}
             if allow_to_run == False: return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)

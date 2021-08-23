@@ -10,4 +10,5 @@ class SUBSCRIPTION(models.Model):
     signer = models.TextField(null=True)
     allow_external = models.BooleanField(default=False)
     allow_crud_internal = models.BooleanField(default=False)
+    type = models.CharField(default='manager', null=True, max_length=50)
     when = models.DateTimeField(auto_now_add=True, blank=True)

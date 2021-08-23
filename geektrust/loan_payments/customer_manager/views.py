@@ -10,7 +10,7 @@ from .validations import validate as customerValidations
 
 # Create your views here.
 @csrf_exempt
-@utils.crud_check_signer_middleware()
+@utils.manager_check_signer_middleware()
 def fn_ADD_CUSTOMER(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)
@@ -78,7 +78,7 @@ def run_customer_query(**param):
     }
 
 @csrf_exempt
-@utils.external_check_signer_middleware()
+@utils.manager_check_signer_middleware()
 def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
@@ -88,7 +88,7 @@ def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
-@utils.crud_check_signer_middleware()
+@utils.manager_check_signer_middleware()
 def fn_GET_CUSTOMER_LOAN(req, loan_ref=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)

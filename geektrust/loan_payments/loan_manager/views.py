@@ -13,7 +13,7 @@ msg_entity_doesnt_exist = {
 }
 
 @csrf_exempt
-@utils.crud_check_signer_middleware()
+@utils.manager_check_signer_middleware()
 def fn_LOAN(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)
@@ -94,7 +94,7 @@ def fn_LOAN(req):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
-@utils.external_check_signer_middleware()
+@utils.borrower_check_signer_middleware()
 def fn_PAYMENT(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)
@@ -169,7 +169,7 @@ def fn_PAYMENT(req):
     return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
-@utils.external_check_signer_middleware()
+@utils.borrower_check_signer_middleware()
 def fn_BALANCE(req):
     if req.method == 'GET':
         return res(utils.NO_OP_ALLOWED)

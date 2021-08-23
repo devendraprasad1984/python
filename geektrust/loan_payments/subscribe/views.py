@@ -1,6 +1,5 @@
 import json
 
-from django.contrib.auth.models import User
 from django.http import HttpRequest
 from django.shortcuts import HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
@@ -42,13 +41,14 @@ def fn_SUBSCRIBE(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
-    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.name, field_names.email, field_names.allow_external_access, field_names.allow_crud_internal])
+    check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.name, field_names.email, field_names.type])
     if check_flag == False: return res(msg, content_type=utils.CONTENT_TYPE)
 
     name = body[field_names.name]
     email = body[field_names.email]
-    allow_external_access = body[field_names.allow_external_access]
-    allow_crud_internal = body[field_names.allow_crud_internal]
+    # allow_external_access = body[field_names.allow_external_access]
+    # allow_crud_internal = body[field_names.allow_crud_internal]
+    type = body[field_names.type]
 
     sign, base_object = utils.getSignerObject()
     key = base_object[field_names.key]
@@ -62,8 +62,7 @@ def fn_SUBSCRIBE(req: HttpRequest):
                 email=email,
                 secret_key=key,
                 signer=sign,
-                allow_external=allow_external_access,
-                allow_crud_internal=allow_crud_internal
+                type=type
             )
             model.save()
             utils.addlog(field_names.new_subscription, body)
