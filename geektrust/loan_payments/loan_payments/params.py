@@ -8,8 +8,8 @@ from loan_manager.common import field_names, utils
 # put = 'put'
 # delete = 'delete'
 
-post_ = 'POST'
-get_ = 'GET'
+post_ = utils.POST
+get_ = utils.GET
 put_ = 'PUT'
 delete_ = 'DELETE'
 
@@ -42,5 +42,14 @@ new_jwt_req_body = openapi.Schema(
     required=[field_names.user],
     properties={
         field_names.user: type_string,
+    },
+)
+
+add_bank_desc = 'provide bank name to create bank as entity'
+add_bank_req_body = openapi.Schema(
+    type=type_object,
+    required=[field_names.name],
+    properties={
+        field_names.name: type_string,
     },
 )
