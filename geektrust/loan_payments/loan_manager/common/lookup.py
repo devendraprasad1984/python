@@ -21,6 +21,7 @@ def check_field_existence_in_request_body(body, fld_names):
             break
     return presence_flag, json.dumps(msg)
 
+
 def check_bank_exists(name=None, uid=None, id=None):
     id = -1
     flag = True
@@ -37,29 +38,31 @@ def check_bank_exists(name=None, uid=None, id=None):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, field_names.status: flag, "object": found}
+    return {field_names.id: id, field_names.name: name, field_names.status: flag, field_names.object: found}
+
 
 def check_customer_all_loan(customer_id):
     id = -1
     flag = True
     try:
         found = loan_model.LOANS.objects.filter(customerid=customer_id)
-        total_loan_amount = utils.getSum(found, 'loan_amount')
-        total_repaid_amount = utils.getSum(found, 'repaid_amount')
-        total_interest_amount = utils.getSum(found, 'interest_amount')
+        total_loan_amount = utils.getSum(found, field_names.loan_amount)
+        total_repaid_amount = utils.getSum(found, field_names.repaid_amount)
+        total_interest_amount = utils.getSum(found, field_names.interest_amount)
     except loan_model.LOANS.DoesNotExist:
         found = None
         if found != None and found.id != None:
             flag = False
     return {
-        "customerid": customer_id,
-        "total_loan_amount": total_loan_amount,
-        "total_repaid_amount": total_repaid_amount,
-        "total_interest_amount": total_interest_amount,
+        field_names.customerid: customer_id,
+        field_names.total_loan_amount: total_loan_amount,
+        field_names.total_repaid_amount: total_repaid_amount,
+        field_names.total_interest_amount: total_interest_amount,
         field_names.status: flag,
-        "object": found,
-        "count": len(found) if found != None else 0
+        field_names.object: found,
+        field_names.count: len(found) if found != None else 0
     }
+
 
 def check_customer_exists(email=None, uid=None, id=None):
     id = -1
@@ -82,7 +85,8 @@ def check_customer_exists(email=None, uid=None, id=None):
     except customer.CUSTOMERS.DoesNotExist:
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "loan_limit": loan_limit, "loan_calc": found_loan, field_names.status: flag, "object": found}
+    return {field_names.id: id, field_names.name: name, field_names.loan_limit: loan_limit, field_names.loan_calc: found_loan, field_names.status: flag, field_names.object: found}
+
 
 def check_subscriber(email=None, secret_key=None):
     id = -1
@@ -99,11 +103,13 @@ def check_subscriber(email=None, secret_key=None):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, field_names.status: flag, "object": found}
+    return {field_names.id: id, field_names.name: name, field_names.status: flag, field_names.object: found}
+
 
 def check_customer_or_bank_or_loan(id):
     if id == -1: return False
     return True
+
 
 def get_existing_loan_details(bankid=None, customerid=None, loan_ref=None):
     id = -1
@@ -126,7 +132,7 @@ def get_existing_loan_details(bankid=None, customerid=None, loan_ref=None):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "uid": uid, field_names.status: flag, "object": found_list}
+    return {field_names.id: id, field_names.uid: uid, field_names.status: flag, field_names.object: found_list}
 
 
 def run_customer_loan_query(**param):
@@ -141,8 +147,8 @@ def run_customer_loan_query(**param):
         loan_limit = json_data[0][field_names.loan_limit]
         loan_limit_left = float(loan_limit) - total_loan_offered
     return {
-        "count": json_data.__len__(),
-        "total_loan_offered": f'{total_loan_offered:,}',
-        "loan_limit_left": f'{loan_limit_left:,}',
-        "data": json_data
+        field_names.count: json_data.__len__(),
+        field_names.total_loan_offered: f'{total_loan_offered:,}',
+        field_names.loan_limit_left: f'{loan_limit_left:,}',
+        field_names.data: json_data
     }

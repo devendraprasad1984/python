@@ -40,12 +40,12 @@ def check_signer_with_api_type(api_type=None):
                 subscriber_email = utils.get_field_values_from_model_object(subscribed, field_names.email)
                 email_match = False
                 if has_loan_ref:
-                    customer = lookup.run_customer_loan_query(**{'loan_ref': body[field_names.loan_ref]})
+                    customer = lookup.run_customer_loan_query(**{field_names.loan_ref: body[field_names.loan_ref]})
                     customer_email = customer[field_names.data][0][field_names.email]
                     email_match = subscriber_email == customer_email
                     allow_to_run = is_matched and api_type_in_db == field_names.borrower and (has_loan_ref == True and email_match == True)
 
-            output = {field_names.msg: msg, field_names.status: allow_to_run, "api_type": api_type}
+            output = {field_names.msg: msg, field_names.status: allow_to_run, field_names.api_type: api_type}
             if allow_to_run == False: return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
             return func(*args, **kwargs)
 

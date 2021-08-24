@@ -49,7 +49,7 @@ def fn_ADD_CUSTOMER(req):
         except Exception as ex:
             failed = {
                 field_names.msg: f'customer {name} {email} not added',
-                "detail": str(ex),
+                field_names.detail str(ex),
                 field_names.status: utils.failed
             }
             flag = False
@@ -82,6 +82,6 @@ def fn_GET_LIST_of_CUSTOMERS(req, id=None):
 def fn_GET_CUSTOMER_LOAN(req, loan_ref=None):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
-    output = lookup.run_customer_loan_query(**{"loan_ref": loan_ref})
+    output = lookup.run_customer_loan_query(**{field_names.loan_ref: loan_ref})
     utils.addlog(field_names.customer_with_loan, {'customer_fetch_loan_ref': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)

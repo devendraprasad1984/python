@@ -81,7 +81,7 @@ def fn_SUBSCRIBE(req: HttpRequest):
         except Exception as ex:
             failed = {
                 field_names.msg: f'subscription for {email} not added. contact admin',
-                "detail": str(ex),
+                field_names.detail str(ex),
                 field_names.status: utils.failed
             }
             flag = False

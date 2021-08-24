@@ -40,7 +40,7 @@ def fn_ADD_BANK(req: HttpRequest):
         except Exception as ex:
             failed = {
                 field_names.msg: f'bank {name} not added',
-                "detail": str(ex),
+                field_names.detail str(ex),
                 field_names.status: utils.failed
             }
             flag = False
