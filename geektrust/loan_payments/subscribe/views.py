@@ -3,12 +3,18 @@ import json
 from django.http import HttpRequest
 from django.shortcuts import HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
 from rest_framework_simplejwt import tokens as jwtsimple
 
 from loan_manager.common import utils, field_names, lookup
+from loan_payments import params
 from . import models
 from .validations import validate as subscribe_validator
 
+
+# param_name = openapi.Parameter('name', in_=openapi.IN_BODY, description='customer name', type=openapi.TYPE_STRING)
+# param_email = openapi.Parameter('email', in_=openapi.IN_BODY, description='customer subscription email', type=openapi.TYPE_STRING)
 
 # Create your views here.
 def fn_GET_NEW_TOKEN(req: HttpRequest):
@@ -37,6 +43,8 @@ def fn_CHECK_API_SIGNER(req: HttpRequest):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@swagger_auto_schema(methods=[params.post_], request_body=params.subscription_req_body, operation_description=params.subscription_req_desc)
+@api_view([params.post_])
 def fn_SUBSCRIBE(req: HttpRequest):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
@@ -91,12 +99,14 @@ def fn_SUBSCRIBE(req: HttpRequest):
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
+@swagger_auto_schema(methods=[params.get_], operation_description=params.subscription_list_desc)
+@api_view([params.get_])
 def gn_GET_SUBSCRIBERS(req: HttpRequest):
     if req.method == utils.POST:
         return res(utils.NO_OP_ALLOWED)
     data = utils.getJsonSet(models.SUBSCRIPTION.objects.only(field_names.id, field_names.name, field_names.email, field_names.secret_key, field_names.signer, field_names.when).order_by(field_names.id))
     output = {'data': data}
-    utils.addlog(field_names.banks, {'subscription list fetch': True})
+    utils.addlog(field_names.subscription, {'subscription list fetch': True})
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 # @csrf_exempt
@@ -121,6 +131,8 @@ def gn_GET_SUBSCRIBERS(req: HttpRequest):
 #     return res(json.dumps({'status': utils.success if flag else utils.failed, "msg": f"user {user} {'added' if flag else 'not added'}", "trace": trace}), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@swagger_auto_schema(methods=[params.post_], request_body=params.new_jwt_req_body, operation_description=params.new_jwt_req_desc)
+@api_view([params.post_])
 def fn_JWT_TOKEN_PAIR(req):
     if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)

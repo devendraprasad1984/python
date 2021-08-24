@@ -18,6 +18,7 @@ GET = 'GET'
 POST = 'POST'
 header = 'HEADER'
 signer_header_key = 'geek-signer'
+x_csrf_key = 'X-CSRFToken'
 app_code = 'g3eK_t7R_#278_s___T'
 len_of_uid = 17
 CONTENT_TYPE = "application/json"
