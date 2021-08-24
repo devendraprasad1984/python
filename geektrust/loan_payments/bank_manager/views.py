@@ -8,6 +8,10 @@ from bank_manager import models
 from loan_manager.common import utils, field_names, lookup
 from .validations import validate as bankValidations
 
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
+from loan_payments import params
+
 
 # Create your views here.
 @csrf_exempt
@@ -51,6 +55,8 @@ def fn_ADD_BANK(req: HttpRequest):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@swagger_auto_schema(methods=[params.get_],manual_parameters=[params.param_signer_ref], operation_description=params.bank_list_desc)
+@api_view([params.get_])
 @utils.manager_check_signer_middleware()
 def fn_GET_LIST_of_BANKS(req):
     if req.method == utils.POST:

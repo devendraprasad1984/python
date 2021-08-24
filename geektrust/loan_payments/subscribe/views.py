@@ -13,9 +13,6 @@ from . import models
 from .validations import validate as subscribe_validator
 
 
-# param_name = openapi.Parameter('name', in_=openapi.IN_BODY, description='customer name', type=openapi.TYPE_STRING)
-# param_email = openapi.Parameter('email', in_=openapi.IN_BODY, description='customer subscription email', type=openapi.TYPE_STRING)
-
 # Create your views here.
 def fn_GET_NEW_TOKEN(req: HttpRequest):
     if req.method == utils.POST:
