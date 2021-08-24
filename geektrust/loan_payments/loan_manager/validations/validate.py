@@ -12,4 +12,4 @@ def validate_input_add_new_loan(inputs):
         msg = f'invalid input'
         flag = False
 
-    return {"status": flag, "msg": msg}
+    return {field_names.status: flag, field_names.msg: msg}

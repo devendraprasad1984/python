@@ -34,22 +34,22 @@ def fn_ADD_BANK(req: HttpRequest):
             model.save()
             utils.addlog(field_names.banks, body)
             success = {
-                "msg": f'bank {name} added - {uid}',
-                "status": utils.success
+                field_names.msg: f'bank {name} added - {uid}',
+                field_names.status: utils.success
             }
         except Exception as ex:
             failed = {
-                "msg": f'bank {name} not added',
+                field_names.msg: f'bank {name} not added',
                 "detail": str(ex),
-                "status": utils.failed
+                field_names.status: utils.failed
             }
             flag = False
             utils.adderror('bank error', str(ex))
     else:
         flag = False
         failed = {
-            "msg": f'{validate[field_names.msg]}',
-            "status": utils.failed
+            field_names.msg: f'{validate[field_names.msg]}',
+            field_names.status: utils.failed
         }
 
     output = success if flag == True else failed

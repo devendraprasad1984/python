@@ -45,7 +45,7 @@ def check_signer_with_api_type(api_type=None):
                     email_match = subscriber_email == customer_email
                     allow_to_run = is_matched and api_type_in_db == field_names.borrower and (has_loan_ref == True and email_match == True)
 
-            output = {"msg": msg, "status": allow_to_run, "api_type": api_type}
+            output = {field_names.msg: msg, field_names.status: allow_to_run, "api_type": api_type}
             if allow_to_run == False: return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
             return func(*args, **kwargs)
 

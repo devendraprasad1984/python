@@ -15,4 +15,4 @@ def validate_input_subscribe(inputs):
             msg = f"record {email} already exists"
             flag = False
 
-    return {"status": flag, "msg": msg}
+    return {field_names.status: flag, field_names.msg: msg}

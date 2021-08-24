@@ -1,5 +1,5 @@
 from ..models import BANKS
-from loan_manager.common import lookup
+from loan_manager.common import lookup, field_names
 
 def validate_input_add_new_bank(inputs):
     flag = True
@@ -14,4 +14,4 @@ def validate_input_add_new_bank(inputs):
             msg = f"record {name} already exists"
             flag = False
 
-    return {"status": flag, "msg": msg}
+    return {field_names.status: flag, field_names.msg: msg}

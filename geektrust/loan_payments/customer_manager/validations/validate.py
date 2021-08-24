@@ -1,5 +1,5 @@
 from ..models import CUSTOMERS
-from loan_manager.common import lookup
+from loan_manager.common import lookup, field_names
 
 
 def validate_input_add_new_customer(inputs):
@@ -18,4 +18,4 @@ def validate_input_add_new_customer(inputs):
             msg = f"record {email} already exists"
             flag = False
 
-    return {"status": flag, "msg": msg}
+    return {field_names.status: flag, field_names.msg: msg}

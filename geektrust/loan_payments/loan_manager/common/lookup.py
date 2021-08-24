@@ -37,7 +37,7 @@ def check_bank_exists(name=None, uid=None, id=None):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "status": flag, "object": found}
+    return {"id": id, "name": name, field_names.status: flag, "object": found}
 
 def check_customer_all_loan(customer_id):
     id = -1
@@ -56,7 +56,7 @@ def check_customer_all_loan(customer_id):
         "total_loan_amount": total_loan_amount,
         "total_repaid_amount": total_repaid_amount,
         "total_interest_amount": total_interest_amount,
-        "status": flag,
+        field_names.status: flag,
         "object": found,
         "count": len(found) if found != None else 0
     }
@@ -82,7 +82,7 @@ def check_customer_exists(email=None, uid=None, id=None):
     except customer.CUSTOMERS.DoesNotExist:
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "loan_limit": loan_limit, "loan_calc": found_loan, "status": flag, "object": found}
+    return {"id": id, "name": name, "loan_limit": loan_limit, "loan_calc": found_loan, field_names.status: flag, "object": found}
 
 def check_subscriber(email=None, secret_key=None):
     id = -1
@@ -99,7 +99,7 @@ def check_subscriber(email=None, secret_key=None):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "name": name, "status": flag, "object": found}
+    return {"id": id, "name": name, field_names.status: flag, "object": found}
 
 def check_customer_or_bank_or_loan(id):
     if id == -1: return False
@@ -126,7 +126,7 @@ def get_existing_loan_details(bankid=None, customerid=None, loan_ref=None):
         found = None
         if found != None and found.id != None:
             flag = False
-    return {"id": id, "uid": uid, "status": flag, "object": found_list}
+    return {"id": id, "uid": uid, field_names.status: flag, "object": found_list}
 
 
 def run_customer_loan_query(**param):

@@ -2,14 +2,19 @@ import json
 
 from django.shortcuts import HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
 
 from customer_manager import models
 from loan_manager.common import utils, field_names, lookup
+from loan_payments import params
 from .validations import validate as customerValidations
 
 
 # Create your views here.
 @csrf_exempt
+@swagger_auto_schema(methods=[params.post_], request_body=params.add_customer_req_body, manual_parameters=[params.param_signer_ref], operation_description=params.add_customer_desc)
+@api_view([params.post_])
 @utils.manager_check_signer_middleware()
 def fn_ADD_CUSTOMER(req):
     if req.method == 'GET':
@@ -38,28 +43,30 @@ def fn_ADD_CUSTOMER(req):
             model.save()
             utils.addlog(field_names.customer, body)
             success = {
-                "msg": f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
-                "status": utils.success
+                field_names.msg: f'customer {name}, {email}, {age} yrs, having loan {loan_limit} added - {uid}',
+                field_names.status: utils.success
             }
         except Exception as ex:
             failed = {
-                "msg": f'customer {name} {email} not added',
+                field_names.msg: f'customer {name} {email} not added',
                 "detail": str(ex),
-                "status": utils.failed
+                field_names.status: utils.failed
             }
             flag = False
             utils.adderror('customer error', str(ex))
     else:
         flag = False
         failed = {
-            "msg": f'{validate[field_names.msg]}',
-            "status": utils.failed
+            field_names.msg: f'{validate[field_names.msg]}',
+            field_names.status: utils.failed
         }
 
     output = success if flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@swagger_auto_schema(methods=[params.get_], manual_parameters=[params.param_signer_ref], operation_description=params.get_customer_by_id_desc)
+@api_view([params.get_])
 @utils.manager_check_signer_middleware()
 def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     if req.method == utils.POST:
@@ -69,6 +76,8 @@ def fn_GET_LIST_of_CUSTOMERS(req, id=None):
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
+@swagger_auto_schema(methods=[params.get_], manual_parameters=[params.param_signer_ref], operation_description=params.get_customer_by_loan_ref_desc)
+@api_view([params.get_])
 @utils.manager_check_signer_middleware()
 def fn_GET_CUSTOMER_LOAN(req, loan_ref=None):
     if req.method == utils.POST:

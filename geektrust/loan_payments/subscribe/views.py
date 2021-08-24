@@ -20,7 +20,7 @@ def fn_GET_NEW_TOKEN(req: HttpRequest):
     key = utils.getSecretAccessKey()
     sign = utils.getSignerObject()
     unsign_check = utils.getUnSignerObject(sign)
-    output = {"key": key, "signed": sign, "msg": "here is your secret key, keep it safe", "status": utils.success}
+    output = {"key": key, "signed": sign, field_names.msg: "here is your secret key, keep it safe", field_names.status: utils.success}
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
@@ -36,7 +36,7 @@ def fn_CHECK_API_SIGNER(req: HttpRequest):
     # sign = unsign_check['unsigner']
     matched = unsign_check[field_names.matched]
     key = unsign_check[field_names.key]
-    output = {"matched": matched, "msg": "access granted", "status": utils.success}
+    output = {"matched": matched, field_names.msg: "access granted", field_names.status: utils.success}
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
@@ -72,25 +72,25 @@ def fn_SUBSCRIBE(req: HttpRequest):
             model.save()
             utils.addlog(field_names.new_subscription, body)
             success = {
-                "msg": {"key": key, "signed": sign,
-                        "msg": f'Thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
+                field_names.msg: {"key": key, "signed": sign,
+                        field_names.msg: f'Thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
                                f' at {email}. use it in header {utils.signer_header_key} for accessing our services. this will be valid for next 1 year. '
-                               f'You have to get it regnerated for further use', "status": utils.success},
-                "status": utils.success
+                               f'You have to get it regnerated for further use', field_names.status: utils.success},
+                field_names.status: utils.success
             }
         except Exception as ex:
             failed = {
-                "msg": f'subscription for {email} not added. contact admin',
+                field_names.msg: f'subscription for {email} not added. contact admin',
                 "detail": str(ex),
-                "status": utils.failed
+                field_names.status: utils.failed
             }
             flag = False
             utils.adderror(field_names.subscription_error, str(ex))
     else:
         flag = False
         failed = {
-            "msg": f'{validate["msg"]}',
-            "status": utils.failed
+            field_names.msg: f'{validate["msg"]}',
+            field_names.status: utils.failed
         }
 
     output = success if flag == True else failed
@@ -125,7 +125,7 @@ def gn_GET_SUBSCRIBERS(req: HttpRequest):
 #     except Exception as ex:
 #         flag = False
 #         trace = str(ex)
-#     return res(json.dumps({'status': utils.success if flag else utils.failed, "msg": f"user {user} {'added' if flag else 'not added'}", "trace": trace}), content_type=utils.CONTENT_TYPE)
+#     return res(json.dumps({'status': utils.success if flag else utils.failed, field_names.msg: f"user {user} {'added' if flag else 'not added'}", "trace": trace}), content_type=utils.CONTENT_TYPE)
 
 @csrf_exempt
 @swagger_auto_schema(methods=[params.post_], request_body=params.new_jwt_req_body, operation_description=params.new_jwt_req_desc)

@@ -2,20 +2,26 @@ import json
 
 from django.shortcuts import HttpResponse as res
 from django.views.decorators.csrf import csrf_exempt
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
 
 from loan_manager.common import utils, lookup, field_names
+from loan_payments import params
 from . import models
 
 
 msg_entity_doesnt_exist = {
-    "msg": f'bank | customer | loan or all association doesnt exist',
-    "status": False
+    field_names.msg: f'bank | customer | loan or all association doesnt exist',
+    field_names.status: False
 }
 
+
 @csrf_exempt
+@swagger_auto_schema(methods=[params.post_], request_body=params.add_loan_req_body, manual_parameters=[params.param_signer_ref], operation_description=params.add_loan_desc)
+@api_view([params.post_])
 @utils.manager_check_signer_middleware()
 def fn_LOAN(req):
-    if req.method == 'GET':
+    if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
     body = utils.getBodyFromReq(req)
     check_flag, msg = lookup.check_field_existence_in_request_body(body, [field_names.bank_name, field_names.email, field_names.loan_amount, field_names.rate, field_names.year])
@@ -47,8 +53,8 @@ def fn_LOAN(req):
     cannot_sanction_loan = credit_loan_left < loan_amount
     if cannot_sanction_loan == True:
         output = {
-            "msg": f"cannot sanction loan to customer {customername}, {email} due to his credit rating",
-            "status": False
+            field_names.msg: f"cannot sanction loan to customer {customername}, {email} due to his credit rating",
+            field_names.status: False
         }
         return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
@@ -73,30 +79,33 @@ def fn_LOAN(req):
         model.save()
         utils.addlog(f'loan added for customer {customerid} - {customername} from bank {bankid} - {bank_name}', body)
         success = {
-            "msg": f'CREDIT LOAN LEFT LIMIT {credit_loan_left}. This customer already has {total_number_of_loans} running worth {total_loaned_value}. '
-                   f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted. '
-                   f'Your remaining loan limit as per your credit score is {loan_limit:,}. '
-                   f'Your unique loan reference is {uid}. you have taken a loan of amount {loan_amount:,} for a period of {period} yrs @rate {rate}% '
-                   f'per annum and you have to pay an emi of amount {emi_amount:,} per month for next {emi_months} months. You will be paying P+I={total_amount_pi:,}, '
-                   f'total interest paid by you will be {interest_amount:,}. Your auto debit will start next month.',
-            "status": utils.success
+            field_names.msg: f'CREDIT LOAN LEFT LIMIT {credit_loan_left}. This customer already has {total_number_of_loans} running worth {total_loaned_value}. '
+                             f'loan for Mr/Mrs {customername}(customer id: {customerid}, email: {email}) from bank {bank_name}({bankid}) has been granted. '
+                             f'Your remaining loan limit as per your credit score is {loan_limit:,}. '
+                             f'Your unique loan reference is {uid}. you have taken a loan of amount {loan_amount:,} for a period of {period} yrs @rate {rate}% '
+                             f'per annum and you have to pay an emi of amount {emi_amount:,} per month for next {emi_months} months. You will be paying P+I={total_amount_pi:,}, '
+                             f'total interest paid by you will be {interest_amount:,}. Your auto debit will start next month.',
+            field_names.status: utils.success
         }
         status_flag = True
     except Exception as ex:
         utils.adderror('loan error', str(ex))
         failed = {
-            "msg": f'loan for {bank_name} could not be added',
+            field_names.msg: f'loan for {bank_name} could not be added',
             "detail": str(ex),
-            "status": utils.failed
+            field_names.status: utils.failed
         }
         status_flag = False
     output = success if status_flag == True else failed
     return res(json.dumps(output), content_type=utils.CONTENT_TYPE)
 
+
 @csrf_exempt
+@swagger_auto_schema(methods=[params.post_], request_body=params.set_loan_payment_req_body, manual_parameters=[params.param_signer_ref], operation_description=params.set_loan_payment_desc)
+@api_view([params.post_])
 @utils.borrower_check_signer_middleware()
 def fn_PAYMENT(req):
-    if req.method == 'GET':
+    if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
 
     body = utils.getBodyFromReq(req)
@@ -124,20 +133,20 @@ def fn_PAYMENT(req):
         interest_amount = float(loan_object[field_names.interest_amount]) - payment
     else:
         msg = {
-            "msg": f"loan not found",
-            "status": status_flag
+            field_names.msg: f"loan not found",
+            field_names.status: status_flag
         }
         loan_not_found = True
     if payment < (emi_amount * emi_number):
         msg = {
-            "msg": f"emi is less than actual payable, kindly pay emi amount as {emi_amount * emi_number}",
-            "status": status_flag
+            field_names.msg: f"emi is less than actual payable, kindly pay emi amount as {emi_amount * emi_number}",
+            field_names.status: status_flag
         }
         payment_less_than_emi = True
     elif interest_amount < 0:
         msg = {
-            "msg": f"no payment required, loan can be closed",
-            "status": status_flag
+            field_names.msg: f"no payment required, loan can be closed",
+            field_names.status: status_flag
         }
         interest_zero = True
 
@@ -155,23 +164,26 @@ def fn_PAYMENT(req):
         status_flag = True
         utils.addlog(f'payment (cust: {customerid}) / (bank: {bankid}) / loan: {loan_ref}', body)
         msg = {
-            "msg": f'PAYMENT= loan: {loan_ref}({loan_id})'
-                   f'loan amount: {loan_amount}, emi amount: {emi_amount}, payment: {payment}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}, remaining interest: {interest_amount}',
-            "status": status_flag
+            field_names.msg: f'PAYMENT= loan: {loan_ref}({loan_id})'
+                             f'loan amount: {loan_amount}, emi amount: {emi_amount}, payment: {payment}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}, remaining interest: {interest_amount}',
+            field_names.status: status_flag
         }
     except Exception as ex:
         utils.adderror('loan error', str(ex))
         msg = {
-            "msg": f'payment for {loan_ref}, customer: {customerid} could not be processed',
-            "detail": str(ex),
-            "status": utils.failed
+            field_names.msg: f'payment for {loan_ref}, customer: {customerid} could not be processed',
+            field_names.detail: str(ex),
+            field_names.status: utils.failed
         }
     return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
 
+
 @csrf_exempt
+@swagger_auto_schema(methods=[params.post_], request_body=params.get_loan_balance_req_body, manual_parameters=[params.param_signer_ref], operation_description=params.get_loan_balance_desc)
+@api_view([params.post_])
 @utils.borrower_check_signer_middleware()
 def fn_BALANCE(req):
-    if req.method == 'GET':
+    if req.method == utils.GET:
         return res(utils.NO_OP_ALLOWED)
 
     body = utils.getBodyFromReq(req)
@@ -205,12 +217,11 @@ def fn_BALANCE(req):
         return res(json.dumps(msg_entity_doesnt_exist), content_type=utils.CONTENT_TYPE)
 
     customer_name = customer[field_names.name]
-
     msg = {
-        "msg": f'Balances= {bank_name}({bankid}) - customer: {customer_name}, email: {email}, emi: {emi_number}, loan: {loan_uid}({loan_id})'
-               f'loan amount: {loan_amount}, emi amount: {emi_amount}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}',
-        "loan_details": utils.jsonEncode(loan_object),
-        "status": True
+        field_names.msg: f'Balances= {bank_name}({bankid}) - customer: {customer_name}, email: {email}, emi: {emi_number}, loan: {loan_uid}({loan_id})'
+                         f'loan amount: {loan_amount}, emi amount: {emi_amount}, emi months: {emi_months}, emi repaid: {repaid_amount}, emi_months_repaid:{emi_months_repaid}',
+        field_names.loan_details: utils.jsonEncode(loan_object),
+        field_names.status: True
     }
     utils.addlog(f'balance check {customer_name}({customerid}) / {bank_name}({bankid})', body)
     return res(json.dumps(msg), content_type=utils.CONTENT_TYPE)
