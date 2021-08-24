@@ -1,13 +1,13 @@
-from ..models import LOANS
+from loan_manager.common import field_names
 
 
 def validate_input_add_new_loan(inputs):
     flag = True
     msg = 'all good'
-    name = inputs['name']
-    email = inputs['email']
-    age = inputs['age']
-    limit = inputs['limit']
+    name = inputs[field_names.name]
+    email = inputs[field_names.email]
+    age = inputs[field_names.age]
+    limit = inputs[field_names.limit]
     if name == '' or email == '' or str(age).isnumeric() == False or str(limit).isnumeric() == False:
         msg = f'invalid input'
         flag = False

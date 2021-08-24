@@ -5,16 +5,16 @@ from loan_manager.common import lookup, field_names
 def validate_input_add_new_customer(inputs):
     flag = True
     msg = 'all good'
-    name = inputs['name']
-    email = inputs['email']
-    age = inputs['age']
+    name = inputs[field_names.name]
+    email = inputsfield_names.email
+    age = inputs[field_names.age]
     limit = inputs['loan_limit']
     if name == '' or email == '' or str(age).isnumeric() == False or str(limit).isnumeric() == False:
         msg = f'name/email is blank or invalid age/limit'
         flag = False
     else:
         obj = lookup.check_customer_exists(email=email)
-        if obj['id'] != -1:
+        if obj[field_names.id] != -1:
             msg = f"record {email} already exists"
             flag = False
 
