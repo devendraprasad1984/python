@@ -7,8 +7,9 @@ uuid
 djangorestframework
 djangorestframework_simplejwt
 django-cors-headers
-django-rest-swagger
-
+#django-rest-swagger
+drf-yasg
+drf-yasg[validation]
 
 #cryptography~=2.8
 #drf-jwt~=1.13.3

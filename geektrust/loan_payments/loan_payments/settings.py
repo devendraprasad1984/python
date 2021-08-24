@@ -38,12 +38,17 @@ INSTALLED_APPS = [
 
     "rest_framework",
     "corsheaders",
-    "rest_framework_swagger",
+    "drf_yasg",
+    # "rest_framework_swagger",
     'loan_manager',
     'bank_manager',
     'customer_manager',
     'subscribe'
 ]
+
+# SWAGGER_SETTINGS = {
+#     'VALIDATOR_URL': 'http://localhost:8189',
+# }
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
