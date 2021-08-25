@@ -5,7 +5,7 @@ def validate_input_add_new_customer(inputs):
     flag = True
     msg = 'all good'
     name = inputs[field_names.name]
-    email = inputsfield_names.email
+    email = inputs[field_names.email]
     age = inputs[field_names.age]
     limit = inputs['loan_limit']
     if name == '' or email == '' or str(age).isnumeric() == False or str(limit).isnumeric() == False:
