@@ -49,7 +49,7 @@ def fn_ADD_CUSTOMER(req):
         except Exception as ex:
             failed = {
                 field_names.msg: f'customer {name} {email} not added',
-                field_names.detail str(ex),
+                field_names.detail: str(ex),
                 field_names.status: utils.failed
             }
             flag = False

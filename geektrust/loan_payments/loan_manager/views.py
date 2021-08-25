@@ -92,7 +92,7 @@ def fn_LOAN(req):
         utils.adderror('loan error', str(ex))
         failed = {
             field_names.msg: f'loan for {bank_name} could not be added',
-            field_names.detail str(ex),
+            field_names.detail: str(ex),
             field_names.status: utils.failed
         }
         status_flag = False
