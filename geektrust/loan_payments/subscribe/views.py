@@ -7,7 +7,7 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
 from rest_framework_simplejwt import tokens as jwtsimple
 
-from loan_manager.common import utils, field_names, lookup
+from loan_payments.common import utils, field_names, lookup
 from loan_payments import params
 from . import models
 from .validations import validate as subscribe_validator
@@ -73,7 +73,7 @@ def fn_SUBSCRIBE(req: HttpRequest):
             utils.addlog(field_names.new_subscription, body)
             success = {
                 field_names.msg: {"key": key, "signed": sign,
-                        field_names.msg: f'Thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
+                                  field_names.msg: f'Thanks {name}! for subscribing our apis and saas solutions. you secret key has been mailed to you'
                                f' at {email}. use it in header {utils.signer_header_key} for accessing our services. this will be valid for next 1 year. '
                                f'You have to get it regnerated for further use', field_names.status: utils.success},
                 field_names.status: utils.success

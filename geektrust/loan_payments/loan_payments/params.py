@@ -1,6 +1,6 @@
 from drf_yasg import openapi
 
-from loan_manager.common import field_names, utils
+from loan_payments.common import utils, field_names
 
 
 post_ = utils.POST

@@ -7,8 +7,8 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.core.signing import Signer
 from django.utils import crypto
 
-from loan_manager.middleware import signer_check
-from .. import models
+from ..middleware import signer_check
+from loan_manager import models
 from ..common import lookup, field_names
 
 

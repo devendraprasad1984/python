@@ -1,4 +1,4 @@
-from loan_manager.common import field_names
+from loan_payments.common import field_names
 
 
 def validate_input_add_new_loan(inputs):

@@ -7,7 +7,7 @@ from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import api_view
 
 from bank_manager import models
-from loan_manager.common import utils, field_names, lookup
+from loan_payments.common import utils, field_names, lookup
 from loan_payments import params
 from .validations import validate as bankValidations
 

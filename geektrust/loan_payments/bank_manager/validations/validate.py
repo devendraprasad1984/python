@@ -1,5 +1,5 @@
-from ..models import BANKS
-from loan_manager.common import lookup, field_names
+from loan_payments.common import field_names, lookup
+
 
 def validate_input_add_new_bank(inputs):
     flag = True

@@ -1,4 +1,4 @@
-from loan_manager.common import lookup, field_names
+from loan_payments.common import field_names, lookup
 
 
 def validate_input_subscribe(inputs):

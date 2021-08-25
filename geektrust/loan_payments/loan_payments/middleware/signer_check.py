@@ -3,7 +3,7 @@ from functools import wraps
 
 from django.shortcuts import HttpResponse as res
 
-from loan_manager.common import utils, field_names, lookup
+from loan_payments.common import utils, field_names, lookup
 
 
 # example of closure, decorator or middleware functions
