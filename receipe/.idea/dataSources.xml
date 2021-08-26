@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="geek_trust_loans@localhost" uuid="7938923a-41c6-49d3-9fb7-2e7bf9130405">
+    <data-source source="LOCAL" name="receipe_api_dev@localhost" uuid="6d3a35c5-05c3-43c0-861d-c8b54cf67a6d">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/geek_trust_loans</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/receipe_api_dev</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
