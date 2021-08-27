@@ -6,7 +6,7 @@ services:
     ports:
       - "6203:6203"
     volumes:
-      - ./app:/app
+      - .:/app
     command: >
-      sh -c "python manage.py runserver 0.0.0.0:6202"
+      sh -c "python manage.py runserver 0.0.0.0:6203"
 
